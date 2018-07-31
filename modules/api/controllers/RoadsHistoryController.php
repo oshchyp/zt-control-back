@@ -10,6 +10,7 @@ namespace app\modules\api\controllers;
 
 
 use app\modules\api\models\LogisticAPI;
+use Yii;
 use yii\filters\AccessControl;
 
 class RoadsHistoryController extends Controller
@@ -28,6 +29,11 @@ class RoadsHistoryController extends Controller
                     'actions' => ['index','view'],
                     'allow' => true,
                     'roles' => ['roads-history/view'],
+                ],
+                [
+                    'actions' => ['statistics'],
+                    'allow' => true,
+                    'roles' => ['roads-history/statistics'],
                 ]
 
             ],
@@ -38,6 +44,10 @@ class RoadsHistoryController extends Controller
 
     public function actionIndex(){
         (new LogisticAPI())->roadsHistory()->createResponseApi($this);
+    }
+
+    public function actionStatistics(){
+        (new LogisticAPI())->setMethodRequest(Yii::$app->request->method)->setRequestData($this->getRequestData())->roadsHistoryStatistics()->createResponseApi($this);
     }
 
 }

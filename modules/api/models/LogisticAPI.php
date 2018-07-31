@@ -12,7 +12,7 @@ class LogisticAPI extends \yii\base\Model
 
     public $methodRequest = 'GET';
 
-    public $domain = 'http://zt-logic.com';
+    public $domain = 'http://logic.comnd-x.com';
 
     public $apiUrl = 'crmApi';
 
@@ -25,6 +25,11 @@ class LogisticAPI extends \yii\base\Model
 
     public function setMethodRequest($method){
         $this->methodRequest = $method;
+        return $this;
+    }
+
+    public function setRequestData($data){
+        $this->requestData = $data;
         return $this;
     }
 
@@ -94,6 +99,13 @@ class LogisticAPI extends \yii\base\Model
         return $this;
     }
 
+    public function roadsHistoryStatistics()
+    {
+        $this->curlApi('roads-history/statistics');
+
+        return $this;
+    }
+
     public function roads()
     {
         $this->curlApi('roads');
@@ -131,6 +143,7 @@ class LogisticAPI extends \yii\base\Model
 
     public static function curl($url = '', $data = [], $methodRequest = 'GET')
     {
+      //  dump($methodRequest,1);
         $headers = [
             'Content-Type: application/json',
             'Content-Length: '.strlen(json_encode($data)),

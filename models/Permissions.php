@@ -73,6 +73,10 @@ class Permissions extends \yii\db\ActiveRecord
                 'description' => 'Просмотр',
                 'convertName' => 'view'
             ],
+            'roads-history/statistics' => [
+                'description' => 'Статистика',
+                'convertName' => 'statistics'
+            ],
             'roads/view' => [
                 'description' => 'Просмотр',
                 'convertName' => 'view'
@@ -183,7 +187,7 @@ class Permissions extends \yii\db\ActiveRecord
                 'elevators/view', 'elevators/update', 'elevators/create', 'elevators/delete',
             ],
             'roads-history' => [
-                'roads-history/view',
+                'roads-history/view','roads-history/statistics',
             ],
             'roads' => [
                 'roads/view',
