@@ -3,8 +3,10 @@
 namespace app\modules\api\controllers;
 
 use Yii;
+use yii\data\Pagination;
 use yii\filters\auth\HttpBearerAuth;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
 use yii\rest\Controller as MainController;
 use yii\web\Response;
 
@@ -43,9 +45,13 @@ class Controller extends MainController
 
     public $responseData = [];
 
+    public $responseExtraData=[];
+
     public $responseErrors = [];
 
     public $responseCode;
+
+    public $pages;
 
     public function init()
     {
@@ -55,7 +61,8 @@ class Controller extends MainController
                 $this->responseData = $response->data;
             }
             $response->data = $this->responseMsg($this->responseCode ? $this->responseCode : $response->statusCode);
-            $response->data['data'] = $this->responseData;
+            $response->data['data'] = $this->getResponseData();
+            $response->data['extraData'] = $this->responseExtraData;
             $response->data['errors'] = $this->responseErrors;
             $response->statusCode = 200;
             $this->setLogs();
@@ -201,7 +208,7 @@ class Controller extends MainController
     {
         $result = $this->addRequestData;
         if (Yii::$app->request->getRawBody()) {
-            $result += json_decode(Yii::$app->request->getRawBody(), true);
+            $result += Json::decode(Yii::$app->request->getRawBody(), true);
         } elseif (Yii::$app->request->getBodyParams()) {
             $result += Yii::$app->request->getBodyParams();
         }
@@ -210,6 +217,10 @@ class Controller extends MainController
         }
 
         return $result;
+    }
+
+    public function getResponseData(){
+        return $this->responseData;
     }
 
     public function setLogs()
@@ -239,15 +250,40 @@ class Controller extends MainController
         return $dirAll;
     }
 
+    public function setPagination($countQuery=null){
+        if ($countQuery){
+            $this->pages = new Pagination(['totalCount' => $countQuery->count()]);
+            $this->pages->setPage(ArrayHelper::getValue($this->getRequestData(),'pagination.page',1));
+            $this->pages->setPageSize(ArrayHelper::getValue($this->getRequestData(),'pagination.rowsPerPage',10));
+        }
+        return $this;
+    }
+
+    public function setPaginationParamsToQuery($query){
+        if ($this->pages)
+           $query->offset($this->pages->offset)->limit($this->pages->limit)->all();
+        return $this;
+    }
+
+    public function setPaginationParamsToExtraData(){
+        $this->responseExtraData['pagination'] = [
+            'links' => $this->pages ? $this->pages -> getLinks() : [],
+            'pageCount' => $this->pages ? $this->pages -> getPageCount() : 0,
+            'pageSize' => $this->pages ? $this->pages -> getPageSize() : 0,
+            'totalCount' => $this->pages ? $this->pages -> totalCount : 0,
+        ];
+        return $this;
+    }
+
     public function activeIndex()
     {
-        $this->responseData = $this->resource::find()->all();
+        $this->responseData = $this->resource->find()->all();
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
     }
 
     public function activeView($id)
     {
-        $this->responseData = $this->resource::findOne($id);
+        $this->responseData = $this->resource->findOne($id);
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ONE);
     }
 
@@ -261,7 +297,7 @@ class Controller extends MainController
 
     public function activeUpdate($id)
     {
-        $this->responseData = $this->resource::findOne($id);
+        $this->responseData = $this->resource->findOne($id);
         if ($this->responseData) {
             $this->responseData->attributes = $this->getRequestData();
             $this->responseData->save();
@@ -271,7 +307,7 @@ class Controller extends MainController
 
     public function activeDelete($id)
     {
-        $this->responseData = $this->resource::findOne($id);
+        $this->responseData = $this->resource->findOne($id);
         if ($this->responseData) {
             $this->responseData->delete();
         }

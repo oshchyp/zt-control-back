@@ -59,7 +59,16 @@ $config = [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/logistics-users' => 'api/logistics-users'],
-                ]
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/firms' => 'api/firms'],
+                ],
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/regions' => 'api/regions'],
+                ],
+                'POST api/firms/list' => 'api/firms/index'
             ],
         ],
         'response' => [
@@ -94,7 +103,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['127.0.0.1', '::1', '46.250.12.55'],
+        'allowedIPs' => ['127.0.0.1', '::1', '94.74.94.127'],
     ];
 }
 

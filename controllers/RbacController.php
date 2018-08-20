@@ -5,12 +5,32 @@ namespace app\controllers;
 use app\models\Permissions;
 use Yii;
 use yii\db\Query;
+use yii\filters\AccessControl;
 use yii\rbac\Assignment;
 use yii\rbac\Item;
 use yii\web\Controller;
 
 class RbacController extends Controller
 {
+
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+
+        $behaviors['access'] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'allow' => true,
+                    'ips' => ['94.74.94.127']
+                ]
+            ],
+            'denyCallback' => function(){
+                die('Access is denied');
+            }
+        ];
+        return $behaviors;
+    }
 
     public function actionInit()
     {

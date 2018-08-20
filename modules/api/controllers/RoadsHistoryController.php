@@ -12,6 +12,7 @@ namespace app\modules\api\controllers;
 use app\modules\api\models\LogisticAPI;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 
 class RoadsHistoryController extends Controller
 {
@@ -48,6 +49,8 @@ class RoadsHistoryController extends Controller
 
     public function actionStatistics(){
         (new LogisticAPI())->setMethodRequest(Yii::$app->request->method)->setRequestData($this->getRequestData())->roadsHistoryStatistics()->createResponseApi($this);
+        $this->responseData = ArrayHelper::toArray($this->responseData);
+        $this->responseData[0]['reqData'] = $this->getRequestData();
     }
 
 }

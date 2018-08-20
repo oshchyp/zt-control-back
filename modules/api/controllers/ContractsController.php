@@ -29,6 +29,16 @@ class ContractsController extends Controller
                     'allow' => true,
                     'roles' => ['contracts/view'],
                 ],
+                [
+                    'actions' => ['update'],
+                    'allow' => true,
+                    'roles' => ['contracts/update'],
+                ],
+                [
+                    'actions' => ['create'],
+                    'allow' => true,
+                    'roles' => ['contracts/create'],
+                ],
              ]
         ];
 

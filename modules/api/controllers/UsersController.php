@@ -74,7 +74,7 @@ class UsersController extends Controller
     }
 
     public function actionUpdate($id){
-        $this->responseData = $this->resource::findOne($id);
+        $this->responseData = $this->resource->findOne($id);
         if ($this->responseData) {
             $this->responseData->attributes = $this->getRequestData();
             $this->responseData->save();

@@ -2,12 +2,38 @@
 
 namespace app\controllers;
 
+use app\models\Firms;
+use app\models\json_parser\Contracts;
+use app\models\json_parser\Parser;
+use app\models\xls\FirmsParser;
+use app\models\xls\ParserActiveRecord;
 use Yii;
+use yii\filters\AccessControl;
+use yii\helpers\VarDumper;
 use yii\web\Response;
 use yii\web\Controller;
 
 class SiteController extends Controller
 {
+
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+
+        $behaviors['access'] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'allow' => true,
+                    'ips' => ['94.74.94.127']
+                ]
+            ],
+            'denyCallback' => function(){
+                die('Access is denied');
+            }
+        ];
+        return $behaviors;
+    }
     /*
      * Displays homepage.
      *
@@ -15,7 +41,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-       
+
         $pat = Yii::getAlias('@app').'/logs/api';
         $contentDir = [];
         if (Yii::$app->request->get('pat')) {
@@ -48,5 +74,12 @@ class SiteController extends Controller
         return $this->render('error');
     }
 
-    
+    public function actionXls(){
+      //  \app\models\xls\Parser::getInstance(['activeSheet'=>1,'model' => \app\models\xls\Firms::className(),'column'=>\app\models\xls\Firms::columnXls(),'filePath'=>'@app/files/xls/firms.xlsx','ignoreRows'=>[1]])->loadDocumentObject()->parse();
+    }
+
+    public function actionDebug(){
+      //  (new Parser())->parse();
+    }
+
 }

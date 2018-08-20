@@ -85,6 +85,14 @@ class Permissions extends \yii\db\ActiveRecord
                 'description' => 'Просмотр',
                 'convertName' => 'view'
             ],
+            'firms/create' => [
+                'description' => 'Создание',
+                'convertName' => 'create'
+            ],
+            'firms/update' => [
+                'description' => 'Обновление',
+                'convertName' => 'update'
+            ],
             'contracts/view' => [
                 'description' => 'Просмотр',
                 'convertName' => 'view'
@@ -202,7 +210,7 @@ class Permissions extends \yii\db\ActiveRecord
                 'railroad-contracts/view',
             ],
             'firms' => [
-                'firms/view',
+                'firms/view','firms/update','firms/create',
             ],
             'contracts' => [
                 'contracts/view',

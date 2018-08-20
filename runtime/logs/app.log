@@ -1,0 +1,716 @@
+2018-08-07 07:38:24 [-][-][-][error][yii\console\Exception] yii\console\Exception: Unknown option: --message in /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php:139
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('index', Array)
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('hello/index', Array)
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('hello/index', Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#5 {main}
+2018-08-07 07:38:24 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533627504.9268
+    'REQUEST_TIME' => 1533627504
+    'argv' => [
+        0 => 'yii'
+        1 => 'hello/index'
+        2 => '--message=wedwedwed'
+    ]
+    'argc' => 3
+]
+2018-08-07 08:41:12 [-][-][-][error][Error] Error: Call to undefined method PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::getCeilValue() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:42
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(19): app\models\xls\Parser->getCeilValue('A1')
+#1 [internal function]: app\commands\XlsController->actionIndex()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#10 {main}
+2018-08-07 08:41:11 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533631271.9549
+    'REQUEST_TIME' => 1533631271
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 08:43:42 [-][-][-][error][Error] Error: Call to undefined method PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::getCeilValue() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:44
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(19): app\models\xls\Parser->getCeilValue('A1')
+#1 [internal function]: app\commands\XlsController->actionIndex()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#10 {main}
+2018-08-07 08:43:42 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533631422.2565
+    'REQUEST_TIME' => 1533631422
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 08:46:02 [-][-][-][error][Error] Error: Call to undefined method PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::getCeil() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:43
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(19): app\models\xls\Parser->getCeil('A1')
+#1 [internal function]: app\commands\XlsController->actionIndex()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#10 {main}
+2018-08-07 08:46:02 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533631562.6399
+    'REQUEST_TIME' => 1533631562
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 08:49:41 [-][-][-][error][Error] Error: Call to undefined method PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::getCelcll() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:44
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(19): app\models\xls\Parser->getCeil('A1')
+#1 [internal function]: app\commands\XlsController->actionIndex()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#10 {main}
+2018-08-07 08:49:40 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533631780.8614
+    'REQUEST_TIME' => 1533631780
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 08:50:38 [-][-][-][error][Error] Error: Call to undefined method PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::getCelcll() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:44
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(19): app\models\xls\Parser->getCeil('A1')
+#1 [internal function]: app\commands\XlsController->actionIndex()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#10 {main}
+2018-08-07 08:50:38 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533631838.2584
+    'REQUEST_TIME' => 1533631838
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 10:34:42 [-][-][-][error][Error] Error: Call to undefined method PhpOffice\PhpSpreadsheet\Worksheet\RowCellIterator::getValue() in /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php:20
+Stack trace:
+#0 [internal function]: app\commands\XlsController->actionIndex()
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#9 {main}
+2018-08-07 10:34:42 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533638082.5807
+    'REQUEST_TIME' => 1533638082
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 11:01:12 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Invalid argument supplied for foreach() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:29
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php(29): yii\base\ErrorHandler->handleError(2, 'Invalid argumen...', '/Users/programm...', 29, Array)
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(18): app\models\xls\Parser::getInstance('/Users/programm...')
+#2 [internal function]: app\commands\XlsController->actionIndex()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#11 {main}
+2018-08-07 11:01:12 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533639672.5033
+    'REQUEST_TIME' => 1533639672
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 11:01:36 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Invalid argument supplied for foreach() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:29
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php(29): yii\base\ErrorHandler->handleError(2, 'Invalid argumen...', '/Users/programm...', 29, Array)
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(18): app\models\xls\Parser::getInstance('/Users/programm...')
+#2 [internal function]: app\commands\XlsController->actionIndex()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#11 {main}
+2018-08-07 11:01:36 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533639696.03
+    'REQUEST_TIME' => 1533639696
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 11:01:45 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Invalid argument supplied for foreach() in /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php:29
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/Parser.php(29): yii\base\ErrorHandler->handleError(2, 'Invalid argumen...', '/Users/programm...', 29, Array)
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(18): app\models\xls\Parser::getInstance('/Users/programm...')
+#2 [internal function]: app\commands\XlsController->actionIndex()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#11 {main}
+2018-08-07 11:01:45 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533639705.7946
+    'REQUEST_TIME' => 1533639705
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 11:02:41 [-][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: Invalid argument supplied for foreach() in /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php:19
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(19): yii\base\ErrorHandler->handleError(2, 'Invalid argumen...', '/Users/programm...', 19, Array)
+#1 [internal function]: app\commands\XlsController->actionIndex()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#10 {main}
+2018-08-07 11:02:41 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533639761.879
+    'REQUEST_TIME' => 1533639761
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 11:55:27 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'mcore_db'@'localhost' (using password: YES) in /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php:687
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(687): PDO->__construct('mysql:host=loca...', 'mcore_db', 'E8c0J3r9', NULL)
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(613): yii\db\Connection->createPdoInstance()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(996): yii\db\Connection->open()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(983): yii\db\Connection->getMasterPdo()
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(253): yii\db\Connection->getSlavePdo()
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(1143): yii\db\Command->prepare(true)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(312): yii\db\Command->queryAll()
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(744): yii\db\mysql\Schema->loadTableSchema('firms')
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('firms', 'schema', false)
+#11 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/ActiveRecord.php(384): yii\db\Schema->getTableSchema('firms')
+#12 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/ActiveRecord.php(418): yii\db\ActiveRecord::getTableSchema()
+#13 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/BaseActiveRecord.php(492): yii\db\ActiveRecord->attributes()
+#14 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('phone')
+#15 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/validators/Validator.php(281): yii\db\BaseActiveRecord->__get('phone')
+#16 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/validators/Validator.php(267): yii\validators\Validator->validateAttribute(Object(app\models\Firms), 'phone')
+#17 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Model.php(367): yii\validators\Validator->validateAttributes(Object(app\models\Firms), Array)
+#18 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/ActiveRecord.php(509): yii\base\Model->validate(Array)
+#19 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/BaseActiveRecord.php(670): yii\db\ActiveRecord->insert(true, NULL)
+#20 /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/ParserActiveRecord.php(54): yii\db\BaseActiveRecord->save()
+#21 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(31): app\models\xls\ParserActiveRecord->saveXls()
+#22 [internal function]: app\commands\XlsController->actionIndex()
+#23 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#24 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#25 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#26 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#27 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#28 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#29 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#30 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#31 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'mcore_db'@'localhost' (using password: YES) in /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php:624
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(996): yii\db\Connection->open()
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(983): yii\db\Connection->getMasterPdo()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(253): yii\db\Connection->getSlavePdo()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(1143): yii\db\Command->prepare(true)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(312): yii\db\Command->queryAll()
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(744): yii\db\mysql\Schema->loadTableSchema('firms')
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('firms', 'schema', false)
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/ActiveRecord.php(384): yii\db\Schema->getTableSchema('firms')
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/ActiveRecord.php(418): yii\db\ActiveRecord::getTableSchema()
+#11 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/BaseActiveRecord.php(492): yii\db\ActiveRecord->attributes()
+#12 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('phone')
+#13 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/validators/Validator.php(281): yii\db\BaseActiveRecord->__get('phone')
+#14 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/validators/Validator.php(267): yii\validators\Validator->validateAttribute(Object(app\models\Firms), 'phone')
+#15 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Model.php(367): yii\validators\Validator->validateAttributes(Object(app\models\Firms), Array)
+#16 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/ActiveRecord.php(509): yii\base\Model->validate(Array)
+#17 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/BaseActiveRecord.php(670): yii\db\ActiveRecord->insert(true, NULL)
+#18 /Users/programmer_5/PhpstormProjects/ZT-CRM/models/xls/ParserActiveRecord.php(54): yii\db\BaseActiveRecord->save()
+#19 /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php(31): app\models\xls\ParserActiveRecord->saveXls()
+#20 [internal function]: app\commands\XlsController->actionIndex()
+#21 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#22 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#23 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#24 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#25 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls', Array)
+#26 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls', Array)
+#27 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#28 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#29 {main}
+Additional Information:
+
+2018-08-07 11:55:26 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533642926.9124
+    'REQUEST_TIME' => 1533642926
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls'
+    ]
+    'argc' => 2
+]
+2018-08-07 13:43:35 [-][-][-][error][Error] Error: Class 'app\commands\VarDumper' not found in /Users/programmer_5/PhpstormProjects/ZT-CRM/commands/XlsController.php:71
+Stack trace:
+#0 [internal function]: app\commands\XlsController->actionCats()
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('cats', Array)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('cats', Array)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('xls/cats', Array)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('xls/cats', Array)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#9 {main}
+2018-08-07 13:43:35 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.ym5TQWkM9W/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.k7oeZCs1rR/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1533649414.996
+    'REQUEST_TIME' => 1533649414
+    'argv' => [
+        0 => 'yii'
+        1 => 'xls/cats'
+    ]
+    'argc' => 2
+]

@@ -76,6 +76,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
                 Yii::$app->authManager->assign($roleObj,$this->id);
             }
         }
+        return parent::afterSave($insert, $changedAttributes);
     }
 
     /**

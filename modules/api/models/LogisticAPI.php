@@ -77,6 +77,7 @@ class LogisticAPI extends \yii\base\Model
             }
         }
         $objController->responseData = $this;
+      //  $objController->responseData
         $objController->setResponseParams($objController::RESPONSE_PARAMS_API);
         $objController->responseData = $this->getPropertyResponseData('data');
 
@@ -143,7 +144,7 @@ class LogisticAPI extends \yii\base\Model
 
     public static function curl($url = '', $data = [], $methodRequest = 'GET')
     {
-      //  dump($methodRequest,1);
+       // dump($data,1);
         $headers = [
             'Content-Type: application/json',
             'Content-Length: '.strlen(json_encode($data)),
