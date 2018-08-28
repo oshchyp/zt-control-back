@@ -4,6 +4,9 @@ namespace app\modules\api\controllers;
 
 use app\models\Contacts;
 use app\models\Firms;
+use app\models\firmsFilter\ColumnSearchStr;
+use app\models\firmsFilter\FullFilter;
+use app\models\firmsFilter\SearchStr;
 use app\models\helper\Main;
 use app\models\Posts;
 use app\models\Regions;
@@ -28,7 +31,7 @@ class FirmsController extends Controller
             'class' => AccessControl::className(),
             'rules' => [
                 [
-                    'actions' => ['index', 'view'],
+                    'actions' => ['index', 'view','list'],
                     'allow' => true,
                     'roles' => ['firms/view'],
                 ],
@@ -59,10 +62,25 @@ class FirmsController extends Controller
             'regions' => ArrayHelper::toArray(Regions::find()->with('points')->all(), [Regions::className() => Regions::viewFields()]),
             'posts' => Posts::findAll()
         ];
-        $query = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]);
-        $this->setPagination(clone $query)->setPaginationParamsToQuery($query)->setPaginationParamsToExtraData();
-        $this->responseData = $query->all();
+       $this->responseData = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]) ->all();
+    }
+
+     public function actionList(){
+         $this->responseExtraData = [
+             'contacts' => Contacts::find()->all(),
+             'regions' => ArrayHelper::toArray(Regions::find()->with('points')->all(), [Regions::className() => Regions::viewFields()]),
+             'posts' => Posts::findAll()
+         ];
+         $query = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]);
+
+         FullFilter::loadModel(['query'=>$query] + ArrayHelper::getValue($this->getRequestData(),'filter',[]));
+
+         $this->setPagination(clone $query)->setPaginationParamsToQuery($query)->setPaginationParamsToExtraData();
+         //  dump($query->createCommand()->getRawSql(),1);
+         $this->responseData = $query->all();
      }
+
+  //   public function
 
     public function actionCreate()
     {

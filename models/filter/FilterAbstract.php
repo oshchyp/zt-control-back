@@ -13,6 +13,11 @@ use yii\base\Model;
 
 abstract  class FilterAbstract extends Model
 {
+
+    public function setJoins(){
+
+    }
+
     public function filterByProperty($attribute){
 
     }

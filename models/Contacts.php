@@ -43,7 +43,7 @@ class Contacts extends \yii\db\ActiveRecord
             }],
             [['postID'], 'integer'],
             [['uid', 'name', 'email', 'phone'], 'string', 'max' => 250],
-            //  [['phone'], 'string', 'max' => 13],
+            ['email','email']
         ];
     }
 

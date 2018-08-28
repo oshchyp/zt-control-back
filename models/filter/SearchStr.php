@@ -9,7 +9,7 @@
 namespace app\models\filter;
 
 
-class FilterSearchStr extends Filter
+class SearchStr extends Filter
 {
 
     public $q=0;
@@ -17,15 +17,15 @@ class FilterSearchStr extends Filter
     public $search;
 
     public function rules(){
-        return [
-            [['search'],'string'],
-            [['search'],'required'],
-        ];
+        $rules = parent::rules();
+        array_push($rules,[['search'],'string']);
+        array_push($rules,[['search'],'required']);
+        return $rules;
     }
 
     public function filterByProperty($attr){
         $method = $this->q === 0 ? 'andWhere' : 'orWhere';
-        $this->query->$method(['like', $attr, '%'.$this->search.'%']);
+        $this->query->$method(['like', $this->getColumnName($attr), $this->search]);
         $this->q++;
     }
 

@@ -20,6 +20,7 @@ use yii\web\IdentityInterface;
 class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
     public $perm;
+   // public $perm;
     /**
      * {@inheritdoc}
      */
@@ -38,7 +39,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
             [['phone'], 'unique'],
             [['code'], 'integer'],
             [['firstName', 'lastName', 'token'], 'string', 'max' => 255],
-            [['phone'], 'string', 'max' => 10],
+            [['phone'], 'string', 'length' => 10],
             [['perm'],'safe']
         ];
     }
@@ -64,6 +65,23 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
             'id', 'firstName', 'lastName', 'phone',
          ];
     }
+
+
+    public function setPerm($perms){
+        $result = [];
+        if ($perms && is_array($perms)){
+            foreach ($perms as $p){
+                if (is_string($p) && $p){
+                    $result[$p] = $p;
+                }
+            }
+        }
+        $this->perm = $perms;
+    }
+
+//    public function getPerm(){
+//        return $this->perm;
+//    }
 
 
     public function afterSave($insert, $changedAttributes){

@@ -46,6 +46,17 @@ class Posts extends Model
         ];
     }
 
+    public static function findDirectorsID(){
+        $data = static::findAll();
+        $result = [];
+        foreach ($data as $item){
+            if ($item->director){
+                $result[] = $item->id;
+            }
+        }
+        return $result;
+    }
+
     public static function findById($id){
         $data = static::data();
         foreach ($data as $value){
