@@ -21,6 +21,7 @@ class Parser extends Model
    public $documentObject;
 
    public $activeSheet=0;
+
    public $ignoreRows = [];
 
    public $column = [];
@@ -49,7 +50,6 @@ class Parser extends Model
    }
 
    public function getCells($row){
-       // dump(get_class_methods($row->getCellIterator()),1);
         $result = [];
         foreach ($row->getCellIterator() as $k=>$cell){
             $column = $cell -> getColumn();
@@ -77,7 +77,4 @@ class Parser extends Model
        return $this;
    }
 
-//    public function setValues(){
-//        foreach ($this->$column)
-//    }
 }

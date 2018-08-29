@@ -3,6 +3,7 @@
 namespace app\modules\api\controllers;
 
 use app\models\Contacts;
+use app\models\Culture;
 use app\models\Firms;
 use app\models\firmsFilter\ColumnSearchStr;
 use app\models\firmsFilter\FullFilter;
@@ -60,16 +61,23 @@ class FirmsController extends Controller
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
             'regions' => ArrayHelper::toArray(Regions::find()->with('points')->all(), [Regions::className() => Regions::viewFields()]),
-            'posts' => Posts::findAll()
+            'posts' => Posts::findAll(),
+            'cultures' => Culture::find()->all()
         ];
        $this->responseData = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]) ->all();
+    }
+
+    public function actionView($id)
+    {
+        parent::activeView($id);
     }
 
      public function actionList(){
          $this->responseExtraData = [
              'contacts' => Contacts::find()->all(),
              'regions' => ArrayHelper::toArray(Regions::find()->with('points')->all(), [Regions::className() => Regions::viewFields()]),
-             'posts' => Posts::findAll()
+             'posts' => Posts::findAll(),
+             'cultures' => Culture::find()->all()
          ];
          $query = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]);
 

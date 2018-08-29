@@ -29,8 +29,8 @@ class FirmCultures extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['firmUID', 'cultureUID', 'square', 'weight'], 'required'],
-            [['square', 'weight'], 'number'],
+            [['firmUID', 'cultureUID', 'square', 'weight','year'], 'required'],
+            [['square', 'weight', 'year'], 'number'],
             [['firmUID', 'cultureUID'], 'string', 'max' => 250],
         ];
     }
@@ -48,4 +48,13 @@ class FirmCultures extends \yii\db\ActiveRecord
             'weight' => 'Weight',
         ];
     }
+
+    public static function viewFields(){
+        return ['cultureUID', 'square', 'weight','year','culture'];
+    }
+
+    public function getCulture (){
+        return $this->hasOne(Culture::className(),['uid'=>'cultureUID']);
+    }
+
 }
