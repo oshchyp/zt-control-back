@@ -86,18 +86,17 @@ class Firms extends \yii\db\ActiveRecord
     }
 
     public function saveContacts(){
-        FirmContacts::deleteAll(['firmUID' => $this->uid]);
+        Contacts::updateAll(['firmUID'=>NULL],['firmUID' => $this->uid]);
         if ($this->saveContacts && is_array($this->saveContacts)){
             foreach ($this->saveContacts as $contactInfo){
-               $contactUID = $this->getContactUID($contactInfo);
-               if ($contactUID){
-                   $firmContactModel = new FirmContacts();
-                   $firmContactModel->attributes = [
-                       'firmUID' => $this->uid,
-                       'contactUID' => $contactUID,
-                   ];
-                   $firmContactModel->save();
-               }
+                $object = Contacts::getInstanceByUIDWithoutFirm(ArrayHelper::getValue($contactInfo,'uid'));
+//                dump($object->toArray(),1);
+                $object->attributes = $contactInfo;
+                $object->firmUID = $this->uid;
+                $object->save();
+                if ($object->hasErrors()){
+                    $this->addErrors(['contacts' => $object->getErrors()]);
+                }
             }
         }
     }
@@ -117,24 +116,6 @@ class Firms extends \yii\db\ActiveRecord
         }
     }
 
-    public function getContactUID($contactInfo){
-        if (ArrayHelper::getValue($contactInfo,'uid')){
-            return (string)ArrayHelper::getValue($contactInfo,'uid');
-        }
-
-        $contactModel = $this->saveContact($contactInfo);
-        return $contactModel->getErrors() ? null : $contactModel->uid;
-    }
-
-    public function saveContact($contactInfo){
-        $contactModel = new Contacts();
-        $contactModel->attributes = $contactInfo;
-        $contactModel->save();
-        if ($contactModel->getErrors()){
-            $this->addErrors(['contacts'=>$contactModel->getErrors()]);
-        }
-        return $contactModel;
-    }
 
     public function getDirector(){
         if ($this->contacts){
@@ -155,7 +136,7 @@ class Firms extends \yii\db\ActiveRecord
     }
 
     public function getContactsRelation(){
-        return $this->hasMany(Contacts::className(),['uid'=>'contactUID'])->viaTable('firmContacts',['firmUID'=>'uid']);
+        return $this->hasMany(Contacts::className(),['firmUID'=>'uid']);
     }
 
     public function getCulturesRelation(){
