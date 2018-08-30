@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=ztsys_crm',
+    'dsn' => 'mysql:host=localhost;dbname=zconncorezt',
     'username' => 'mcore_db',
     'password' => 'E8c0J3r9',
     'charset' => 'utf8',

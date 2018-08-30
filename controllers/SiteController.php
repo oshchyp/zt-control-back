@@ -28,6 +28,7 @@ class SiteController extends Controller
                     'ips' => ['94.74.94.127']
                 ]
             ],
+            'except' => ['index','error'],
             'denyCallback' => function(){
                 die('Access is denied');
             }
@@ -42,36 +43,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        $pat = Yii::getAlias('@app').'/logs/api';
-        $contentDir = [];
-        if (Yii::$app->request->get('pat')) {
-            $pat = base64_decode(Yii::$app->request->get('pat'));
-        }
-        if (is_file($pat)) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
-
-            return json_decode(file_get_contents($pat));
-        } elseif (is_dir($pat)) {
-            $scanDir = scandir($pat);
-            if ($scanDir) {
-                foreach ($scanDir as $v) {
-                    if (is_dir($pat.'/'.$v) || is_file($pat.'/'.$v)) {
-                        $contentDir[] = [
-                        'name' => $v,
-                        'link' => base64_encode($pat.'/'.$v),
-                    ];
-                    }
-                }
-            }
-        }
-        //  dump($contentDir, 1);
-
-        return $this->render('index', ['contentDir' => $contentDir]);
+       return $this->render('index');
     }
 
     public function actionError()
     {
-        return $this->render('error');
+        return Yii::$app->response->redirect('/');
     }
 
     public function actionXls(){

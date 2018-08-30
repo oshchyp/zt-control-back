@@ -90,7 +90,6 @@ class Firms extends \yii\db\ActiveRecord
         if ($this->saveContacts && is_array($this->saveContacts)){
             foreach ($this->saveContacts as $contactInfo){
                 $object = Contacts::getInstanceByUIDWithoutFirm(ArrayHelper::getValue($contactInfo,'uid'));
-//                dump($object->toArray(),1);
                 $object->attributes = $contactInfo;
                 $object->firmUID = $this->uid;
                 $object->save();
