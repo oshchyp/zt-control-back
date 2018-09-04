@@ -2,6 +2,7 @@
 
 namespace app\modules\api\controllers;
 
+use app\models\ActiveRecord;
 use app\models\Contacts;
 use app\models\Culture;
 use app\models\Firms;
@@ -98,7 +99,16 @@ class FirmsController extends Controller
 
     public function actionUpdate($id)
     {
-        $this->activeUpdate($id);
+        $events = [
+            [
+                0=>ActiveRecord::EVENT_AFTER_UPDATE,
+                1=>function($model){
+                    $model->sender->saveContacts();
+                    $model->sender->saveCultures();
+                }
+            ]
+        ];
+        $this->activeUpdate($id,$events);
 
     }
 

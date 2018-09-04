@@ -277,7 +277,11 @@ class Controller extends MainController
 
     public function activeIndex()
     {
-        $this->responseData = $this->resource->find()->all();
+        $query = $this->resource->find();
+        if (method_exists($this->resource,'relations')){
+            $query->with($this->resource->relations());
+         }
+        $this->responseData = $query->all();
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
     }
 
@@ -287,18 +291,28 @@ class Controller extends MainController
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ONE);
     }
 
-    public function activeCreate()
+    public function activeCreate($events)
     {
         $this->responseData = $this->resource;
+        if ($events){
+            foreach ($events as $item){
+                $this->responseData->on($item[0],$item[1]);
+            }
+        }
         $this->responseData->attributes = $this->getRequestData();
         $this->responseData->save();
         $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 
-    public function activeUpdate($id)
+    public function activeUpdate($id,$events=null)
     {
         $this->responseData = $this->resource->findOne($id);
         if ($this->responseData) {
+            if ($events){
+                foreach ($events as $item){
+                    $this->responseData->on($item[0],$item[1]);
+                }
+            }
             $this->responseData->attributes = $this->getRequestData();
             $this->responseData->save();
         }

@@ -25,7 +25,7 @@ class SiteController extends Controller
             'rules' => [
                 [
                     'allow' => true,
-                    'ips' => ['94.74.94.127']
+                    'ips' => ['213.231.13.123']
                 ]
             ],
             'except' => ['index','error'],
@@ -52,7 +52,12 @@ class SiteController extends Controller
     }
 
     public function actionXls(){
-      //  \app\models\xls\Parser::getInstance(['activeSheet'=>1,'model' => \app\models\xls\Firms::className(),'column'=>\app\models\xls\Firms::columnXls(),'filePath'=>'@app/files/xls/firms.xlsx','ignoreRows'=>[1]])->loadDocumentObject()->parse();
+        ini_set('memory_limit','1024M');
+       // phpinfo();die();
+      $parserObject = new \app\models\xls\ParserExcel();
+      $parserObject->file = '@app/files/xls/firms.xlsx';
+      $parserObject->model = \app\models\xls\Firms::className();
+      $parserObject->parse();
     }
 
     public function actionDebug(){

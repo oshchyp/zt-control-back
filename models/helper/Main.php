@@ -9,6 +9,8 @@
 namespace app\models\helper;
 
 
+use yii\helpers\ArrayHelper;
+
 class Main
 {
 
@@ -25,12 +27,29 @@ class Main
 
     }
 
-    public static function generateUid(){
+    public static function generateUid($id=null){
         $resultArr=[];
         foreach ([8,4,4,4,12] as $length){
             $resultArr[] = self::generateString($length);
         }
-        return implode('-',$resultArr);
+        $result = implode('-',$resultArr);
+        if ($id){
+            $result = $id.'_'.$result;
+        }
+        return $result;
+    }
+
+    public static function generateUidUniq($arrayUids=[]){
+        $uid = static::generateUid();
+        if (in_array($uid,$arrayUids)){
+            $uid = static::generateUidUniq($arrayUids);
+        }
+        return $uid;
+    }
+
+    public static function generateUidUniqModel($model,$uidAttr='uid'){
+        $array = $model::find()->asArray()->all();
+        return static::generateUid(ArrayHelper::getColumn($array,$uidAttr));
     }
 
 }

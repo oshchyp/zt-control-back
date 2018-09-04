@@ -2,7 +2,9 @@
 
 namespace app\models;
 
+use app\models\helper\Main;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "culture".
@@ -11,8 +13,13 @@ use Yii;
  * @property string $uid
  * @property string $name
  */
-class Culture extends \yii\db\ActiveRecord
+class Culture extends ActiveRecord
 {
+
+    public static $allInstances = null;
+
+    public $addInstanceAfterSave = false;
+
     /**
      * {@inheritdoc}
      */
@@ -42,5 +49,19 @@ class Culture extends \yii\db\ActiveRecord
             'uid' => 'Uid',
             'name' => 'Name',
         ];
+    }
+
+    public static function getInstanceByName($name){
+        return parent::getInstanceByAttrValue($name,'name');
+    }
+
+    public static function getInstanceByNameOrSave($name){
+        $instance = static::getInstanceByName($name);
+        $instance->setEventsParsing();
+        if ($instance->getIsNewRecord()){
+            $instance->name = $name;
+            $instance->save();
+        }
+        return $instance;
     }
 }

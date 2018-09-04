@@ -5,13 +5,13 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "regions".
+ * This is the model class for table "elevators".
  *
  * @property int $id
  * @property string $uid
  * @property string $name
  */
-class Regions extends ActiveRecord
+class Elevators extends ActiveRecord
 {
 
     public static $allInstances = null;
@@ -23,7 +23,7 @@ class Regions extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'regions';
+        return 'elevators';
     }
 
     /**
@@ -47,19 +47,5 @@ class Regions extends ActiveRecord
             'uid' => 'Uid',
             'name' => 'Name',
         ];
-    }
-
-    public static function viewFields(){
-        return ['id','uid','name','points'];
-    }
-
-    public static function findByName($name)
-    {
-        return static::find()->where(['name' => $name])->one();
-    }
-
-    public function getPoints()
-    {
-        return $this->hasMany(Points::className(), ['regionUID' => 'uid']);
     }
 }

@@ -12,8 +12,13 @@ use Yii;
  * @property string $name
  * @property string $regionUID
  */
-class Points extends \yii\db\ActiveRecord
+class Points extends ActiveRecord
 {
+
+
+    public static $allInstances = null;
+
+    public $addInstanceAfterSave = false;
     /**
      * {@inheritdoc}
      */
@@ -28,7 +33,7 @@ class Points extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['uid', 'name', 'regionUID'], 'required'],
+            [['uid', 'name'], 'required'],
             [['uid', 'name', 'regionUID'], 'string', 'max' => 250],
         ];
     }

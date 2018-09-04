@@ -68,6 +68,11 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/regions' => 'api/regions'],
                 ],
+                'PUT,PATCH api/railway-transit' => 'api/railway-transit/update',
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/railway-transit' => 'api/railway-transit'],
+                ],
                 'POST api/firms/list' => 'api/firms/index'
             ],
         ],

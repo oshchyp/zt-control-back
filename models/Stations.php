@@ -5,25 +5,20 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "regions".
+ * This is the model class for table "stations".
  *
  * @property int $id
  * @property string $uid
  * @property string $name
  */
-class Regions extends ActiveRecord
+class Stations extends \yii\db\ActiveRecord
 {
-
-    public static $allInstances = null;
-
-    public $addInstanceAfterSave = false;
-
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'regions';
+        return 'stations';
     }
 
     /**
@@ -47,19 +42,5 @@ class Regions extends ActiveRecord
             'uid' => 'Uid',
             'name' => 'Name',
         ];
-    }
-
-    public static function viewFields(){
-        return ['id','uid','name','points'];
-    }
-
-    public static function findByName($name)
-    {
-        return static::find()->where(['name' => $name])->one();
-    }
-
-    public function getPoints()
-    {
-        return $this->hasMany(Points::className(), ['regionUID' => 'uid']);
     }
 }

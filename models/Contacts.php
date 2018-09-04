@@ -14,8 +14,12 @@ use yii\helpers\ArrayHelper;
  * @property string $name
  * @property string $post
  */
-class Contacts extends \yii\db\ActiveRecord
+class Contacts extends ActiveRecord
 {
+
+    public static $allInstances = null;
+
+    public $addInstanceAfterSave = false;
     /**
      * {@inheritdoc}
      */

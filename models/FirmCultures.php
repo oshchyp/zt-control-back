@@ -15,6 +15,12 @@ use Yii;
  */
 class FirmCultures extends \yii\db\ActiveRecord
 {
+
+
+    public static $allInstances = null;
+
+    public $addInstanceAfterSave = false;
+
     /**
      * {@inheritdoc}
      */
