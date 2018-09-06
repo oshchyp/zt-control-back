@@ -28,6 +28,8 @@ class Firms extends ActiveRecord
     public $saveCultures = null;
 
     public $saveDistances = null;
+
+    private $_processedSquare = null;
     /**
      * {@inheritdoc}
      */
@@ -46,7 +48,7 @@ class Firms extends ActiveRecord
             [['uid', 'name'], 'required'],
             [['square'], 'number'],
             [['uid', 'name', 'rdpu', 'regionUID', 'pointUID','nearElevatorUID'], 'string', 'max' => 250],
-            ['sender', 'in', 'range' => [0, 1]],
+            ['sender', 'in', 'range' => ArrayHelper::getColumn(static::distributionStatuses(),'id')],
             [['contacts','cultures','distances'],'safe'],
         ];
     }
@@ -66,9 +68,19 @@ class Firms extends ActiveRecord
     }
 
     public static function viewFields(){
-        return ['id','uid','name','director','rdpu','square','regionUID','pointUID','nearElevatorUID','nearElevator','contacts',
-            'cultures','distances',
-            'region', 'point'];
+        return ['id','uid','name','director','rdpu','square','regionUID','pointUID','nearElevatorUID','nearElevator','contacts','cultures','distances','region', 'point','processedSquare',
+            'sender' => function ($model){
+                 foreach (static::distributionStatuses() as $item){
+                      if ($item['id'] == $model->sender){
+                          return $item;
+                      }
+                 }
+                 return [
+                     'name' => 'Не известно',
+                     'id' => 0
+                 ];
+            }
+        ];
     }
 
     public static function viewRelations(){
@@ -77,6 +89,22 @@ class Firms extends ActiveRecord
         ];
     }
 
+    public static function distributionStatuses(){
+        return [
+            [
+                'id'=>0,
+                'name' => 'Не участвует'
+            ],
+            [
+                'id'=>1,
+                'name' => 'Участвует'
+            ],
+            [
+                'id'=>2,
+                'name' => 'Добавить в рассылку'
+            ]
+        ];
+    }
 
     public function setContacts($contacts){
            $this->saveContacts = $contacts;
@@ -155,6 +183,22 @@ class Firms extends ActiveRecord
                 }
             }
         }
+    }
+
+    public function getProcessedSquare(){
+
+        if ($this->_processedSquare === null){
+            $this->_processedSquare = 0;
+            if ($this->cultures){
+                foreach ($this->cultures as $item){
+                    if ($item['year'] == date('Y')){
+                        $this->_processedSquare += (float)$item['square'];
+                    }
+                }
+            }
+        }
+
+        return $this->_processedSquare;
     }
 
     public function getRegion(){

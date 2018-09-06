@@ -62,7 +62,12 @@ class SiteController extends Controller
     }
 
     public function actionDebug(){
-      //  (new Parser())->parse();
+        // $ins = Firms::find()->all();
+
+//         foreach ($ins as $item){
+//             $item->test = 7;
+//             $item->save();
+//         }
     }
 
 }

@@ -68,6 +68,7 @@ class FirmsController extends Controller
             'cultures' => Culture::find()->all(),
             'elevators' => Elevators::find()->all(),
             'points' => Regions::getAllPoints(),
+            'distributionStatuses' => Firms::distributionStatuses()
         ];
        $this->responseData = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]) ->all();
     }
@@ -89,7 +90,6 @@ class FirmsController extends Controller
          FullFilter::loadModel(['query'=>$query] + ArrayHelper::getValue($this->getRequestData(),'filter',[]));
 
          $this->setPagination(clone $query)->setPaginationParamsToQuery($query)->setPaginationParamsToExtraData();
-         //  dump($query->createCommand()->getRawSql(),1);
          $this->responseData = $query->all();
      }
 
