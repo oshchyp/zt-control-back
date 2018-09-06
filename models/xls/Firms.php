@@ -14,6 +14,7 @@ use app\models\Contacts;
 use app\models\Culture;
 use app\models\Elevators;
 use app\models\FirmCultures;
+use app\models\FirmDistances;
 use app\models\Points;
 use app\models\Regions;
 use yii\helpers\ArrayHelper;
@@ -72,7 +73,7 @@ class Firms extends ModelExcel implements ModelExcelInterface
             foreach ($this->distRules() as $rule){
                 if ($this->getLoadInfo($rule[0])){
                     $this->distances[$rule[0]] = [
-                        'pointUID' => $this->getPointInstanceByName($rule[1])->uid,
+                        'pointUID' => $this->getPointInstanceByName($rule[0],null,$rule[1])->uid,
                         'distance' => $this->getLoadInfo($rule[0])
                     ];
                 }
@@ -160,15 +161,21 @@ class Firms extends ModelExcel implements ModelExcelInterface
         return $this->getPointInstanceByName('point',$this->getRegionInstance()->uid);
     }
 
-    public function getPointInstanceByName($key,$regionUID=null){
+    public function getPointInstanceByName($key,$regionUID=null,$name=null){
+        if ($name){
+            $name = static::convertRegionOrPointName($name);
+        } else {
+            $name = $this->getRegionOrPointName($key);
+        }
+
         if (!key_exists($key,$this->pointInstances)){
-            $this->pointInstances[$key] = Points::getInstanceByAttrValue($this->getRegionOrPointName($key), 'name');
+            $this->pointInstances[$key] = Points::getInstanceByAttrValue($name, 'name');
             if ($this->pointInstances[$key]->getIsNewRecord()) {
                 $this->pointInstances[$key]->setEventsParsing();
                 if ($regionUID) {
                     $this->pointInstances[$key]->regionUID = $regionUID;
                 }
-                $this->pointInstances[$key]->name = $this->getRegionOrPointName($key);
+                $this->pointInstances[$key]->name = $name;
                 $this->pointInstances[$key]->save();
             }
         }
@@ -196,12 +203,16 @@ class Firms extends ModelExcel implements ModelExcelInterface
         return  $this->getLoadInfo('contactPhone');
     }
 
-    public function getRegionOrPointName($key){
+
+    public static function convertRegionOrPointName($name){
         $converter = [
             'Арцизский' => 'Арцизський'
         ];
-        $name = $this->getLoadInfo($key);
         return isset($converter[$name]) ? $converter[$name] : $name;
+    }
+
+    public function getRegionOrPointName($key){
+        return static::convertRegionOrPointName($this->getLoadInfo($key));
     }
 
     public function culturesRules(){
@@ -282,5 +293,18 @@ class Firms extends ModelExcel implements ModelExcelInterface
             'AV' => 'OdessaDist',
 
         ];
+    }
+
+    public static function deleteAllInfo(){
+        Contacts::deleteAll();
+        Elevators::deleteAll();
+        FirmCultures::deleteAll();
+        FirmDistances::deleteAll();
+        \app\models\Firms::deleteAll();
+    }
+
+    public static function removeSuperfluous(){
+        \app\models\Firms::deleteAll(['name'=>'СОТРУДНИК']);
+        \app\models\Firms::deleteAll(['name'=>'ПОСРЕДНИК']);
     }
 }

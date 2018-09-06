@@ -5,6 +5,7 @@ namespace app\modules\api\controllers;
 use app\models\ActiveRecord;
 use app\models\Contacts;
 use app\models\Culture;
+use app\models\Elevators;
 use app\models\Firms;
 use app\models\firmsFilter\ColumnSearchStr;
 use app\models\firmsFilter\FullFilter;
@@ -59,11 +60,14 @@ class FirmsController extends Controller
 
     public function actionIndex()
     {
+        Regions::$getAllPoints = true;
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
             'regions' => ArrayHelper::toArray(Regions::find()->with('points')->all(), [Regions::className() => Regions::viewFields()]),
             'posts' => Posts::findAll(),
-            'cultures' => Culture::find()->all()
+            'cultures' => Culture::find()->all(),
+            'elevators' => Elevators::find()->all(),
+            'points' => Regions::getAllPoints(),
         ];
        $this->responseData = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]) ->all();
     }
@@ -94,22 +98,26 @@ class FirmsController extends Controller
     public function actionCreate()
     {
         $this->resource->uid = Main::generateUid();
-        $this->activeCreate();
+        $this->activeCreate($this->saveEvents(ActiveRecord::EVENT_AFTER_INSERT));
     }
 
     public function actionUpdate($id)
     {
-        $events = [
+        $this->activeUpdate($id,$this->saveEvents(ActiveRecord::EVENT_AFTER_UPDATE));
+
+    }
+
+    public function saveEvents($saveEvent){
+        return [
             [
-                0=>ActiveRecord::EVENT_AFTER_UPDATE,
+                0=>$saveEvent,
                 1=>function($model){
                     $model->sender->saveContacts();
                     $model->sender->saveCultures();
+                    $model->sender->saveDistances();
                 }
             ]
         ];
-        $this->activeUpdate($id,$events);
-
     }
 
 }

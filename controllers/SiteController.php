@@ -52,12 +52,13 @@ class SiteController extends Controller
     }
 
     public function actionXls(){
-        ini_set('memory_limit','1024M');
-       // phpinfo();die();
+      ini_set('memory_limit','1024M');
+      \app\models\xls\Firms::deleteAllInfo();
       $parserObject = new \app\models\xls\ParserExcel();
       $parserObject->file = '@app/files/xls/firms.xlsx';
       $parserObject->model = \app\models\xls\Firms::className();
       $parserObject->parse();
+      \app\models\xls\Firms::removeSuperfluous();
     }
 
     public function actionDebug(){

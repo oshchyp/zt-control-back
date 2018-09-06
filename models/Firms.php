@@ -23,11 +23,11 @@ class Firms extends ActiveRecord
 
     public $addInstanceAfterSave = false;
 
-    public $saveContacts;
+    public $saveContacts = null;
 
-    public $saveCultures;
+    public $saveCultures = null;
 
-    public $saveDistances;
+    public $saveDistances = null;
     /**
      * {@inheritdoc}
      */
@@ -67,13 +67,13 @@ class Firms extends ActiveRecord
 
     public static function viewFields(){
         return ['id','uid','name','director','rdpu','square','regionUID','pointUID','nearElevatorUID','nearElevator','contacts',
-            'cultures',
+            'cultures','distances',
             'region', 'point'];
     }
 
     public static function viewRelations(){
         return ['contactsRelation', 'region', 'point','nearElevator',
-            'culturesRelation.culture'
+            'culturesRelation.culture','distancesRelation.point'
         ];
     }
 
@@ -91,6 +91,8 @@ class Firms extends ActiveRecord
     }
 
     public function saveContacts(){
+        if ($this->saveContacts === null)
+            return;
         Contacts::updateAll(['firmUID'=>NULL],['firmUID' => $this->uid]);
         if ($this->saveContacts && is_array($this->saveContacts)){
             foreach ($this->saveContacts as $contactInfo){
@@ -106,6 +108,8 @@ class Firms extends ActiveRecord
     }
 
     public function saveCultures($delete=true){
+        if ($this->saveCultures === null)
+            return;
         if ($delete){
             FirmCultures::deleteAll(['firmUID' => $this->uid]);
         }
@@ -123,6 +127,11 @@ class Firms extends ActiveRecord
     }
 
     public function saveDistances(){
+
+        if ($this->saveDistances === null)
+            return;
+
+       // dump($this->saveDistances===null,1);
         FirmDistances::deleteAll(['firmUID'=>$this->uid]);
         if ($this->saveDistances && is_array($this->saveDistances)){
             foreach ($this->saveDistances as $item){
@@ -160,12 +169,20 @@ class Firms extends ActiveRecord
         return $this->hasOne(Elevators::className(),['uid'=>'nearElevatorUID']);
     }
 
+    public function getDistancesRelation(){
+        return $this->hasMany(FirmDistances::className(),['firmUID'=>'uid']);
+    }
+
     public function getContactsRelation(){
         return $this->hasMany(Contacts::className(),['firmUID'=>'uid']);
     }
 
     public function getCulturesRelation(){
         return $this->hasMany(FirmCultures::className(),['firmUID'=>'uid'])->orderBy(['year' => SORT_DESC]);
+    }
+
+    public function getDistances(){
+        return ArrayHelper::toArray($this->distancesRelation,[FirmDistances::className()=>FirmDistances::viewFields()]);
     }
 
     public function getContacts(){
