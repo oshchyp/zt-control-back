@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=ztsys_crm',
-    'username' => 'mcore_db',
-    'password' => 'E8c0J3r9',
+    'dsn' => 'mysql:host=127.0.0.1;dbname=crm',
+    'username' => 'root',
+    'password' => 'q27031605w',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
