@@ -46,13 +46,11 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
 
     public $contract;
 
-
     public $different;
 
     public $datePlane;
 
     public $dateArrival;
-
 
     public $status;
 
@@ -63,8 +61,10 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
 
     public function init()
     {
-        $query = RailwayTransit::find()->with(RailwayTransit::relations());
-        $this->setQuery($query);
+        if (!$this->getQuery()) {
+            $query = RailwayTransit::find()->with(RailwayTransit::relations());
+            $this->setQuery($query);
+        }
     }
 
     /**
