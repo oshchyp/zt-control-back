@@ -31,6 +31,7 @@ class RailwayTransitController extends Controller
         $this->getQuery()->andWhere(['statusID'=>$status])->orderBy(['id' => SORT_DESC]);
         $this->filter(new RailwayTransitFilter());
         $this->setPagination();
+      //  dump($this->getQuery()->createCommand()->getRawSql());
         $this->activeIndex();
     }
 

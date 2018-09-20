@@ -53,6 +53,7 @@ class Controller extends MainController
     public $responseErrors = [];
 
     public $responseCode;
+    public $rowsPerPageDefault=1000;
 
     public function init()
     {
@@ -251,8 +252,8 @@ class Controller extends MainController
     public function setPagination()
     {
         $pages = new Pagination(['totalCount' => $this->getQuery()->count()]);
-        $pages->setPage(ArrayHelper::getValue($this->getRequestData(), 'pagination.page', 1));
-        $pages->setPageSize(ArrayHelper::getValue($this->getRequestData(), 'pagination.rowsPerPage', 10));
+        $pages->setPage(ArrayHelper::getValue($this->getRequestData(), 'pagination.page', 0));
+        $pages->setPageSize(ArrayHelper::getValue($this->getRequestData(), 'pagination.rowsPerPage', $this->rowsPerPageDefault));
 
 
         $this->responseExtraData['pagination'] = [
@@ -330,9 +331,11 @@ class Controller extends MainController
             $this->responseData = $this->query->one();
         }
         $this->responseExtraData = $this->getRequestData();
+
         if ($this->responseData) {
             if (is_array($this->responseData) && count($this->responseData) < 11) {
                 foreach ($this->responseData as $model) {
+                    dump($model->delete(),1);
                     $model->delete();
                 }
             } elseif (is_object($this->responseData)) {
