@@ -25,23 +25,45 @@ class ParserExcel extends Model
 
     public $ignoreRows=[1];
 
-    public $setOnlyValue = true;
+    public $fromRow;
+
+    public $toRow;
+
+    public $setOnlyValue;
 
     private $_excelObject;
 
+    private $_activeSheet;
 
+    /**
+     * @param array $config
+     * @return mixed
+     */
+    public static function getInstance(array $config = []){
+        return new static($config);
+    }
+
+    /**
+     * @param int $activeSheet
+     * @return $this
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
     public function setActiveSheet($activeSheet = 0){
         $this->activeSheet = $activeSheet;
-        if ($object = $this->getExcelObject()){
-            $object->setActiveSheetIndex($this->activeSheet);
-        }
+        $this->_loadActiveSheetObject();
         return $this;
     }
 
+    /**
+     * @return bool|string
+     */
     public function getFile(){
         return \Yii::getAlias($this->file);
     }
 
+    /**
+     * @return mixed
+     */
     public function getRules(){
         $modelClass = $this->model;
         if (method_exists($modelClass,'excelRules') && !$this->rules){
@@ -50,55 +72,104 @@ class ParserExcel extends Model
         return $this->rules;
     }
 
+    /**
+     * @return mixed
+     */
     public function getModel(){
         return $this->model;
     }
 
+    /**
+     * @return null
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
+
     public function getExcelObject(){
+        if ($this->_excelObject === null){
+            $this->_loadExcelObject();
+        }
         return $this->_excelObject;
     }
 
-    public function existInIgnore($num){
-        return in_array($num,$this->ignoreRows);
+    /**
+     * @return null
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
+    public function getActiveSheet(){
+        if ($this->_activeSheet === null){
+            $this->_loadActiveSheetObject();
+        }
+        return $this->_activeSheet;
     }
 
-    public function loadExcelObject(){
-        if (is_file($this->getFile())) {
+    /**
+     * @return $this
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
+    private function _loadExcelObject(){
+        if (is_file($this->getFile())){
             $this->_excelObject = IOFactory::load($this->getFile());
+         }
+        return $this;
+    }
+
+    /**
+     * @return $this
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
+    private function _loadActiveSheetObject(){
+        if ($this->getExcelObject()){
+            $this->getExcelObject()->setActiveSheetIndex($this->activeSheet);
+            $this->_activeSheet = $this->getExcelObject()-> getActiveSheet();
         }
         return $this;
     }
 
+    /**
+     * @param $num
+     * @return bool
+     */
+    public function existInIgnore($num){
+        if (in_array($num,$this->ignoreRows) || ($this->fromRow && $num < $this->fromRow) || ($this->toRow && $num > $this->toRow)){
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $row
+     * @return array
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
     public function getCellsInfo($row){
         $result = [];
-        foreach ($row->getCellIterator() as $k=>$cell){
-           $this->assigningCellInfoToAttr($cell,$this->getRules(),$result);
+        foreach ($this->getRules() as $lit=>$attr){
+            $result[$attr] = $this->getActiveSheet()->getCell($lit.$row);
         }
         return $result;
     }
 
-    public function assigningCellInfoToAttr($cellObject,$rules,&$result){
-        $column = $cellObject -> getColumn();
-      //  dump($cellObject->getValue(),1);
-        if (isset($rules[$column])){
-            $attr = $rules[$column];
-            $result[$attr] = $this->setOnlyValue ? $cellObject -> getFormattedValue() : $cellObject;
-        }
-    }
-
+    /**
+     * @param bool $runValidate
+     * @return bool
+     * @throws \PhpOffice\PhpSpreadsheet\Reader\Exception
+     */
     public function parse($runValidate = true){
-        $this->loadExcelObject();
         if ($runValidate && !$this->validate()){
             return false;
         }
-
-
-        $activeSheet = $this->getExcelObject()-> getActiveSheet();
         $className = $this->model;
-        foreach ($activeSheet->getRowIterator() as $k=>$row){
+        $from = $this->fromRow ? $this->fromRow : 1;
+        $to = $this->toRow ? $this->toRow : $this->getActiveSheet()->getHighestRow();
+        for ($k=$from; $k <=$to;  $k++) {
             if (!$this->existInIgnore($k)){
-                $loadInfo = $this->getCellsInfo($row);
-                $className::excelDataProcessing($loadInfo);
+                $loadInfo = $this->getCellsInfo($k);
+                $instance = $className::excelDataProcessingInstance($loadInfo);
+                $instance->setLoadInfo($loadInfo);
+                $instance->loadModelInstance($loadInfo);
+                $instance -> runObjectDataProcessing($k);
+
             }
         }
         return true;

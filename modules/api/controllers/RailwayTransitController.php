@@ -8,12 +8,9 @@
 
 namespace app\modules\api\controllers;
 
-
-use app\models\Contracts;
-use app\models\Culture;
+use app\models\filter\RailwayTransitFilter;
 use app\models\RailwayTransit;
 use app\models\RailwayTransitMultiSave;
-use app\models\Stations;
 
 class RailwayTransitController extends Controller
 {
@@ -25,36 +22,29 @@ class RailwayTransitController extends Controller
     }
 
     /**
-     * @return array
+     * @param null $completed_status
      */
-//    public function behaviors()
-//    {
-//        $behaviors = parent::behaviors();
-//        $behaviors[] = [
-//            'class' => AccessControl::className(),
-//            'rules' => [
-//                [
-//                    'actions' => ['index','view'],
-//                    'allow' => true,
-//                    'roles' => ['roads/view'],
-//                ]
-//
-//            ],
-//        ];
-//
-//        return $behaviors;
-//    }
-
-    public function actionIndex()
+    public function actionIndex($completed_status = null)
     {
-        $this->responseExtraData = [
-            'contracts' => Contracts::find()->all(),
-            'cultures' => Culture::find()->all(),
-            'stations' => Stations::find()->all(),
-        ];
+        $status = $completed_status ? RailwayTransit::STATUS_ID_COMPLETED : RailwayTransit::STATUS_ID_NEW;
+        $this->responseExtraData = RailwayTransit::extraDataToSave();
+        $this->getQuery()->andWhere(['statusID'=>$status])->orderBy(['id' => SORT_DESC]);
+        $this->filter(new RailwayTransitFilter());
+        $this->setPagination();
         $this->activeIndex();
     }
 
+    public function actionList(){
+        $this->actionIndex();
+    }
+
+    public function actionCompleted(){
+        $this->actionIndex(true);
+    }
+
+    /**
+     * @param $id
+     */
     public function actionView($id)
     {
         $this->activeView($id);
@@ -74,9 +64,14 @@ class RailwayTransitController extends Controller
         $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 
-    public function actionDelete($id)
+    public function actionDelete($id=null)
     {
         $this->activeDelete($id);
+    }
+
+    public function actionComplete(){
+        RailwayTransit::updateAll(['statusID'=>RailwayTransit::STATUS_ID_COMPLETED],['in','id',$this->getRequestData()]);
+        $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
     }
 
 }

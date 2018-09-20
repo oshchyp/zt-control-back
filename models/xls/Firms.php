@@ -19,8 +19,10 @@ use app\models\Points;
 use app\models\Regions;
 use yii\helpers\ArrayHelper;
 
-class Firms extends ModelExcel implements ModelExcelInterface
+class Firms extends \app\models\Firms implements ModelExcelInterface
 {
+
+    use ModelExcelTrait;
 
     public $firmModel;
 

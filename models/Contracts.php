@@ -16,8 +16,10 @@ use Yii;
  * @property string $receiverPointUID
  * @property double $amount
  */
-class Contracts extends \yii\db\ActiveRecord
+class Contracts extends ActiveRecord
 {
+
+    public static $allInstances = null;
     /**
      * {@inheritdoc}
      */
@@ -32,7 +34,7 @@ class Contracts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['uid', 'name', 'firmUID', 'cultureUID', 'regionUID', 'receiverPointUID', 'amount'], 'required'],
+            [['uid', 'name'], 'required'],
             [['uid'], 'unique'],
             [['amount'], 'number'],
             [['uid', 'name', 'firmUID', 'cultureUID', 'regionUID', 'receiverPointUID'], 'string', 'max' => 250],

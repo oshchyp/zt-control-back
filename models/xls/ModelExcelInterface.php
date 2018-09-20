@@ -12,8 +12,34 @@ namespace app\models\xls;
 interface ModelExcelInterface
 {
 
-    public static function excelDataProcessing($loadInfo);
+    /**
+     * @param $loadInfo
+     * @return mixed
+     */
+    public static function excelDataProcessingInstance($loadInfo);
 
-    public function runObjectDataProcessing();
+    /**
+     * @param $loadInfo
+     * @return mixed
+     */
+    public function setLoadInfo($loadInfo);
+
+    /**
+     * @return mixed
+     */
+    public function loadModelInstance();
+
+    /**
+     * @param $data
+     * @return mixed
+     */
+    public function runObjectDataProcessing($data);
+
+    /**
+     * @return mixed
+     */
+    public static function excelRules();
+
+
 
 }

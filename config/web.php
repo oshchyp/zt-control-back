@@ -52,28 +52,51 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+
+
+                ////USERS
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/users' => 'api/users'],
                 ],
+
+
+                ///////LOGISTICS USERS
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/logistics-users' => 'api/logistics-users'],
                 ],
+
+
+               ///////////FIRMS
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/firms' => 'api/firms'],
                 ],
+                'POST api/firms/list' => 'api/firms/index',
+
+
+                ///////REGIONS
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/regions' => 'api/regions'],
                 ],
+
+
+
+
+                //////////railway transit
                 'PUT,PATCH api/railway-transit' => 'api/railway-transit/update',
+                'DELETE api/railway-transit' => 'api/railway-transit/delete',
+                'PUT api/railway-transit/complete' => 'api/railway-transit/complete',
+                'POST api/railway-transit/completed' => 'api/railway-transit/completed',
+                'POST api/railway-transit/list' => 'api/railway-transit/list',
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/railway-transit' => 'api/railway-transit'],
                 ],
-                'POST api/firms/list' => 'api/firms/index'
+
+
             ],
         ],
         'response' => [

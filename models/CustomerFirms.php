@@ -5,23 +5,22 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "stations".
+ * This is the model class for table "customerFirms".
  *
  * @property int $id
  * @property string $uid
  * @property string $name
  */
-class Stations extends ActiveRecord
+class CustomerFirms extends ActiveRecord
 {
+
     public static $allInstances = null;
-
-
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'stations';
+        return 'customerFirms';
     }
 
     /**

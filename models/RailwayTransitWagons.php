@@ -18,9 +18,19 @@ class RailwayTransitWagons extends Model
 
     public $wagonNumber;
 
-    public $weightLoading;
+    public $weight;
 
-    public $weightShipping;
+    public $loadingWeight;
+
+    public $unloadingWeight;
+
+    public $ownershipWagonID;
+
+    public $tariff;
+
+    public $price;
+
+    public $additionalPrice;
 
     private  $_instanceRailwayTransit;
 
@@ -28,12 +38,13 @@ class RailwayTransitWagons extends Model
 
     public function rules (){
         return [
-            [['uid','weightShipping', 'weightLoading' , 'wagonNumber'], 'safe'],
+            [['uid','wagonNumber', 'weight' , 'loadingWeight', 'unloadingWeight','ownershipWagonID','tariff','price','additionalPrice'], 'safe'],
         ];
     }
 
 
     public function getInstanceRT(){
+       //xs dump($this->uid,1);
         if (!$this->_instanceRailwayTransit) {
             $instance = $this->uid && !$this->_newRecord ? RailwayTransit::findByUID($this->uid) : null;
             $this->_instanceRailwayTransit = $instance ? $instance : new RailwayTransit();

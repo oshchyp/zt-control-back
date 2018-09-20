@@ -2,8 +2,11 @@
 
 namespace app\modules\api\controllers;
 
+use app\models\filter\Filter;
 use Yii;
 use yii\data\Pagination;
+use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 use yii\filters\auth\HttpBearerAuth;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
@@ -41,17 +44,15 @@ class Controller extends MainController
 
     public $params = [];
 
-    public $addRequestData = [];
-
     public $responseData = [];
 
-    public $responseExtraData=[];
+    public $responseExtraData = [];
+
+    public $validationInfo = [];
 
     public $responseErrors = [];
 
     public $responseCode;
-
-    public $pages;
 
     public function init()
     {
@@ -63,9 +64,9 @@ class Controller extends MainController
             $response->data = $this->responseMsg($this->responseCode ? $this->responseCode : $response->statusCode);
             $response->data['data'] = $this->getResponseData();
             $response->data['extraData'] = $this->responseExtraData;
+            $response->data['validationInfo'] = $this->validationInfo;
             $response->data['errors'] = $this->responseErrors;
             $response->statusCode = 200;
-            $this->setLogs();
         });
     }
 
@@ -160,16 +161,32 @@ class Controller extends MainController
         ];
     }
 
-    public function setResource($obj = null)
+    /**
+     * @param ActiveRecord $activeRecord
+     */
+    public function setResource(ActiveRecord $activeRecord)
     {
-        if (is_string($obj) && class_exists($obj)) {
-            $this->resource = new $obj();
-        } elseif (is_object($obj)) {
-            $this->resource = $obj;
+        $this->resource = $activeRecord;
+        $this->query = $this->resource->find();
+        if (method_exists($this->resource, 'getRestValidators')) {
+            $this->validationInfo = $this->resource->getRestValidators();
         }
-        if ($model = $this->resource) {
-            // $this->query = $model::find();
-        }
+    }
+
+    /**
+     * @return ActiveRecord
+     */
+    public function getResource()
+    {
+        return $this->resource;
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getQuery()
+    {
+        return $this->query;
     }
 
     public function setResponseParams($responseParamKey)
@@ -185,7 +202,7 @@ class Controller extends MainController
             $condition = 'ifSuccess';
         }
 
-        $rules = ArrayHelper::getValue($rules, $responseParamKey.'.'.$condition, $defaultRule);
+        $rules = ArrayHelper::getValue($rules, $responseParamKey . '.' . $condition, $defaultRule);
         $this->_setResponseParams($rules);
     }
 
@@ -206,7 +223,7 @@ class Controller extends MainController
 
     public function getRequestData($key = null)
     {
-        $result = $this->addRequestData;
+        $result = [];
         if (Yii::$app->request->getRawBody()) {
             $result += Json::decode(Yii::$app->request->getRawBody(), true);
         } elseif (Yii::$app->request->getBodyParams()) {
@@ -219,84 +236,60 @@ class Controller extends MainController
         return $result;
     }
 
-    public function getResponseData(){
+    public function getResponseData()
+    {
         return $this->responseData;
     }
 
-    public function setLogs()
+
+    public function filter(Filter $filter)
     {
-        $file = $this->logDir().'/'.Yii::$app->controller->id.'_'.Yii::$app->controller->action->id.'_'.date('H:i:s').'.json';
-        $data = [
-            'responseData' => $this->responseData,
-            'responseErrors' => $this->responseErrors,
-            'requestData' => $this->getRequestData(),
-            'requestHeaders' => getallheaders(),
-        ];
-        file_put_contents($file, json_encode($data));
+        $filter->attributes = ArrayHelper::getValue($this->getRequestData(), 'filter', []);
+        $filter->setQuery($this->getQuery())->filter();
     }
 
-    public function logDir()
+    public function setPagination()
     {
-        $dir = 'logs/api/'.date('Y').'/'.date('m').'/'.date('d');
-        $dirAll = Yii::getAlias('@app');
-        $dirArr = explode('/', $dir);
-        foreach ($dirArr as $v) {
-            $dirAll .= '/'.$v;
-            if (!is_dir($dirAll)) {
-                mkdir($dirAll);
-            }
-        }
+        $pages = new Pagination(['totalCount' => $this->getQuery()->count()]);
+        $pages->setPage(ArrayHelper::getValue($this->getRequestData(), 'pagination.page', 1));
+        $pages->setPageSize(ArrayHelper::getValue($this->getRequestData(), 'pagination.rowsPerPage', 10));
 
-        return $dirAll;
-    }
 
-    public function setPagination($countQuery=null){
-        if ($countQuery){
-            $this->pages = new Pagination(['totalCount' => $countQuery->count()]);
-            $this->pages->setPage(ArrayHelper::getValue($this->getRequestData(),'pagination.page',1));
-            $this->pages->setPageSize(ArrayHelper::getValue($this->getRequestData(),'pagination.rowsPerPage',10));
-        }
-        return $this;
-    }
-
-    public function setPaginationParamsToQuery($query){
-        if ($this->pages)
-           $query->offset($this->pages->offset)->limit($this->pages->limit)->all();
-        return $this;
-    }
-
-    public function setPaginationParamsToExtraData(){
         $this->responseExtraData['pagination'] = [
-            'links' => $this->pages ? $this->pages -> getLinks() : [],
-            'pageCount' => $this->pages ? $this->pages -> getPageCount() : 0,
-            'pageSize' => $this->pages ? $this->pages -> getPageSize() : 0,
-            'totalCount' => $this->pages ? $this->pages -> totalCount : 0,
+            'links' => $pages->getLinks(),
+            'pageCount' => $pages->getPageCount(),
+            'pageSize' => $pages->getPageSize(),
+            'totalCount' => $pages->totalCount,
         ];
+
+        $this->getQuery()->offset($pages->offset)->limit($pages->limit);
         return $this;
     }
 
     public function activeIndex()
     {
-        $query = $this->resource->find();
-        if (method_exists($this->resource,'relations')){
-            $query->with($this->resource->relations());
-         }
-        $this->responseData = $query->all();
+        if (method_exists($this->resource, 'relations')) {
+            $this->query->with($this->resource->relations());
+        }
+
+        // $this->query->limit(1000);
+
+        $this->responseData = $this->query->all();
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
     }
 
     public function activeView($id)
     {
-        $this->responseData = $this->resource->findOne($id);
+        $this->responseData = $this->query->findOne($id);
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ONE);
     }
 
     public function activeCreate($events)
     {
         $this->responseData = $this->resource;
-        if ($events){
-            foreach ($events as $item){
-                $this->responseData->on($item[0],$item[1]);
+        if ($events) {
+            foreach ($events as $item) {
+                $this->responseData->on($item[0], $item[1]);
             }
         }
         $this->responseData->attributes = $this->getRequestData();
@@ -304,13 +297,16 @@ class Controller extends MainController
         $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 
-    public function activeUpdate($id,$events=null)
+    public function activeUpdate($id = null, $events = null)
     {
-        $this->responseData = $this->resource->findOne($id);
+        if ($id) {
+            $this->query->andWhere(['id' => $id]);
+        }
+        $this->responseData = $this->query->one();
         if ($this->responseData) {
-            if ($events){
-                foreach ($events as $item){
-                    $this->responseData->on($item[0],$item[1]);
+            if ($events) {
+                foreach ($events as $item) {
+                    $this->responseData->on($item[0], $item[1]);
                 }
             }
             $this->responseData->attributes = $this->getRequestData();
@@ -319,11 +315,32 @@ class Controller extends MainController
         $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 
-    public function activeDelete($id)
+    public function activeDelete()
     {
-        $this->responseData = $this->resource->findOne($id);
+        if ($this->getRequestData()) {
+            $id = $this->getRequestData();
+        }
+        if ($id) {
+            $this->query->andWhere(['IN', 'id', $id]);
+        }
+
+        if (is_array($id)) {
+            $this->responseData = $this->query->all();
+        } else {
+            $this->responseData = $this->query->one();
+        }
+        $this->responseExtraData = $this->getRequestData();
         if ($this->responseData) {
-            $this->responseData->delete();
+            if (is_array($this->responseData) && count($this->responseData) < 11) {
+                foreach ($this->responseData as $model) {
+                    $model->delete();
+                }
+            } elseif (is_object($this->responseData)) {
+                $this->responseData->delete();
+            } else {
+                $this->responseData = null;
+            }
+
         }
         $this->setResponseParams(static::RESPONSE_PARAMS_DELETE);
     }

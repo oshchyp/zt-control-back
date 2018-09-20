@@ -37,6 +37,7 @@ class RailwayTransitMultiSave extends model
         foreach ($this->wagons as $wagonInfo){
             $instance = RailwayTransitWagons::getInstanceRTbyData($wagonInfo,$newRecord);
             $instance->attributes = $this->generalInfo;
+         //  dump($this->generalInfo,1);
             $instance->save();
             if ($instance->hasErrors()){
                 $this->addErrors(['wagon '.$instance->getWagonName() => $instance->getErrors()]);

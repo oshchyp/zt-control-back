@@ -11,19 +11,28 @@ namespace app\models;
 
 use app\models\helper\Main;
 use yii\helpers\ArrayHelper;
+use yii\helpers\FileHelper;
 
-class ActiveRecord extends \yii\db\ActiveRecord
+class ActiveRecord extends \yii\db\ActiveRecord implements RestModelInterface
 {
 
     public static $allInstances = null;
 
-    public $addInstanceAfterSave = false;
+    public static $logPath;
 
     public static function getAllInstances(){
         if (static::$allInstances === null){
             static::$allInstances = static::find()->all();
         }
         return static::$allInstances;
+    }
+
+    public static function getLogPath(){
+        if (!static::$logPath){
+            static::$logPath = \Yii::getAlias('@app/logs/').date('Y-m-d H:i');
+            FileHelper::createDirectory(static::$logPath);
+        }
+        return static::$logPath;
     }
 
     public static function getUidAttrName(){
@@ -39,52 +48,41 @@ class ActiveRecord extends \yii\db\ActiveRecord
     }
 
 
-    public function addThisToAllInstances(){
-        if ($this->addInstanceAfterSave){
-            $object = clone $this;
-            $object->setIsNewRecord(false);
-            static::$allInstances[] = $object;
-        }
-    }
-
-    public function setEventsParsing(){
-         $events = [
-            [
-                0=>static::EVENT_BEFORE_INSERT,
-                1=>function($model){
-                    $model->sender->addInstanceAfterSave = true;
-                    return true;
+    public function getRestValidators()
+    {
+        $result=[];
+        if ($validators=$this->getActiveValidators()){
+            foreach ($validators as $object){
+                foreach ($object->attributes as $attr){
+                  //  dump($attr,1);
+                    $result[$attr][]=[
+                        'type'=>static::getValidatorName($object),
+                        'message' => str_replace('{attribute}',$this->getAttributeLabel($attr),$object->message),
+                    ];
                 }
-            ],
-            [
-                0=>static::EVENT_BEFORE_VALIDATE,
-                1=>function($model){
-                    $model->sender->setUid();
-                    return true;
-                }
-            ],
-            [
-                0=>static::EVENT_AFTER_INSERT,
-                1=>function($model){
-                    $model->sender->addThisToAllInstances();
-                }
-            ]
-        ];
-        foreach ($events as $item){
-            $this->on($item[0],$item[1]);
-        }
-        return $this;
-    }
-
-    public static function getInstanceByAttrValue($attrValue,$attrName){
-        if ($instances = static::getAllInstances()){
-            foreach ($instances as $object){
-               if ($object->$attrName == $attrValue){
-                   return $object;
-                }
+//                $result[static::getValidatorName($object)] = [
+//                    'type'=>static::getValidatorName($object),
+//                    'message' => $object->message,
+//                    'attributes' => $object->attributes,
+//                ];
             }
+          //  $result = array_values($result);
         }
-        return new static();
+        return $result;
     }
 
+    public static function getValidatorName($object){
+        $names = [
+            'yii\validators\RequiredValidator' => 'required',
+            'yii\validators\NumberValidator'=>'number',
+            'yii\validators\StringValidator'=>'string',
+        ];
+        $deffName = function($obj){
+
+            $n = explode('\\',$obj->className());
+            array_pop($n);
+            return str_replace('Validator','',$n);
+        };
+        return key_exists($object->className(),$names) ? $names[$object->className()] : $deffName($object);
+    }
 }

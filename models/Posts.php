@@ -19,6 +19,8 @@ class Posts extends Model
 
     public $director = false;
 
+    public static $allInstances = null;
+
     public static function data(){
         return [
             [

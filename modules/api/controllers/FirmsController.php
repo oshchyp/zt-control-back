@@ -60,6 +60,9 @@ class FirmsController extends Controller
 
     public function actionIndex()
     {
+
+     //   dump(\Yii::$app->request->getHeaders(),1);
+
         Regions::$getAllPoints = true;
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
