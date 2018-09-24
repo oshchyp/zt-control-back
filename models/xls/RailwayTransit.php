@@ -91,7 +91,9 @@ class RailwayTransit extends Model implements ModelExcelInterface
             'weightLoading' => (float)$this->getLoadInfoValue('weightLoading'),
         ];
         $model->setUid();
+
         $model->save();
+       // dump($data,1);
 //        dump($model->getAttributes());
 //        dump($model->getErrors(),1);
     }
@@ -110,10 +112,10 @@ class RailwayTransit extends Model implements ModelExcelInterface
     public function cultureNameConverter($cultureName){
 
         $convertArray = [
-            'кукуруза' => 'кукурудза',
-            'ячмень' => 'ячмінь',
-            'пшеница' => 'пшениця',
-            'ПОДСОЛ' => 'соняшник'
+            'кукуруза' => 'Кукуруза',
+            'ячмень' => 'Ячмень',
+            'пшеница' => 'Пшеница',
+            'ПОДСОЛ' => 'Подсолнух'
         ];
 
         return isset($convertArray[$cultureName]) ? $convertArray[$cultureName] : $cultureName;

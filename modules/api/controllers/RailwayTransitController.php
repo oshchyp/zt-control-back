@@ -26,6 +26,7 @@ class RailwayTransitController extends Controller
      */
     public function actionIndex($completed_status = null)
     {
+        RailwayTransit::setFormat('d.m.Y');
         $status = $completed_status ? RailwayTransit::STATUS_ID_COMPLETED : RailwayTransit::STATUS_ID_NEW;
         $this->responseExtraData = RailwayTransit::extraDataToSave();
         $this->getQuery()->andWhere(['statusID'=>$status])->orderBy(['id' => SORT_DESC]);

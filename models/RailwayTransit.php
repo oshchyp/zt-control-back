@@ -38,7 +38,7 @@ class RailwayTransit extends ActiveRecord
 {
 
 
-    public $dateFormat = 'Y.m.d';
+    public static $dateFormat = 'd.m.Y';
 
     public static $allInstances = null;
 
@@ -130,13 +130,56 @@ class RailwayTransit extends ActiveRecord
         ];
     }
 
-    public static function findStatusByID($id){
-        foreach (static::statuses() as $item){
+    public static function classes(){
+       return [
+           [
+               'id'=>0,
+               'name' => '1кл'
+           ],
+           [
+               'id'=>1,
+               'name' => '2кл'
+           ],
+           [
+               'id'=>2,
+               'name' => '3кл'
+           ],
+           [
+               'id'=>3,
+               'name' => '4кл'
+           ],
+           [
+               'id'=>4,
+               'name' => '5кл'
+           ],
+           [
+               'id'=>5,
+               'name' => '6кл'
+           ],
+
+       ];
+    }
+
+
+    public static function setFormat($format){
+        static::$dateFormat = $format;
+    }
+
+    public static function findByIDAddField($array,$id){
+        foreach ($array as $item){
             if ($item['id'] == $id)
                 return $item;
         }
         return null;
     }
+
+//    public static function findStatusByID($id){
+//        foreach (static::statuses() as $item){
+//            if ($item['id'] == $id)
+//                return $item;
+//        }
+//        return null;
+//    }
 
     /**
      * @return bool
@@ -148,14 +191,14 @@ class RailwayTransit extends ActiveRecord
         }
 
         if ($this->datePlane && !is_numeric($this->datePlane)) {
-            $this->datePlane = \DateTime::createFromFormat($this->dateFormat,$this->datePlane)->getTimestamp();
+            $this->datePlane = \DateTime::createFromFormat(static::$dateFormat,$this->datePlane)->getTimestamp();
         }
 
         if ($this->dateArrival && !is_numeric($this->dateArrival)) {
-            $this->dateArrival = \DateTime::createFromFormat($this->dateFormat,$this->dateArrival)->getTimestamp();
+            $this->dateArrival = \DateTime::createFromFormat(static::$dateFormat,$this->dateArrival)->getTimestamp();
         }
 
-        if (!static::findStatusByID($this->statusID)){
+        if (!static::findByIDAddField(static::statuses(),$this->statusID)){
             $this->statusID = static::STATUS_ID_NEW;
         }
 
@@ -182,13 +225,13 @@ class RailwayTransit extends ActiveRecord
     public function fields()
     {
         $fields = parent::fields();
-        $fields = array_merge($fields, ['contract', 'product', 'destinationStation','departureStation', 'executorFirm', 'customerFirm', 'forwarderFirm', 'ownershipWagon','status','differentWeight']);
+        $fields = array_merge($fields, ['contract', 'product', 'destinationStation','departureStation', 'executorFirm', 'customerFirm', 'forwarderFirm', 'ownershipWagon','status','differentWeight','class']);
         $fields = [
                 'datePlane' => function () {
-                    return date($this->dateFormat, (int)$this->datePlane);
+                    return date(static::$dateFormat, (int)$this->datePlane);
                 },
                 'dateArrival' => function () {
-                    return date($this->dateFormat, (int)$this->dateArrival);
+                    return date(static::$dateFormat, (int)$this->dateArrival);
                 },
 //                'weight' => function (){
 //                    return round($this->weight,2);
@@ -214,12 +257,14 @@ class RailwayTransit extends ActiveRecord
             'ownershipWagons' => static::ownershipWagons(),
             'statuses' => static::statuses(),
             'statusIdNew' => static::STATUS_ID_NEW,
-            'statusIdCompleted' => static::STATUS_ID_COMPLETED
+            'statusIdCompleted' => static::STATUS_ID_COMPLETED,
+            'classes' => static::classes(),
         ];
     }
 
     public function getDifferentWeight(){
-        return $this->loadingWeight - $this->unloadingWeight;
+        $diff = $this->loadingWeight - $this->unloadingWeight;
+        return round($diff,2);
     }
 
     public function getProduct()
@@ -254,15 +299,15 @@ class RailwayTransit extends ActiveRecord
 
     public function getOwnershipWagon()
     {
-        foreach (static::ownershipWagons() as $info) {
-            if ($info['id'] == $this->ownershipWagonID)
-                return $info;
-        }
-        return null;
+        return static::findByIDAddField(static::ownershipWagons(),$this->ownershipWagonID);
     }
 
     public function getStatus(){
-        return static::findStatusByID($this->statusID);
+        return static::findByIDAddField(static::statuses(),$this->statusID);
+    }
+
+    public function getClass(){
+        return static::findByIDAddField(static::classes(),$this->classID);
     }
 
     public static function findByUID($uid)

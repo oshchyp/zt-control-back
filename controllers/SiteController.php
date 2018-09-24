@@ -30,7 +30,7 @@ class SiteController extends Controller
             'rules' => [
                 [
                     'allow' => true,
-                    'ips' => ['213.231.13.123']
+                    'ips' => ['46.250.16.180']
                 ]
             ],
             'except' => ['index', 'error'],
@@ -48,21 +48,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $filterParams = [
-          //  'stringForSearchAll' => 'луи Дрейфус',
-          //  'wagonNumber'=>'95641437',
-           // 'weight'=>'5',
-//            'destinationStation' => 'одесса-порт-экс.',
-//            'departureStation' => 'черноморская-экс ТИС',
-//            'product' => 'кукурудза українського походження',
-          //  'different' => '69.40',
-           // 'datePlane' => '2022',
-            'status' => 'новый'
-            //Завершенный
-        ];
-        $query = RailwayTransitFilter::find($filterParams)->asArray()->limit(5);
-        dump($query->createCommand()->getRawSql());
-        dump($query->groupBy('statusID')->count(),1);
+
         return $this->render('index');
     }
 
@@ -88,30 +74,15 @@ class SiteController extends Controller
 
         $config = [
             'file' => '@app/files/xls/railway.xls',
-            'model' => \app\models\xls\RailwayTransitContracts::className(),
+            'model' => \app\models\xls\RailwayTransit::className(),
             'activeSheet' => 2,
-            'fromRow' => 1,
-            'toRow' => 10032,
+            'fromRow' => RailwayTransit::find()->count()-1,
+           // 'toRow' => 10032,
         ];
+       // dump($config['fromRow'],1);
         ParserExcel::getInstance($config)->parse();
         die();
-        $parserObject = new \app\models\xls\ParserExcel();
-        $parserObject->file = '@app/files/xls/railway.xls';
-//        $parserObject->model = \app\models\xls\RailwayTransit::className();
-//        $parserObject->setActiveSheet(2);
-//        $parserObject->fromRow = RailwayTransit::find()->count() - 1;
-//        $parserObject->toRow = $parserObject->fromRow + 500;
-
-
-        $parserObject->model = \app\models\xls\RailwayTransitContracts::className();
-        $parserObject->setActiveSheet(2);
-        $parserObject->fromRow = 4000;
-        $parserObject->toRow = $parserObject->fromRow + 1000;
-
-        $parserObject->parse();
-
-
-    }
+ }
 
     public function actionDebug()
     {

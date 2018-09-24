@@ -1566,3 +1566,185 @@ $_SERVER = [
     ]
     'argc' => 2
 ]
+2018-09-21 12:25:55 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1049] Unknown database 'crm' in /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php:687
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(687): PDO->__construct('mysql:host=127....', 'root', 'q27031605w', NULL)
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(613): yii\db\Connection->createPdoInstance()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(996): yii\db\Connection->open()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(983): yii\db\Connection->getMasterPdo()
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(253): yii\db\Connection->getSlavePdo()
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(1143): yii\db\Command->prepare(true)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(312): yii\db\Command->queryAll()
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(744): yii\db\mysql\Schema->loadTableSchema('migration')
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('{{%migration}}', 'schema', true)
+#11 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/MigrateController.php(210): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#12 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(875): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#13 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(166): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#14 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#15 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#16 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#17 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#18 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#19 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#20 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#21 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#22 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#23 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1049] Unknown database 'crm' in /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php:624
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(996): yii\db\Connection->open()
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(983): yii\db\Connection->getMasterPdo()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(253): yii\db\Connection->getSlavePdo()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(1143): yii\db\Command->prepare(true)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(312): yii\db\Command->queryAll()
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(744): yii\db\mysql\Schema->loadTableSchema('migration')
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('{{%migration}}', 'schema', true)
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/MigrateController.php(210): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(875): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#11 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(166): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#12 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#13 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#14 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#15 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#16 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#17 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#18 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#19 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#20 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#21 {main}
+Additional Information:
+
+2018-09-21 12:25:54 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.UF0xA9KJ4f/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.Ax8sA6u1eD/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1537532754.3396
+    'REQUEST_TIME' => 1537532754
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
+2018-09-24 12:27:06 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1049] Unknown database 'crm' in /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php:687
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(687): PDO->__construct('mysql:host=127....', 'root', 'q27031605w', NULL)
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(613): yii\db\Connection->createPdoInstance()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(996): yii\db\Connection->open()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(983): yii\db\Connection->getMasterPdo()
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(253): yii\db\Connection->getSlavePdo()
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(1143): yii\db\Command->prepare(true)
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(312): yii\db\Command->queryAll()
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(744): yii\db\mysql\Schema->loadTableSchema('migration')
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('{{%migration}}', 'schema', true)
+#11 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/MigrateController.php(210): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#12 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(875): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#13 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(166): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#14 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#15 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#16 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#17 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#18 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#19 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#20 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#21 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#22 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#23 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1049] Unknown database 'crm' in /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php:624
+Stack trace:
+#0 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(996): yii\db\Connection->open()
+#1 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Connection.php(983): yii\db\Connection->getMasterPdo()
+#2 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(253): yii\db\Connection->getSlavePdo()
+#3 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(1143): yii\db\Command->prepare(true)
+#4 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Command.php(399): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(312): yii\db\Command->queryAll()
+#6 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/mysql/Schema.php(125): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(744): yii\db\mysql\Schema->loadTableSchema('migration')
+#8 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/db/Schema.php(194): yii\db\Schema->getTableMetadata('{{%migration}}', 'schema', true)
+#9 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/MigrateController.php(210): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#10 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(875): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#11 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(166): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#12 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#13 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#14 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#15 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Controller.php(148): yii\base\Controller->runAction('', Array)
+#16 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Module.php(528): yii\console\Controller->runAction('', Array)
+#17 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(180): yii\base\Module->runAction('migrate', Array)
+#18 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/console/Application.php(147): yii\console\Application->runAction('migrate', Array)
+#19 /Users/programmer_5/PhpstormProjects/ZT-CRM/vendor/yiisoft/yii2/base/Application.php(386): yii\console\Application->handleRequest(Object(yii\console\Request))
+#20 /Users/programmer_5/PhpstormProjects/ZT-CRM/yii(20): yii\base\Application->run()
+#21 {main}
+Additional Information:
+
+2018-09-24 12:27:06 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'TERM' => 'xterm-256color'
+    'SHELL' => '/bin/bash'
+    'TMPDIR' => '/var/folders/mk/rk3r24ws3lg3ry3jj9_v6nb80000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.nU7Il8nPBv/Render'
+    'USER' => 'programmer_5'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.XqihaFKJ2Q/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x7:0x31'
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands'
+    'PWD' => '/Users/programmer_5/PhpstormProjects/ZT-CRM'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/programmer_5'
+    'LOGNAME' => 'programmer_5'
+    'LC_CTYPE' => 'en_US.UTF-8'
+    '_' => '/usr/local/bin/php'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1537792025.9594
+    'REQUEST_TIME' => 1537792025
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
