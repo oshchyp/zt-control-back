@@ -15,6 +15,9 @@ use app\models\RailwayTransitMultiSave;
 class RailwayTransitController extends Controller
 {
 
+
+    public $rowsPerPageDefault = 10;
+
     public function init()
     {
         $this->setResource(new RailwayTransit());
@@ -28,11 +31,10 @@ class RailwayTransitController extends Controller
     {
         RailwayTransit::setFormat('d.m.Y');
         $status = $completed_status ? RailwayTransit::STATUS_ID_COMPLETED : RailwayTransit::STATUS_ID_NEW;
-        $this->responseExtraData = RailwayTransit::extraDataToSave();
-        $this->getQuery()->andWhere(['statusID'=>$status])->orderBy(['id' => SORT_DESC]);
         $this->filter(new RailwayTransitFilter());
         $this->setPagination();
-      //  dump($this->getQuery()->createCommand()->getRawSql());
+        $this->getQuery()->andWhere(['statusID'=>$status]);
+//        dump($this->getQuery()->createCommand()->getRawSql(),1);
         $this->activeIndex();
     }
 
@@ -73,6 +75,12 @@ class RailwayTransitController extends Controller
 
     public function actionComplete(){
         RailwayTransit::updateAll(['statusID'=>RailwayTransit::STATUS_ID_COMPLETED],['in','id',$this->getRequestData()]);
+        $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
+    }
+
+    public function actionExtraData(){
+        $this->responseData = RailwayTransit::extraDataToSave();
+        $this->validationInfo = null;
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
     }
 

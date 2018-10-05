@@ -18,7 +18,6 @@ class UserController extends Controller
     public function actionAuthPhone()
     {
         $this->responseData = Users::authPhone(ArrayHelper::getValue($this->getRequestData(), 'phone'));
-       // dump($this->responseData,1);
         $this->setResponseParams(static::RESPONSE_PARAMS_AUTH_PHONE);
     }
 

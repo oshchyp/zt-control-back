@@ -13,6 +13,11 @@ use yii\base\Model;
 use yii\db\ActiveQuery;
 use yii\db\Query;
 
+/**
+ * Class Filter
+ * @package app\models\filter
+ * @mixin RailwayTransitFilter
+ */
 class Filter extends Model
 {
 
@@ -24,18 +29,52 @@ class Filter extends Model
     public function rules()
     {
         $rules = [];
-        $fields = [
-            [$this->fieldsForSearchAll(),'string'],
-            [$this->fieldsForSearchIndividual(),'string'],
-            [$this->fieldsForEquating(),'string']
-        ];
-       foreach ($fields as $arr){
-           if ($arr[0]){
-               $arr[0] =  array_values($arr[0]);
-               $rules[] = $arr;
-           }
-       }
-       return $rules ? $rules : parent::rules();
+        $allAttributes = [];
+        if ($this->fieldsForSearchAll()) {
+            foreach ($this->fieldsForSearchAll() as $key => $value) {
+                $attr = is_numeric($key) ? $value : $key;
+                $rules[] = [$attr, 'string'];
+                $allAttributes[] = $attr;
+            }
+        }
+        if ($this->fieldsForSearchIndividual()) {
+            foreach ($this->fieldsForSearchIndividual() as $key => $value) {
+                $attr = is_numeric($key) ? $value : $key;
+                $rules[] = [$attr, 'string'];
+                $allAttributes[] = $attr;
+            }
+        }
+        if ($this->fieldsForEquating()) {
+            foreach ($this->fieldsForEquating() as $key => $value) {
+                $attr = is_numeric($key) ? $value : $key;
+                $rules[] = [$attr, 'string'];
+                $allAttributes[] = $attr;
+            }
+        }
+
+        if ($this->fieldsComparisonMore()) {
+            foreach ($this->fieldsComparisonMore() as $key => $value) {
+                $attr = is_numeric($key) ? $value : $key;
+                $rules[] = [$attr, 'integer'];
+                $allAttributes[] = $attr;
+            }
+        }
+
+
+        return $rules ? $rules : parent::rules();
+    }
+
+
+    /**
+     *
+     */
+    public function trimAllAttributes()
+    {
+        foreach ($this as $attribute => $value) {
+            if (is_string($value)) {
+                $this->$attribute = trim($value);
+            }
+        }
     }
 
     /**
@@ -62,10 +101,43 @@ class Filter extends Model
     public function filter()
     {
         $this->joins();
+        $this->trimAllAttributes();
         $methods = get_class_methods($this);
         foreach ($methods as $v) {
-            if (substr($v, 0, 6)=='filter' && $v !=='filter') {
+            if (substr($v, 0, 6) == 'filter' && $v !== 'filter') {
                 $this->$v();
+            }
+        }
+        $this->sortBy();
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function sortBy()
+    {
+        if ($this->getSortField() && $this->getSortValue()) {
+            $this->getQuery()->orderBy([$this->getSortField() => $this->getSortValue()]);
+        }
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function filterSearchAll()
+    {
+        $searchString = $this->stringForSearchAll();
+        $fields = $this->getFilterFields($this->fieldsForSearchAll());
+        if ($searchString && $fields) {
+            foreach ($fields as $attribute => $fieldName) {
+                $methodName = $attribute . 'SearchAll';
+                if (method_exists($this, $methodName)) {
+                    $this->$methodName();
+                } else {
+                    $this->getQuery()->orWhere(['LIKE', $fieldName, $searchString]);
+                }
             }
         }
         return $this;
@@ -74,34 +146,16 @@ class Filter extends Model
     /**
      * @return $this
      */
-    public function filterSearchAll(){
-        $searchString = $this->stringForSearchAll();
-        $fields = $this->fieldsForSearchAll();
-        if ($searchString && $fields){
-            foreach ($fields as $attribute => $fieldName){
-                if (method_exists($this,$attribute.'SearchAll')){
-                    $methodName = $attribute.'SearchAll';
-                    $this->$methodName();
-                } else {
-                    $this->getQuery()->orWhere(['LIKE',$fieldName,$searchString]);
-                }
-             }
-        }
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function filterSearchIndividual(){
-        if ($fields = $this->getFilterFields('fieldsForSearchIndividual')){
-            foreach ($fields as $attribute => $fieldName){
+    public function filterSearchIndividual()
+    {
+        if ($fields = $this->getFilterFields($this->fieldsForSearchIndividual())) {
+            foreach ($fields as $attribute => $fieldName) {
                 if ($this->$attribute) {
-                    $methodName = $attribute.'SearchIndividual';
-                 //   dump($methodName);
-                    if (method_exists($this,$methodName)){
+                    $methodName = $attribute . 'SearchIndividual';
+                    //   dump($methodName);
+                    if (method_exists($this, $methodName)) {
                         $this->$methodName();
-                    } else{
+                    } else {
                         $this->getQuery()->andWhere(['LIKE', $fieldName, $this->$attribute]);
                     }
                 }
@@ -110,14 +164,29 @@ class Filter extends Model
         return $this;
     }
 
+    public function filterComparisonMore()
+    {
+        if ($fields = $this->getFilterFields($this->fieldsComparisonMore())) {
+            foreach ($fields as $attribute => $fieldName) {
+                if ($this->$attribute !== null) {
+                    $this->getQuery()->andWhere(['>', $fieldName, (float)$this->$attribute])->orWhere([$fieldName=>$this->$attribute]);
+                 //   $this->getQuery()->andWhere(['OR',['AND',['<',$fieldName, (float)$this->$attribute]],['OR',[$fieldName=>$this->$attribute]]]);
+
+                }
+            }
+           // dump($this->getQuery()->createCommand()->getRawSql(),1);
+        }
+    }
+
     /**
      * @return $this
      */
-    public function filterEquating(){
-        if ($fields = $this->getFilterFields('fieldsForEquating')){
-            foreach ($fields as $attribute => $fieldName){
-                if (method_exists($this,$attribute.'Equating')){
-                    $methodName = $attribute.'Equating';
+    public function filterEquating()
+    {
+        if ($fields = $this->getFilterFields($this->fieldsForEquating())) {
+            foreach ($fields as $attribute => $fieldName) {
+                if (method_exists($this, $attribute . 'Equating')) {
+                    $methodName = $attribute . 'Equating';
                     $this->$methodName();
                 } else {
                     $this->getQuery()->andWhere([$fieldName => $this->$attribute]);
@@ -133,24 +202,25 @@ class Filter extends Model
     public function joins()
     {
         $rules = $this->joinRules();
-        foreach ($rules as $v){
-            $rule = is_string($v) ? [$v,$v] : $v;
+        foreach ($rules as $v) {
+            $rule = is_string($v) ? [$v, $v] : $v;
             $attribute = $rule[0];
-            if ($this->$attribute || ($this->stringForSearchAll() && $this->existingFields($attribute,'fieldsForSearchAll'))){
-                $this->getQuery()->joinWith($rule[1].' AS '.$rule[0]);
+            if ($this->$attribute || ($this->stringForSearchAll() && $this->existingFields($attribute, 'fieldsForSearchAll'))) {
+                $this->getQuery()->joinWith($rule[1] . ' AS ' . $rule[0]);
             }
         }
     }
 
     /**
-     * @param $method
+     * @param array $rules
      * @return array
      */
-    protected function getFilterFields($method){
+    protected function getFilterFields($rules = [])
+    {
         $result = [];
-        if ($this->$method()){
-            foreach ($this->$method() as $attribute => $fieldName){
-                if (is_numeric($attribute)){
+        if ($rules) {
+            foreach ($rules as $attribute => $fieldName) {
+                if (is_numeric($attribute)) {
                     $attribute = $fieldName;
                 }
                 $result[$attribute] = $fieldName;
@@ -159,8 +229,9 @@ class Filter extends Model
         return $result;
     }
 
-    protected function existingFields($attribute, $method){
-         return key_exists($attribute,$this->getFilterFields($method));
+    protected function existingFields($attribute, $method)
+    {
+        return key_exists($attribute, $this->getFilterFields($this->$method()));
     }
 
     /**
@@ -168,12 +239,13 @@ class Filter extends Model
      * @param ActiveQuery|null $query
      * @return Filter
      */
-    public static function getInstance(array $config=[],ActiveQuery $query=null){
+    public static function getInstance(array $config = [], ActiveQuery $query = null)
+    {
         $instance = new static($config);
-         if ($query){
-             $instance->setQuery($query);
-         }
-         return $instance;
+        if ($query) {
+            $instance->setQuery($query);
+        }
+        return $instance;
     }
 
     /**
@@ -181,8 +253,9 @@ class Filter extends Model
      * @param ActiveQuery|null $query
      * @return ActiveQuery
      */
-    public static function find(array $config=[],ActiveQuery $query=null){
-        return static::getInstance($config,$query)->filter()->getQuery();
+    public static function find(array $config = [], ActiveQuery $query = null)
+    {
+        return static::getInstance($config, $query)->filter()->getQuery();
     }
 
 }

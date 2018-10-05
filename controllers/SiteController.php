@@ -2,8 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\CustomerFirms;
+use app\models\db_data_processing\ExecutorDelete;
+use app\models\db_data_processing\RTFirms;
 use app\models\filter\RailwayTransitFilter;
 use app\models\Firms;
+use app\models\helper\Main;
 use app\models\json_parser\Contracts;
 use app\models\json_parser\Parser;
 use app\models\RailwayTransit;
@@ -30,7 +34,7 @@ class SiteController extends Controller
             'rules' => [
                 [
                     'allow' => true,
-                    'ips' => ['46.250.16.180']
+                    'ips' => ['213.231.31.66']
                 ]
             ],
             'except' => ['index', 'error'],
@@ -86,12 +90,21 @@ class SiteController extends Controller
 
     public function actionDebug()
     {
-        // $ins = Firms::find()->all();
-
-//         foreach ($ins as $item){
-//             $item->test = 7;
-//             $item->save();
-//         }
+        RTFirms::allTo();
     }
 
+    public function actionReplaceName()
+    {
+        static::replaceName(\app\models\RTFirms::className());
+    }
+
+    private static function replaceName($modelName, $attribute = 'name')
+    {
+        foreach ($modelName::find()->all() as $instance) {
+            $instance->$attribute = Main::stringToProperName($instance->$attribute);
+            $instance->save();
+        }
+    }
+
+    //contracts customerFirms
 }

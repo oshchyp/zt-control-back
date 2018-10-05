@@ -52,4 +52,17 @@ class Main
         return static::generateUid(ArrayHelper::getColumn($array,$uidAttr));
     }
 
+    public static function stringToProperName($string){
+        $result = [];
+        foreach (explode(' ',$string) as $str){
+            $result[] = static::mbUcfirst(mb_strtolower($str));
+        }
+        return implode(' ',$result);
+    }
+
+    public static function mbUcfirst($str) {
+        $fc = mb_strtoupper(mb_substr($str, 0, 1));
+        return $fc.mb_substr($str, 1);
+    }
+
 }

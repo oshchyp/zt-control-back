@@ -111,11 +111,17 @@ class RailwayTransit extends Model implements ModelExcelInterface
 
     public function cultureNameConverter($cultureName){
 
+//        $convertArray = [
+//            'кукуруза' => 'Кукуруза',
+//            'ячмень' => 'Ячмень',
+//            'пшеница' => 'Пшеница',
+//            'ПОДСОЛ' => 'Подсолнух'
+//        ];
         $convertArray = [
-            'кукуруза' => 'Кукуруза',
-            'ячмень' => 'Ячмень',
-            'пшеница' => 'Пшеница',
-            'ПОДСОЛ' => 'Подсолнух'
+            'кукуруза' => 'кукурудза',
+            'ячмень' => 'ячмінь',
+            'пшеница' => 'пшениця',
+            'ПОДСОЛ' => 'соняшник'
         ];
 
         return isset($convertArray[$cultureName]) ? $convertArray[$cultureName] : $cultureName;

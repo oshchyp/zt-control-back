@@ -35,6 +35,21 @@ interface ModelFilterInterface
     /**
      * @return mixed
      */
+    public function fieldsComparisonMore();
+
+    /**
+     * @return mixed
+     */
     public function joinRules();
+
+    /**
+     * @return string
+     */
+    public function getSortValue();
+
+    /**
+     * @return string
+     */
+    public function getSortField();
 
 }

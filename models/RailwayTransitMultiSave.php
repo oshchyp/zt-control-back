@@ -31,13 +31,16 @@ class RailwayTransitMultiSave extends model
     public function save($newRecord=false){
         $this->_savedData = [];
         if (!$this->wagons || !is_array($this->wagons)){
-            $this->addError('wagons','Wagons are absent');
-            return;
+//            $this->addError('wagons','Wagons are absent');
+//            return;
+            $this->wagons[] = [];
         }
         foreach ($this->wagons as $wagonInfo){
             $instance = RailwayTransitWagons::getInstanceRTbyData($wagonInfo,$newRecord);
             $instance->attributes = $this->generalInfo;
-         //  dump($this->generalInfo,1);
+//            dump($this->generalInfo);
+//          //  dump($instance->forwarderFirmName);
+//            dump($instance->attributes,1);
             $instance->save();
             if ($instance->hasErrors()){
                 $this->addErrors(['wagon '.$instance->getWagonName() => $instance->getErrors()]);

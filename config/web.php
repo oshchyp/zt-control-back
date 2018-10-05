@@ -91,6 +91,7 @@ $config = [
                 'PUT api/railway-transit/complete' => 'api/railway-transit/complete',
                 'POST api/railway-transit/completed' => 'api/railway-transit/completed',
                 'POST api/railway-transit/list' => 'api/railway-transit/list',
+                'GET api/railway-transit/extra-data' => 'api/railway-transit/extra-data',
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/railway-transit' => 'api/railway-transit'],
@@ -131,7 +132,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['127.0.0.1', '::1', '213.231.13.123'],
+        'allowedIPs' => ['127.0.0.1', '::1', '213.231.31.66'],
     ];
 }
 

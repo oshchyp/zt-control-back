@@ -16,8 +16,6 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
 
     public $customerFirm;
 
-    public $executorFirm;
-
     public $wagonNumber;
 
     public $consignmentNumber;
@@ -46,7 +44,7 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
 
     public $contract;
 
-    public $different;
+    public $differentWeight;
 
     public $datePlane;
 
@@ -56,6 +54,11 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
 
     public $ownershipWagon;
 
+    public $addInfo;
+
+    public $sortField = 'id';
+
+    public $sortValue = 'DESC';
 
     public $stringForSearchAll;
 
@@ -66,6 +69,52 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
             $this->setQuery($query);
         }
     }
+
+    public function rules()
+    {
+        $rules = parent::rules();
+        $rules[] = [['stringForSearchAll', 'sortField', 'sortValue', 'datePlane','dateArrival'], 'string'];
+        // $rules[] = [['stringForSearchAll','sortField','sortValue'],'string'];
+        return $rules;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSortField()
+    {
+        $array = [
+            'id' => 'railwayTransit.id',
+            'weight' => 'weight',
+            'unloadingWeight' => 'unloadingWeight',
+            'loadingWeight' => 'loadingWeight',
+            'price' => 'price',
+            'tariff' => 'tariff',
+            'differentWeight' => '`loadingWeight` - `unloadingWeight`',
+            'datePlane' => 'datePlane',
+            'dateArrival' => 'dateArrival',
+            'addInfo' => 'addInfo'
+        ];
+        if ($this->sortField && key_exists($this->sortField, $array)) {
+            return $array[$this->sortField];
+        }
+        return null;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getSortValue()
+    {
+        if (mb_strtolower($this->sortValue) == 'asc') {
+            return SORT_ASC;
+        } else if (mb_strtolower($this->sortValue) == 'desc')
+            return SORT_DESC;
+
+        return null;
+    }
+
 
     /**
      * @return mixed
@@ -81,27 +130,35 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
     public function fieldsForSearch()
     {
         return [
-            'customerFirm' => 'customerFirms.name',
-            'executorFirm' => 'executorFirm.name',
+            'customerFirm' => 'customerFirm.name',
             'wagonNumber',
             'consignmentNumber',
-            'weight',
-            'unloadingWeight',
             'destinationStation' => 'destinationStation.name',
             'departureStation' => 'departureStation.name',
             'product' => 'product.name',
             'forwarderFirm' => 'forwarderFirm.name',
             'class',
-            'loadingWeight',
-            'price',
+            'addInfo',
             'additionalPrice',
-            'tariff',
+
             'contract' => 'contract.name',
-            'different' => '(loadingWeight - unloadingWeight)',
-            'datePlane' => 'FROM_UNIXTIME (`datePlane`,"%Y.%m.%d")',
-            'dateArrival' => 'FROM_UNIXTIME (`dateArrival`,"%Y.%m.%d")',
-            'status',
             'ownershipWagon'
+        ];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function fieldsComparisonMore()
+    {
+        return [
+              'weight'=>'cast(`weight` as decimal(10,2))',
+              'unloadingWeight'=>'cast(`unloadingWeight` as decimal(10,2))',
+              'loadingWeight'=>'cast(`loadingWeight` as decimal(10,2))',
+            ///  'differentWeight' => '(cast(`loadingWeight` as decimal(5,2)) - cast(`unloadingWeight` as decimal(5,2)))',
+               'differentWeight' => '(`loadingWeight` - `unloadingWeight`)',
+              'price'=>'cast(`price` as decimal(10,2))',
+              'tariff'=>'cast(`tariff` as decimal(10,2))',
         ];
     }
 
@@ -121,6 +178,7 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
         return $this->fieldsForSearch();
     }
 
+
     /**
      * @return mixed|void
      */
@@ -135,24 +193,58 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
     public function joinRules()
     {
         return [
-            'customerFirm', 'executorFirm', 'destinationStation', 'departureStation', 'product', 'forwarderFirm', 'contract'
+            'customerFirm', 'destinationStation', 'departureStation', 'product', 'forwarderFirm', 'contract',
         ];
     }
 
-    /**
-     *
-     */
-    public function statusSearchAll()
+    public static function getDataArray($string)
     {
-        $this->searchAttrByItems(RailwayTransit::statuses(), $this->stringForSearchAll(), 'statusID');
+        $format = ['d', 'm', 'Y'];
+        $explode = explode('.', $string);
+        $result = [
+            'Y' => null,
+            'm' => null,
+            'd' => null
+        ];
+        foreach ($format as $k => $v) {
+            if (array_key_exists($k, $explode)) {
+                $result[$v] = $explode[$k];
+            }
+        }
+        return $result;
+    }
+
+
+    public function setDataWhere($attr){
+        $dataArr = $this->getDataArray($this->$attr);
+        foreach ($dataArr as $k => $v) {
+            if ($v) {
+                $this->getQuery()->andWhere(['FROM_UNIXTIME (`'.$attr.'`,"%' . $k . '")' => $v]);
+            }
+        }
+       // dump($this->$differentWeight,1);
+    }
+
+    public function filterDate()
+    {
+        $this->setDataWhere('datePlane');
+        $this->setDataWhere('dateArrival');
     }
 
     /**
      *
      */
-    public function statusSearchIndividual()
+    public function classSearchAll()
     {
-        $this->searchAttrByItems(RailwayTransit::statuses(), $this->status, 'statusID');
+        $this->searchAttrByItems(RailwayTransit::classes(), $this->stringForSearchAll(), 'classID');
+    }
+
+    /**
+     *
+     */
+    public function classSearchIndividual()
+    {
+        $this->searchAttrByItems(RailwayTransit::classes(), $this->class, 'classID');
     }
 
     /**
@@ -168,21 +260,22 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
      */
     public function ownershipWagonSearchIndividual()
     {
-        $this->searchAttrByItems(RailwayTransit::ownershipWagons(), $this->ownershipWagon, 'ownershipWagonID');
+        $this->searchAttrByItems(RailwayTransit::ownershipWagons(), $this->ownershipWagon, 'ownershipWagonID','andWhere');
     }
 
     /**
      * @param $items
      * @param $string
      * @param $fieldName
+     * @param string $methodWhere
      * @param string $nameAttr
      * @param string $idAttr
      */
-    private function searchAttrByItems($items, $string, $fieldName, $nameAttr = 'name', $idAttr = 'id')
+    private function searchAttrByItems($items, $string, $fieldName, $methodWhere = 'orWhere', $nameAttr = 'name', $idAttr = 'id')
     {
         if ($string) {
             $statusIDs = static::_findIdsByNameFromItems($items, $string, $nameAttr, $idAttr);
-            $this->getQuery()->orWhere(['IN', $fieldName, $statusIDs]);
+            $this->getQuery()->$methodWhere(['IN', $fieldName, $statusIDs]);
         }
     }
 
@@ -204,5 +297,6 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
         }
         return $IDs;
     }
+
 
 }

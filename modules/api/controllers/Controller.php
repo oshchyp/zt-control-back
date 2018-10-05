@@ -53,7 +53,7 @@ class Controller extends MainController
     public $responseErrors = [];
 
     public $responseCode;
-    public $rowsPerPageDefault=1000;
+    public $rowsPerPageDefault = 1000;
 
     public function init()
     {
@@ -203,7 +203,7 @@ class Controller extends MainController
             $condition = 'ifSuccess';
         }
 
-        $rules = ArrayHelper::getValue($rules, $responseParamKey . '.' . $condition, $defaultRule);
+        $rules = ArrayHelper::getValue($rules, $responseParamKey.'.'.$condition, $defaultRule);
         $this->_setResponseParams($rules);
     }
 
@@ -242,19 +242,23 @@ class Controller extends MainController
         return $this->responseData;
     }
 
-
     public function filter(Filter $filter)
     {
         $filter->attributes = ArrayHelper::getValue($this->getRequestData(), 'filter', []);
         $filter->setQuery($this->getQuery())->filter();
     }
 
+
+    public function getPage(){
+        $page  = (int)ArrayHelper::getValue($this->getRequestData(), 'pagination.page', 1)-1;
+        return $page <  0 ? 0 : $page;
+    }
+
     public function setPagination()
     {
         $pages = new Pagination(['totalCount' => $this->getQuery()->count()]);
-        $pages->setPage(ArrayHelper::getValue($this->getRequestData(), 'pagination.page', 0));
+        $pages->setPage($this->getPage());
         $pages->setPageSize(ArrayHelper::getValue($this->getRequestData(), 'pagination.rowsPerPage', $this->rowsPerPageDefault));
-
 
         $this->responseExtraData['pagination'] = [
             'links' => $pages->getLinks(),
@@ -264,6 +268,7 @@ class Controller extends MainController
         ];
 
         $this->getQuery()->offset($pages->offset)->limit($pages->limit);
+
         return $this;
     }
 
@@ -285,7 +290,7 @@ class Controller extends MainController
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ONE);
     }
 
-    public function activeCreate($events)
+    public function activeCreate($events=null)
     {
         $this->responseData = $this->resource;
         if ($events) {
@@ -335,7 +340,6 @@ class Controller extends MainController
         if ($this->responseData) {
             if (is_array($this->responseData) && count($this->responseData) < 11) {
                 foreach ($this->responseData as $model) {
-                    dump($model->delete(),1);
                     $model->delete();
                 }
             } elseif (is_object($this->responseData)) {
@@ -343,7 +347,6 @@ class Controller extends MainController
             } else {
                 $this->responseData = null;
             }
-
         }
         $this->setResponseParams(static::RESPONSE_PARAMS_DELETE);
     }

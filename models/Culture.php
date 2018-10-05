@@ -12,6 +12,7 @@ use yii\helpers\ArrayHelper;
  * @property int $id
  * @property string $uid
  * @property string $name
+ * @property int $classesExist
  */
 class Culture extends ActiveRecord
 {
@@ -19,6 +20,12 @@ class Culture extends ActiveRecord
     public static $allInstances = null;
 
     public $addInstanceAfterSave = false;
+
+
+    /**
+     * @var
+     */
+    public $test;
 
     /**
      * {@inheritdoc}
@@ -51,10 +58,28 @@ class Culture extends ActiveRecord
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function fields()
+    {
+
+       return ['id','uid','name','classes'];
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
     public static function getInstanceByName($name){
         return parent::getInstanceByAttrValue($name,'name');
     }
 
+    /**
+     * @param $name
+     * @return mixed
+     *
+     */
     public static function getInstanceByNameOrSave($name){
         $instance = static::getInstanceByName($name);
         $instance->setEventsParsing();
@@ -63,5 +88,12 @@ class Culture extends ActiveRecord
             $instance->save();
         }
         return $instance;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getClasses(){
+        return $this->classesExist ? RailwayTransit::classes() : null;
     }
 }
