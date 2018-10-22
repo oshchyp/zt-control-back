@@ -10,6 +10,7 @@ use yii\helpers\ArrayHelper;
  * This is the model class for table "firms".
  *
  * @property int $id
+ * @property string uid
  * @property string $name
  * @property string $director
  * @property string $rdpu
@@ -118,13 +119,16 @@ class Firms extends ActiveRecord
         $this->saveDistances = $value;
     }
 
+    /**
+     *
+     */
     public function saveContacts(){
         if ($this->saveContacts === null)
             return;
-        Contacts::updateAll(['firmUID'=>NULL],['firmUID' => $this->uid]);
+        Contacts::deleteAll(['firmUID'=>$this->uid]);
         if ($this->saveContacts && is_array($this->saveContacts)){
             foreach ($this->saveContacts as $contactInfo){
-                $object = Contacts::getInstanceByUIDWithoutFirm(ArrayHelper::getValue($contactInfo,'uid'));
+                $object = new Contacts();
                 $object->attributes = $contactInfo;
                 $object->firmUID = $this->uid;
                 $object->save();

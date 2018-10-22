@@ -82,6 +82,12 @@ $config = [
                     'controller' => ['api/regions' => 'api/regions'],
                 ],
 
+                ///////REGIONS
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/elevators-crm' => 'api/elevators-crm'],
+                ],
+
 
 
 
@@ -132,7 +138,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['127.0.0.1', '::1', '213.231.31.66'],
+        'allowedIPs' => ['127.0.0.1', '::1', '94.74.94.102'],
     ];
 }
 

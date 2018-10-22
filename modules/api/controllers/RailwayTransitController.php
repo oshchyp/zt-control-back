@@ -32,11 +32,10 @@ class RailwayTransitController extends Controller
         RailwayTransit::setFormat('d.m.Y');
         $status = $completed_status ? RailwayTransit::STATUS_ID_COMPLETED : RailwayTransit::STATUS_ID_NEW;
         $this->filter(new RailwayTransitFilter());
-        $this->setPagination();
         $this->getQuery()->andWhere(['statusID'=>$status]);
-//        dump($this->getQuery()->createCommand()->getRawSql(),1);
+        $this->setPagination();
         $this->activeIndex();
-    }
+     }
 
     public function actionList(){
         $this->actionIndex();

@@ -73,7 +73,7 @@ class FirmsController extends Controller
             'points' => Regions::getAllPoints(),
             'distributionStatuses' => Firms::distributionStatuses()
         ];
-       $this->responseData = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]) ->all();
+       $this->responseData = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]) ->limit(10) ->all();
     }
 
     public function actionView($id)

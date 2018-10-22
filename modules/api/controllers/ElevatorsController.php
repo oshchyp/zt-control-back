@@ -8,6 +8,7 @@
 
 namespace app\modules\api\controllers;
 
+use app\models\Elevators;
 use app\modules\api\models\LogisticAPI;
 use yii\filters\AccessControl;
 
@@ -47,6 +48,8 @@ class ElevatorsController extends Controller
 
         return $behaviors;
     }
+
+
 
     public function actionIndex()
     {

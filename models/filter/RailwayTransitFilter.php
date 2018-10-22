@@ -236,7 +236,8 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
      */
     public function classSearchAll()
     {
-        $this->searchAttrByItems(RailwayTransit::classes(), $this->stringForSearchAll(), 'classID');
+        $statusIDs = static::_findIdsByNameFromItems(RailwayTransit::classes(), $this->stringForSearchAll());
+        return ['IN', 'classID', $statusIDs];
     }
 
     /**
@@ -252,7 +253,9 @@ class RailwayTransitFilter extends Filter implements ModelFilterInterface
      */
     public function ownershipWagonSearchAll()
     {
-        $this->searchAttrByItems(RailwayTransit::ownershipWagons(), $this->stringForSearchAll(), 'ownershipWagonID');
+
+        $statusIDs = static::_findIdsByNameFromItems(RailwayTransit::ownershipWagons(), $this->stringForSearchAll());
+        return ['IN', 'ownershipWagonID', $statusIDs];
     }
 
     /**

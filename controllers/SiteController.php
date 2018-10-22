@@ -5,6 +5,8 @@ namespace app\controllers;
 use app\models\CustomerFirms;
 use app\models\db_data_processing\ExecutorDelete;
 use app\models\db_data_processing\RTFirms;
+use app\models\filter\FilterData;
+use app\models\filter\FirmsFilter;
 use app\models\filter\RailwayTransitFilter;
 use app\models\Firms;
 use app\models\helper\Main;
@@ -34,7 +36,7 @@ class SiteController extends Controller
             'rules' => [
                 [
                     'allow' => true,
-                    'ips' => ['213.231.31.66']
+                    'ips' => ['94.74.94.102']
                 ]
             ],
             'except' => ['index', 'error'],
@@ -90,7 +92,17 @@ class SiteController extends Controller
 
     public function actionDebug()
     {
-        RTFirms::allTo();
+        $filterInstance = new FirmsFilter();
+       // $filterInstance->edrferferf;
+        dump($filterInstance->search([
+            'square|range:>'=>55, 'nearElevatorUID=>'
+//            'name'=>'test',
+//            'rdpu'=>'wefd',
+//            'regionUID'=>'eq1',
+//            'sender'=>'eq3',
+//            'square'=>23
+        ])->createCommand()->getRawSql());
+        dump($filterInstance->attributes);
     }
 
     public function actionReplaceName()

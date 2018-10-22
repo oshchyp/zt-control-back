@@ -16,13 +16,12 @@ use yii\db\Query;
 /**
  * Class Filter
  * @package app\models\filter
- * @mixin RailwayTransitFilter
  */
 class Filter extends Model
 {
 
     /**
-     * @var
+     * @var ActiveQuery
      */
     private $query;
 
@@ -131,14 +130,16 @@ class Filter extends Model
         $searchString = $this->stringForSearchAll();
         $fields = $this->getFilterFields($this->fieldsForSearchAll());
         if ($searchString && $fields) {
+            $where = ['or'];
             foreach ($fields as $attribute => $fieldName) {
                 $methodName = $attribute . 'SearchAll';
                 if (method_exists($this, $methodName)) {
-                    $this->$methodName();
+                    $where[] = $this->$methodName();
                 } else {
-                    $this->getQuery()->orWhere(['LIKE', $fieldName, $searchString]);
+                    $where[] = ['LIKE', $fieldName, $searchString];
                 }
             }
+            $this->getQuery()->andWhere($where);
         }
         return $this;
     }
@@ -169,7 +170,7 @@ class Filter extends Model
         if ($fields = $this->getFilterFields($this->fieldsComparisonMore())) {
             foreach ($fields as $attribute => $fieldName) {
                 if ($this->$attribute !== null) {
-                    $this->getQuery()->andWhere(['>', $fieldName, (float)$this->$attribute])->orWhere([$fieldName=>$this->$attribute]);
+                    $this->getQuery()->andWhere(['or',['>', $fieldName, (float)$this->$attribute],[$fieldName=>$this->$attribute]]);
                  //   $this->getQuery()->andWhere(['OR',['AND',['<',$fieldName, (float)$this->$attribute]],['OR',[$fieldName=>$this->$attribute]]]);
 
                 }

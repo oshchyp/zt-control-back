@@ -321,7 +321,7 @@ class Controller extends MainController
         $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 
-    public function activeDelete()
+    public function activeDelete($id=null)
     {
         if ($this->getRequestData()) {
             $id = $this->getRequestData();

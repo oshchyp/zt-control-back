@@ -13,37 +13,37 @@ interface ModelFilterInterface
 {
 
     /**
-     * @return mixed
+     * @return array
      */
     public function stringForSearchAll();
 
     /**
-     * @return mixed
+     * @return array
      */
     public function fieldsForSearchAll();
 
     /**
-     * @return mixed
+     * @return array
      */
     public function fieldsForSearchIndividual();
 
     /**
-     * @return mixed
+     * @return array
      */
     public function fieldsForEquating();
 
     /**
-     * @return mixed
+     * @return array
      */
     public function fieldsComparisonMore();
 
     /**
-     * @return mixed
+     * @return array
      */
     public function joinRules();
 
     /**
-     * @return string
+     * @return mixed
      */
     public function getSortValue();
 
