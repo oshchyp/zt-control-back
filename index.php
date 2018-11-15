@@ -15,7 +15,8 @@ function dump($var, $kill = false)
     }
 }
 
-// comment out the following two lines when deployed to production
+
+//$_SERVER['DOCUMENT_ROOT']  = '';
 
 
 if (YII_DEBUG) {
@@ -30,7 +31,7 @@ require __DIR__.'/vendor/yiisoft/yii2/Yii.php';
 $config = require __DIR__.'/config/web.php';
 
 
-
+dump($config,1);
 
 (new yii\web\Application($config))->run();
 

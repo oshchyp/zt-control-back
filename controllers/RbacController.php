@@ -22,7 +22,7 @@ class RbacController extends Controller
             'rules' => [
                 [
                     'allow' => true,
-                    'ips' => ['94.74.94.127']
+                    'ips' => ['185.6.187.44']
                 ]
             ],
             'denyCallback' => function(){
@@ -54,7 +54,7 @@ class RbacController extends Controller
     public function actionAdd_role()
     {
         $userRole = Yii::$app->authManager->createRole('admin');
-        Yii::$app->authManager->assign($userRole, 1);
+        Yii::$app->authManager->assign($userRole, 3);
     }
 
     public function createRole(){

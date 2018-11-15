@@ -73,7 +73,7 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/firms' => 'api/firms'],
                 ],
-                'POST api/firms/list' => 'api/firms/index',
+                'POST api/firms/list' => 'api/firms/list',
 
 
                 ///////REGIONS
@@ -103,6 +103,18 @@ $config = [
                     'controller' => ['api/railway-transit' => 'api/railway-transit'],
                 ],
 
+                //////////railway transit new version
+                'PUT,PATCH api_v1/railway-transit' => 'api_v1/railway-transit/update',
+                'DELETE api_v1/railway-transit' => 'api_v1/railway-transit/delete',
+                'PUT api_v1/railway-transit/complete' => 'api_v1/railway-transit/complete',
+                'POST api_v1/railway-transit/completed' => 'api_v1/railway-transit/completed',
+                'POST api_v1/railway-transit/list' => 'api_v1/railway-transit/list',
+                'GET api_v1/railway-transit/extra-data' => 'api_v1/railway-transit/extra-data',
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api_v1/railway-transit' => 'api_v1/railway-transit'],
+                ],
+
 
             ],
         ],
@@ -119,6 +131,9 @@ $config = [
     'modules' => [
         'api' => [
             'class' => 'app\modules\api\Module',
+        ],
+        'api_v1' => [
+            'class' => 'app\modules\api1\Module',
         ],
     ],
 

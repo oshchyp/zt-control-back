@@ -6,6 +6,7 @@ use app\models\ActiveRecord;
 use app\models\Contacts;
 use app\models\Culture;
 use app\models\Elevators;
+use app\models\filter\FirmsFilter;
 use app\models\Firms;
 use app\models\firmsFilter\ColumnSearchStr;
 use app\models\firmsFilter\FullFilter;
@@ -61,8 +62,6 @@ class FirmsController extends Controller
     public function actionIndex()
     {
 
-     //   dump(\Yii::$app->request->getHeaders(),1);
-
         Regions::$getAllPoints = true;
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
@@ -73,30 +72,22 @@ class FirmsController extends Controller
             'points' => Regions::getAllPoints(),
             'distributionStatuses' => Firms::distributionStatuses()
         ];
-       $this->responseData = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]) ->limit(10) ->all();
+
+        $this->filter(FirmsFilter::className());
+        $this->getQuery()->with(Firms::viewRelations());
+        $this->setPagination();
+
+        $this->activeIndex();
+    }
+
+    public function actionList(){
+         $this->actionIndex();
     }
 
     public function actionView($id)
     {
         parent::activeView($id);
     }
-
-     public function actionList(){
-         $this->responseExtraData = [
-             'contacts' => Contacts::find()->all(),
-             'regions' => ArrayHelper::toArray(Regions::find()->with('points')->all(), [Regions::className() => Regions::viewFields()]),
-             'posts' => Posts::findAll(),
-             'cultures' => Culture::find()->all()
-         ];
-         $query = Firms::find()->with(Firms::viewRelations())->orderBy(['id' => SORT_DESC]);
-
-         FullFilter::loadModel(['query'=>$query] + ArrayHelper::getValue($this->getRequestData(),'filter',[]));
-
-         $this->setPagination(clone $query)->setPaginationParamsToQuery($query)->setPaginationParamsToExtraData();
-         $this->responseData = $query->all();
-     }
-
-  //   public function
 
     public function actionCreate()
     {

@@ -99,7 +99,7 @@ class FilterData extends ActiveRecord
      */
     public function setSortField($sortField)
     {
-        $this->_sortField = $sortField;
+         $this->_sortField = $sortField;
     }
 
     /**

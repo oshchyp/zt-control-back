@@ -2,27 +2,22 @@
 
 namespace app\controllers;
 
-use app\models\CustomerFirms;
-use app\models\db_data_processing\ExecutorDelete;
-use app\models\db_data_processing\RTFirms;
-use app\models\filter\FilterData;
-use app\models\filter\FirmsFilter;
-use app\models\filter\RailwayTransitFilter;
-use app\models\Firms;
+use app\models\excelparser\RTModel;
+use app\models\excelparser\RTParser;
+use app\models\filter\RTFilter;
 use app\models\helper\Main;
 use app\models\json_parser\Contracts;
 use app\models\json_parser\Parser;
 use app\models\RailwayTransit;
+use app\models\ReflectionClass;
+use app\models\RelationsInfo;
 use app\models\xls\FirmsParser;
 use app\models\xls\ParserActiveRecord;
-use app\models\xls\ParserExcel;
 use Yii;
-use yii\db\ActiveRecord;
+use yii\base\Model;
 use yii\filters\AccessControl;
-use yii\helpers\FileHelper;
-use yii\helpers\VarDumper;
-use yii\web\Response;
 use yii\web\Controller;
+use yii\web\HttpException;
 
 class SiteController extends Controller
 {
@@ -36,7 +31,7 @@ class SiteController extends Controller
             'rules' => [
                 [
                     'allow' => true,
-                    'ips' => ['94.74.94.102']
+                    'ips' => ['185.6.187.44']
                 ]
             ],
             'except' => ['index', 'error'],
@@ -47,67 +42,41 @@ class SiteController extends Controller
         return $behaviors;
     }
 
-    /*
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndex()
-    {
 
-        return $this->render('index');
-    }
 
     public function actionError()
     {
-        return Yii::$app->response->redirect('/');
+      //  dump(Yii::getAlias('@app'),1);
+      return 'werf';
     }
 
 
-
-    public function actionParseRailwayTransit(){
-
-    }
-
-    public function actionParseRailwayContracts(){
-
+    public function actionDebug()
+    {
+        $instance = ReflectionClass::getInstance(RailwayTransit::className());
+        $start = microtime(true);
+        $instance->relationsId();
+        $time = microtime(true) - $start;
+        dump($time,1);
+        die();
     }
 
     public function actionXls()
     {
-        ini_set('memory_limit', '1024M');
-        ini_set('max_execution_time', 300);
-
-        $config = [
-            'file' => '@app/files/xls/railway.xls',
-            'model' => \app\models\xls\RailwayTransit::className(),
-            'activeSheet' => 2,
-            'fromRow' => RailwayTransit::find()->count()-1,
-           // 'toRow' => 10032,
-        ];
-       // dump($config['fromRow'],1);
-        ParserExcel::getInstance($config)->parse();
+        RTParser::parser([
+            'activeSheet'=>2,
+            'readerFilterOptions'=>[
+                'rowMin' => 2,
+                'rowMax'=>100
+            ]
+        ]);
+        dump(RTModel::$counter);
         die();
- }
-
-    public function actionDebug()
-    {
-        $filterInstance = new FirmsFilter();
-       // $filterInstance->edrferferf;
-        dump($filterInstance->search([
-            'square|range:>'=>55, 'nearElevatorUID=>'
-//            'name'=>'test',
-//            'rdpu'=>'wefd',
-//            'regionUID'=>'eq1',
-//            'sender'=>'eq3',
-//            'square'=>23
-        ])->createCommand()->getRawSql());
-        dump($filterInstance->attributes);
     }
 
     public function actionReplaceName()
     {
-        static::replaceName(\app\models\RTFirms::className());
+        static::replaceName(\app\models\Stations::className());
     }
 
     private static function replaceName($modelName, $attribute = 'name')
@@ -118,5 +87,6 @@ class SiteController extends Controller
         }
     }
 
-    //contracts customerFirms
+
+
 }

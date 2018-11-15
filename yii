@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+#!/usr/bin/php
 <?php
 /**
  * Yii console bootstrap file.
@@ -7,6 +7,18 @@
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
+
+function dump($var, $kill = false)
+{
+    if (YII_DEBUG) {
+        echo '<pre>';
+        var_dump($var);
+        echo '</pre>';
+        if ($kill) {
+            die();
+        }
+    }
+}
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');

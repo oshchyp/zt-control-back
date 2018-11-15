@@ -3,6 +3,7 @@
 namespace app\modules\api\controllers;
 
 use app\models\filter\Filter;
+use app\models\filter\FilterDataTrait;
 use Yii;
 use yii\data\Pagination;
 use yii\db\ActiveQuery;
@@ -53,10 +54,14 @@ class Controller extends MainController
     public $responseErrors = [];
 
     public $responseCode;
-    public $rowsPerPageDefault = 1000;
+    public $rowsPerPageDefault = 10;
 
     public function init()
     {
+
+
+        Yii::$app->response->getHeaders()->add('Access-Control-Allow-Origin', '*');
+
         Yii::$app->response->on(Response::EVENT_BEFORE_SEND, function ($event) {
             $response = $event->sender;
             if ($response->statusCode == 500 && YII_DEBUG) {
@@ -84,6 +89,10 @@ class Controller extends MainController
                 'class' => HttpBearerAuth::className(),
                 'only' => isset($this->params['HttpBearerAuth']['only']) ? $this->params['HttpBearerAuth']['only'] : [],
             ],
+//            [
+//                'class' => \yii\filters\Cors::className(),
+//               // 'cors' => ['Origin' => ['*'], 'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'], 'Access-Control-Request-Headers' => ['*'], 'Access-Control-Allow-Credentials' => null, 'Access-Control-Max-Age' => 86400, 'Access-Control-Expose-Headers' => []]
+//            ],
         ];
 
         return $behaviors;
@@ -242,10 +251,12 @@ class Controller extends MainController
         return $this->responseData;
     }
 
-    public function filter(Filter $filter)
+    /**
+     * @param $className FilterDataTrait
+     */
+    public function filter($className)
     {
-        $filter->attributes = ArrayHelper::getValue($this->getRequestData(), 'filter', []);
-        $filter->setQuery($this->getQuery())->filter();
+        $className::search($this->getRequestData('filter'), $this->getQuery());
     }
 
 

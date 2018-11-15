@@ -9,12 +9,49 @@
 namespace app\modules\api\controllers;
 
 use app\models\filter\RailwayTransitFilter;
+use app\models\filter\RTFilter;
 use app\models\RailwayTransit;
 use app\models\RailwayTransitMultiSave;
+use yii\filters\AccessControl;
 
 class RailwayTransitController extends Controller
 {
 
+
+    /**
+     * @return array
+     */
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors[] = [
+            'class' => AccessControl::className(),
+            'rules' => [
+                [
+                    'actions' => ['index','view','list','extra-data','completed'],
+                    'allow' => true,
+                    'roles' => ['railroad-roads/view'],
+                ],
+                [
+                    'actions' => ['update','complete'],
+                    'allow' => true,
+                    'roles' => ['railroad-roads/update'],
+                ],
+                [
+                    'actions' => ['delete'],
+                    'allow' => true,
+                    'roles' => ['railroad-roads/delete'],
+                ],
+                [
+                    'actions' => ['create'],
+                    'allow' => true,
+                    'roles' => ['railroad-roads/create'],
+                ]
+            ],
+        ];
+
+        return $behaviors;
+    }
 
     public $rowsPerPageDefault = 10;
 
@@ -29,10 +66,14 @@ class RailwayTransitController extends Controller
      */
     public function actionIndex($completed_status = null)
     {
-        RailwayTransit::setFormat('d.m.Y');
         $status = $completed_status ? RailwayTransit::STATUS_ID_COMPLETED : RailwayTransit::STATUS_ID_NEW;
-        $this->filter(new RailwayTransitFilter());
+        $this->filter(RTFilter::className());
         $this->getQuery()->andWhere(['statusID'=>$status]);
+        if (!$this->getQuery()->orderBy){
+            $sortField = $status == RailwayTransit::STATUS_ID_COMPLETED ? 'railwayTransit.updated_at' : 'railwayTransit.id';
+            $this->getQuery()->orderBy(
+                [$sortField => SORT_DESC]);
+        }
         $this->setPagination();
         $this->activeIndex();
      }

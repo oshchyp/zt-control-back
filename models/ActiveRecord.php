@@ -56,22 +56,16 @@ class ActiveRecord extends \yii\db\ActiveRecord implements RestModelInterface
                 foreach ($object->attributes as $attr){
                   //  dump($attr,1);
                     $result[$attr][]=[
-                        'type'=>static::getValidatorName($object),
+                        'type'=>static::validatorName($object),
                         'message' => str_replace('{attribute}',$this->getAttributeLabel($attr),$object->message),
                     ];
                 }
-//                $result[static::getValidatorName($object)] = [
-//                    'type'=>static::getValidatorName($object),
-//                    'message' => $object->message,
-//                    'attributes' => $object->attributes,
-//                ];
             }
-          //  $result = array_values($result);
         }
         return $result;
     }
 
-    public static function getValidatorName($object){
+    public static function validatorName($object){
         $names = [
             'yii\validators\RequiredValidator' => 'required',
             'yii\validators\NumberValidator'=>'number',

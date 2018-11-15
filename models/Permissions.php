@@ -97,10 +97,26 @@ class Permissions extends \yii\db\ActiveRecord
                 'description' => 'Просмотр',
                 'convertName' => 'view'
             ],
+
+
             'railroad-roads/view' => [
                 'description' => 'Просмотр',
                 'convertName' => 'view'
             ],
+            'railroad-roads/update' => [
+                'description' => 'Обновление',
+                'convertName' => 'update'
+            ],
+            'railroad-roads/create' => [
+                'description' => 'Создание',
+                'convertName' => 'create'
+            ],
+            'railroad-roads/delete' => [
+                'description' => 'Удаление',
+                'convertName' => 'delete'
+            ],
+
+
             'railroad-history/view' => [
                 'description' => 'Просмотр',
                 'convertName' => 'view'
@@ -201,7 +217,7 @@ class Permissions extends \yii\db\ActiveRecord
                 'roads/view',
             ],
             'railroad-roads' => [
-                'railroad-roads/view',
+                'railroad-roads/view','railroad-roads/update','railroad-roads/create','railroad-roads/delete',
             ],
             'railroad-history' => [
                 'railroad-history/view',

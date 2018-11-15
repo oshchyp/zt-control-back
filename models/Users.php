@@ -19,7 +19,7 @@ use yii\web\IdentityInterface;
  */
 class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
-    public $perm;
+    private $_perm;
    // public $perm;
     /**
      * {@inheritdoc}
@@ -76,7 +76,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
                 }
             }
         }
-        $this->perm = $perms;
+        $this->_perm = $result;
     }
 
     public function beforeValidate()
@@ -87,12 +87,13 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     public function afterSave($insert, $changedAttributes){
-        if ($this->perm && is_array($this->perm)){
+      //  dump($this->_perm,1);
+        if ($this->_perm && is_array($this->_perm)){
             Yii::$app->authManager->db->createCommand()
                 ->delete(Yii::$app->authManager->assignmentTable, ['user_id' => $this->id])
                 ->execute();
 
-            foreach ($this->perm as $item) {
+            foreach ($this->_perm as $item) {
                 $roleObj = Yii::$app->authManager->createRole($item);
                 Yii::$app->authManager->assign($roleObj,$this->id);
             }
@@ -189,6 +190,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function sendMsg()
     {
+       // SMSApi::send($this->phone,$this->code);
     }
 
 

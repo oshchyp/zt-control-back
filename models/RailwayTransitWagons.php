@@ -32,13 +32,15 @@ class RailwayTransitWagons extends Model
 
     public $additionalPrice;
 
+    public $addInfo;
+
     private  $_instanceRailwayTransit;
 
     private  $_newRecord = false;
 
     public function rules (){
         return [
-            [['uid','wagonNumber', 'weight' , 'loadingWeight', 'unloadingWeight','ownershipWagonID','tariff','price','additionalPrice'], 'safe'],
+            [['uid','wagonNumber', 'weight' , 'loadingWeight', 'unloadingWeight','ownershipWagonID','tariff','price','additionalPrice','addInfo'], 'safe'],
         ];
     }
 

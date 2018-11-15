@@ -93,15 +93,15 @@ class Firms extends ActiveRecord
     public static function distributionStatuses(){
         return [
             [
-                'id'=>0,
+                'id'=>1,
                 'name' => 'Не участвует'
             ],
             [
-                'id'=>1,
+                'id'=>2,
                 'name' => 'Участвует'
             ],
             [
-                'id'=>2,
+                'id'=>3,
                 'name' => 'Добавить в рассылку'
             ]
         ];

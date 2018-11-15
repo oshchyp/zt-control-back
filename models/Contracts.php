@@ -15,6 +15,8 @@ use Yii;
  * @property string $regionUID
  * @property string $receiverPointUID
  * @property double $amount
+ * @property string $source
+ * @property integer $contractDate
  */
 class Contracts extends ActiveRecord
 {
@@ -57,4 +59,23 @@ class Contracts extends ActiveRecord
             'amount' => 'Amount',
         ];
     }
+
+    public function fields()
+    {
+        $fields = array_merge(parent::fields(),[
+            'allowEditDate',
+            'contractDate' => function (){
+                return DateSet::instance()->getDate($this->contractDate);
+            }
+        ]);
+        if (!$this->contractDate){
+            unset($fields['contractDate']);
+        }
+        return $fields;
+    }
+
+    public function getAllowEditDate(){
+        return $this->source === 'crm';
+    }
+
 }

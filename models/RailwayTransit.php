@@ -3,39 +3,42 @@
 namespace app\models;
 
 use app\models\helper\Main;
+use yii\web\Linkable;
+use yii\web\Link;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "railwayTransit".
  *
- * @property int    $id
+ * @property int $id
  * @property string $uid
  * @property string $customerFirmUID
- * @property int    $ownershipWagonID
- * @property int    $wagonNumber
- * @property int    $consignmentNumber
- * @property float  $weight
- * @property float  $loadingWeight
- * @property float  $unloadingWeight
- * @property int    $datePlane
+ * @property int $ownershipWagonID
+ * @property int $wagonNumber
+ * @property int $consignmentNumber
+ * @property float $weight
+ * @property float $loadingWeight
+ * @property float $unloadingWeight
+ * @property float $differentWeight
+ * @property int $datePlane
  * @property string $destinationStationUID
  * @property string $departureStationUID
  * @property string $productUID
  * @property string $forwarderFirmUID
- * @property int    $classID
+ * @property int $classID
  * @property string $class
- * @property int    $dateArrival
- * @property float  $price
- * @property float  $tariff
- * @property float  $additionalPrice       Дополнительные расходы
+ * @property int $dateArrival
+ * @property float $price
+ * @property float $tariff
+ * @property float $additionalPrice       Дополнительные расходы
  * @property string $contractUID
- * @property int    $statusID
+ * @property int $statusID
  * @property string $addInfo
- * @property int    $typeID
+ * @property int $typeID
+ * @property int $updated_at
  */
-class RailwayTransit extends ActiveRecord
+class RailwayTransit extends ActiveRecord implements Linkable
 {
-
-    public static $dateFormat = 'd.m.Y';
 
     public static $allInstances = null;
 
@@ -57,12 +60,12 @@ class RailwayTransit extends ActiveRecord
     public function rules()
     {
         return [
-         //   [['wagonNumber', 'consignmentNumber', 'contractUID'], 'required'],
-            [['wagonNumber', 'consignmentNumber', 'datePlane', 'classID', 'dateArrival', 'statusID', 'ownershipWagonID','typeID'], 'integer'],
+            //   [['wagonNumber', 'consignmentNumber', 'contractUID'], 'required'],
+            [['wagonNumber', 'consignmentNumber', 'datePlane', 'classID', 'dateArrival', 'statusID', 'ownershipWagonID', 'typeID'], 'integer'],
             [['weight', 'loadingWeight', 'unloadingWeight', 'price', 'additionalPrice', 'tariff'], 'number'],
-            [['uid', 'customerFirmUID',  'destinationStationUID', 'departureStationUID', 'productUID', 'forwarderFirmUID', 'contractUID'], 'string', 'max' => 250],
-            [['addInfo'],'string'],
-            [['forwarderFirmName','customerFirmName'],'safe']
+            [['uid', 'customerFirmUID', 'destinationStationUID', 'departureStationUID', 'productUID', 'forwarderFirmUID', 'contractUID'], 'string', 'max' => 250],
+            [['addInfo'], 'string'],
+            // [['forwarderFirmName','customerFirmName','contractName'],'safe']
         ];
     }
 
@@ -96,6 +99,84 @@ class RailwayTransit extends ActiveRecord
             'statusID' => 'Status ID',
             'addInfo' => 'Add Info',
         ];
+    }
+
+    public function fields()
+    {
+        $fields = [
+            'addInfo',
+            'consignmentNumber',
+            'loadingWeight',
+            'price',
+            'tariff',
+            'uid',
+            'unloadingWeight',
+            'wagonNumber',
+            'weight',
+            'id',
+            'contract',
+            'product',
+            'destinationStation',
+            'departureStation',
+            'customerFirm',
+            'forwarderFirm',
+            'ownershipWagon',
+            'status',
+            'differentWeight',
+            'class',
+            'classID',
+            'type',
+            'datePlane' => function (){
+                 return $this->dateFormat('datePlane');
+            },
+            'dateArrival' => function(){
+                return $this->dateFormat('dateArrival');
+            }
+
+        ];
+
+        if (!$this->datePlane) {
+            unset($fields['datePlane']);
+        }
+
+        if (!$this->dateArrival) {
+            unset($fields['dateArrival']);
+        }
+
+        return $fields;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function beforeValidate()
+    {
+        if (!$this->uid) {
+            $this->uid = uniqid() . '_' . Main::generateUid();
+        }
+
+        DateSet::setTimestamp($this, ['dateArrival', 'datePlane'], $this->getAttributes());
+
+        if (!static::findByIDAddField(static::statuses(), $this->statusID)) {
+            $this->statusID = static::STATUS_ID_NEW;
+        }
+
+        return parent::beforeValidate();
+    }
+
+    public function beforeSave($insert)
+    {
+        if ($this->consignmentNumber === null) {
+            $this->consignmentNumber = 0;
+        }
+        $this->updated_at = time();
+        return parent::beforeSave($insert); // TODO: Change the autogenerated stub
+    }
+
+    public function dateFormat($attr)
+    {
+         return DateSet::instance()->getDate($this->$attr);
     }
 
     public static function ownershipWagons()
@@ -156,7 +237,8 @@ class RailwayTransit extends ActiveRecord
         ];
     }
 
-    public static function types(){
+    public static function types()
+    {
         return [
             [
                 'id' => 1,
@@ -169,11 +251,6 @@ class RailwayTransit extends ActiveRecord
         ];
     }
 
-    public static function setFormat($format)
-    {
-        static::$dateFormat = $format;
-    }
-
     public static function findByIDAddField($array, $id)
     {
         foreach ($array as $item) {
@@ -183,52 +260,6 @@ class RailwayTransit extends ActiveRecord
         }
 
         return null;
-    }
-
-    /**
-     * @param $name
-     */
-    public function setCustomerFirmName($name){
-        $this->customerFirmUID = static::saveRTFirmsByName($name)->uid;
-    }
-
-    /**
-     * @param $name
-     */
-    public function setForwarderFirmName($name){
-        $this->forwarderFirmUID = static::saveRTFirmsByName($name) -> uid;
-    }
-
-    /**
-     * @return bool
-     */
-    public function beforeValidate()
-    {
-        if (!$this->uid) {
-            $this->uid = uniqid().'_'.Main::generateUid();
-        }
-
-        if ($this->datePlane && !is_numeric($this->datePlane)) {
-            $this->datePlane = \DateTime::createFromFormat(static::$dateFormat, $this->datePlane)->getTimestamp();
-        }
-
-        if ($this->dateArrival && !is_numeric($this->dateArrival)) {
-            $this->dateArrival = \DateTime::createFromFormat(static::$dateFormat, $this->dateArrival)->getTimestamp();
-        }
-
-        if (!static::findByIDAddField(static::statuses(), $this->statusID)) {
-            $this->statusID = static::STATUS_ID_NEW;
-        }
-
-        return parent::beforeValidate();
-    }
-
-    public function beforeSave($insert)
-    {
-        if ($this->consignmentNumber === null){
-            $this->consignmentNumber = 0;
-        }
-        return parent::beforeSave($insert); // TODO: Change the autogenerated stub
     }
 
     public function getWagonName()
@@ -247,63 +278,16 @@ class RailwayTransit extends ActiveRecord
         return $this->hasOne(Contracts::className(), ['uid' => 'contractUID']);
     }
 
-    public function fields()
-    {
-        $fields = parent::fields();
-        $fields = [
-            'addInfo',
-            'consignmentNumber',
-            'loadingWeight',
-            'price',
-            'tariff',
-            'uid',
-            'unloadingWeight',
-            'wagonNumber',
-            'weight',
-            'id',
-            'contract',
-            'product',
-            'destinationStation',
-            'departureStation',
-            'customerFirm',
-            'forwarderFirm',
-            'ownershipWagon',
-            'status',
-            'differentWeight',
-            'class',
-            'classID',
-            'type'
-        ];
-
-        $fields = [
-                'datePlane' => function () {
-                    return $this->datePlane ? date(static::$dateFormat, (int) $this->datePlane) : null;
-                },
-                'dateArrival' => function () {
-                    return $this->dateArrival ? date(static::$dateFormat, (int) $this->dateArrival) : null;
-                },
-            ] + $fields;
-
-        if (!$this->datePlane) {
-            unset($fields['datePlane']);
-        }
-
-        if (!$this->dateArrival) {
-            unset($fields['dateArrival']);
-        }
-
-        return $fields;
-    }
 
     public static function relations()
     {
-        return ['contract', 'product', 'destinationStation', 'departureStation',  'customerFirm', 'forwarderFirm'];
+        return ['contract', 'product', 'destinationStation', 'departureStation', 'customerFirm', 'forwarderFirm'];
     }
 
     public static function extraDataToSave()
     {
         return [
-            'contracts' => Contracts::find()->asArray()->all(),
+            'contracts' => Contracts::find()->all(),
             'cultures' => Culture::find()->all(),
             'stations' => Stations::find()->asArray()->all(),
             'firmsRT' => RTFirms::find()->asArray()->all(),
@@ -318,14 +302,16 @@ class RailwayTransit extends ActiveRecord
 
     /**
      * @param string $name
-     * @return RTFirms
+     * @param string $nameAttribute
+     * @param \yii\db\ActiveRecord $className
+     * @return \yii\db\ActiveRecord
      */
-    public static function saveRTFirmsByName($name=''){
-        $model = new RTFirms();
-        $model->attributes = ['name' => $name];
+    public static function saveRecordByName($name = '', $className, $nameAttribute = 'name')
+    {
+        $model = new $className();
+        $model->attributes = [$nameAttribute => $name];
         $model->setUid();
-        if (!$model->save()){
-
+        if (!$model->save()) {
             $model->uid = null;
         }
         return $model;
@@ -336,30 +322,45 @@ class RailwayTransit extends ActiveRecord
         if ($this->loadingWeight == null || $this->unloadingWeight == null)
             return null;
         $diff = $this->loadingWeight - $this->unloadingWeight;
+        //  dump($diff,1);
         return round($diff, 2);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getProduct()
     {
         return $this->hasOne(Culture::className(), ['uid' => 'productUID']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getDestinationStation()
     {
         return $this->hasOne(Stations::className(), ['uid' => 'destinationStationUID']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getDepartureStation()
     {
         return $this->hasOne(Stations::className(), ['uid' => 'departureStationUID']);
     }
 
-
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getCustomerFirm()
     {
         return $this->hasOne(RTFirms::className(), ['uid' => 'customerFirmUID']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getForwarderFirm()
     {
         return $this->hasOne(RTFirms::className(), ['uid' => 'forwarderFirmUID']);
@@ -380,12 +381,43 @@ class RailwayTransit extends ActiveRecord
         return static::findByIDAddField(static::classes(), $this->classID);
     }
 
-    public function getType(){
+    public function getType()
+    {
         return static::findByIDAddField(static::types(), $this->typeID);
     }
 
     public static function findByUID($uid)
     {
         return RailwayTransit::find()->where(['uid' => $uid])->one();
+    }
+
+    /**
+     * Returns a list of links.
+     *
+     * Each link is either a URI or a [[Link]] object. The return value of this method should
+     * be an array whose keys are the relation names and values the corresponding links.
+     *
+     * If a relation name corresponds to multiple links, use an array to represent them.
+     *
+     * For example,
+     *
+     * ```php
+     * [
+     *     'self' => 'http://example.com/users/1',
+     *     'friends' => [
+     *         'http://example.com/users/2',
+     *         'http://example.com/users/3',
+     *     ],
+     *     'manager' => $managerLink, // $managerLink is a Link object
+     * ]
+     * ```
+     *
+     * @return array the links
+     */
+    public function getLinks()
+    {
+        return [
+            Link::REL_SELF => Url::to(['/'], true),
+        ];
     }
 }
