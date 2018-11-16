@@ -52,7 +52,7 @@ class RTModel extends RailwayTransit implements ModelInterface
         return self::$_models;
     }
 
-    public static function modelIdentityKey($object)
+    public static function modelIdentityKey(RailwayTransit $object)
     {
         return $object->wagonNumber . '_' . $object->consignmentNumber;
     }

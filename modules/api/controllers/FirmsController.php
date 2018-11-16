@@ -74,10 +74,12 @@ class FirmsController extends Controller
         ];
 
         $this->filter(FirmsFilter::className());
-        $this->getQuery()->with(Firms::viewRelations());
+      //  $this->getQuery()->with(Firms::viewRelations());
         $this->setPagination();
 
         $this->activeIndex();
+     //   dump($this->getQuery(),1);
+     //   phpinfo();
     }
 
     public function actionList(){

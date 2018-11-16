@@ -41,6 +41,9 @@ class Controller extends MainController
 
     public $resource;
 
+    /**
+     * @var ActiveQuery
+     */
     public $query;
 
     public $params = [];
@@ -60,7 +63,7 @@ class Controller extends MainController
     {
 
 
-        Yii::$app->response->getHeaders()->add('Access-Control-Allow-Origin', '*');
+        //Yii::$app->response->getHeaders()->add('Access-Control-Allow-Origin', '*');
 
         Yii::$app->response->on(Response::EVENT_BEFORE_SEND, function ($event) {
             $response = $event->sender;
@@ -297,7 +300,7 @@ class Controller extends MainController
 
     public function activeView($id)
     {
-        $this->responseData = $this->query->findOne($id);
+        $this->responseData = $this->query->where(['id'=>$id])->one();
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ONE);
     }
 
@@ -316,10 +319,13 @@ class Controller extends MainController
 
     public function activeUpdate($id = null, $events = null)
     {
+
         if ($id) {
             $this->query->andWhere(['id' => $id]);
         }
+
         $this->responseData = $this->query->one();
+      //  dump($this->responseData,1);
         if ($this->responseData) {
             if ($events) {
                 foreach ($events as $item) {
@@ -329,6 +335,7 @@ class Controller extends MainController
             $this->responseData->attributes = $this->getRequestData();
             $this->responseData->save();
         }
+      //  dump($this->responseData->getErrors(),1);
         $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 

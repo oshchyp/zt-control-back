@@ -16,20 +16,43 @@ use yii\helpers\ArrayHelper;
  * @property string $rdpu
  * @property int $contactUID
  * @property string $contactPost
+ * @property mixed culturesRelation
+ * @property Contacts[] contactsRelation
+ * @property mixed distancesRelation
+ * @property mixed cultures
+ * @property contacts
  */
 class Firms extends ActiveRecord
 {
 
+    /**
+     * @var null
+     */
     public static $allInstances = null;
 
+    /**
+     * @var bool
+     */
     public $addInstanceAfterSave = false;
 
+    /**
+     * @var null
+     */
     public $saveContacts = null;
 
+    /**
+     * @var null
+     */
     public $saveCultures = null;
 
+    /**
+     * @var null
+     */
     public $saveDistances = null;
 
+    /**
+     * @var null
+     */
     private $_processedSquare = null;
     /**
      * {@inheritdoc}
@@ -47,8 +70,8 @@ class Firms extends ActiveRecord
         return [
             [['uid'],'unique'],
             [['uid', 'name'], 'required'],
-            [['square'], 'number'],
-            [['uid', 'name', 'rdpu', 'regionUID', 'pointUID','nearElevatorUID'], 'string', 'max' => 250],
+            [['square','processedSquare'], 'number'],
+            [['uid', 'name', 'rdpu', 'regionUID', 'pointUID','nearElevatorUID','mainCultureUID'], 'string', 'max' => 250],
             ['sender', 'in', 'range' => ArrayHelper::getColumn(static::distributionStatuses(),'id')],
             [['contacts','cultures','distances'],'safe'],
         ];
@@ -68,8 +91,11 @@ class Firms extends ActiveRecord
         ];
     }
 
+    /**
+     * @return array
+     */
     public static function viewFields(){
-        return ['id','uid','name','director','rdpu','square','regionUID','pointUID','nearElevatorUID','nearElevator','contacts','cultures','distances','region', 'point','processedSquare',
+        return ['id','uid','name','rdpu','square','regionUID','pointUID','nearElevatorUID','nearElevator','contacts','cultures','mainCulture','distances','region', 'point','processedSquare','mainContact',
             'sender' => function ($model){
                  foreach (static::distributionStatuses() as $item){
                       if ($item['id'] == $model->sender){
@@ -84,12 +110,18 @@ class Firms extends ActiveRecord
         ];
     }
 
-    public static function viewRelations(){
-        return ['contactsRelation', 'region', 'point','nearElevator',
+    /**
+     * @return array
+     */
+    public static function relations(){
+      return ['contactsRelation', 'region', 'point','nearElevator.balanced.culture',
             'culturesRelation.culture','distancesRelation.point'
         ];
     }
 
+    /**
+     * @return array
+     */
     public static function distributionStatuses(){
         return [
             [
@@ -107,14 +139,23 @@ class Firms extends ActiveRecord
         ];
     }
 
+    /**
+     * @param $contacts
+     */
     public function setContacts($contacts){
            $this->saveContacts = $contacts;
     }
 
+    /**
+     * @param $value
+     */
     public function setCultures($value){
          $this->saveCultures = $value;
     }
 
+    /**
+     * @param $value
+     */
     public function setDistances($value){
         $this->saveDistances = $value;
     }
@@ -137,8 +178,12 @@ class Firms extends ActiveRecord
                 }
             }
         }
+
     }
 
+    /**
+     * @param bool $delete
+     */
     public function saveCultures($delete=true){
         if ($this->saveCultures === null)
             return;
@@ -158,12 +203,14 @@ class Firms extends ActiveRecord
         }
     }
 
+    /**
+     *
+     */
     public function saveDistances(){
 
         if ($this->saveDistances === null)
             return;
 
-       // dump($this->saveDistances===null,1);
         FirmDistances::deleteAll(['firmUID'=>$this->uid]);
         if ($this->saveDistances && is_array($this->saveDistances)){
             foreach ($this->saveDistances as $item){
@@ -179,16 +226,9 @@ class Firms extends ActiveRecord
     }
 
 
-    public function getDirector(){
-        if ($this->contacts){
-            foreach ($this->contacts as $contactInfo){
-                if (isset($contactInfo['post']['director']) && $contactInfo['post']['director']){
-                    return $contactInfo;
-                }
-            }
-        }
-    }
-
+    /**
+     * @return float|int|null
+     */
     public function getProcessedSquare(){
 
         if ($this->_processedSquare === null){
@@ -205,42 +245,92 @@ class Firms extends ActiveRecord
         return $this->_processedSquare;
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getRegion(){
         return $this->hasOne(Regions::className(),['uid'=>'regionUID']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getPoint(){
         return $this->hasOne(Points::className(),['uid'=>'pointUID']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getNearElevator(){
         return $this->hasOne(Elevators::className(),['uid'=>'nearElevatorUID']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getDistancesRelation(){
         return $this->hasMany(FirmDistances::className(),['firmUID'=>'uid']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getContactsRelation(){
         return $this->hasMany(Contacts::className(),['firmUID'=>'uid']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getCulturesRelation(){
         return $this->hasMany(FirmCultures::className(),['firmUID'=>'uid'])->orderBy(['year' => SORT_DESC]);
     }
 
+    /**
+     * @return array
+     */
     public function getDistances(){
         return ArrayHelper::toArray($this->distancesRelation,[FirmDistances::className()=>FirmDistances::viewFields()]);
     }
 
+    /**
+     * @return array
+     */
     public function getContacts(){
         return ArrayHelper::toArray($this->contactsRelation,[Contacts::className()=>Contacts::viewFields()]);
     }
 
+    /**
+     * @return Contacts|null
+     */
+    public function getMainContact(){
+        $contacts = $this->contactsRelation;
+        if ($contacts){
+            foreach ($contacts as $instance){
+                if ($instance->main){
+                    return $instance;
+                }
+            }
+        }
+        return null;
+    }
+
+    public function getMainCulture(){
+        return $this->hasOne(Culture::className(),['uid'=>'mainCultureUID']);
+    }
+
+    /**
+     * @return array
+     */
     public function getCultures(){
         return ArrayHelper::toArray($this->culturesRelation,[FirmCultures::className()=>FirmCultures::viewFields()]);
     }
 
+    /**
+     * @param $rdpu
+     * @return Firms
+     */
     public static function getInstanceByRdpu($rdpu)
     {
         return $rdpu ? parent::getInstanceByAttrValue($rdpu, 'rdpu') : new static(); // TODO: Change the autogenerated stub

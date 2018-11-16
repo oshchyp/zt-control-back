@@ -14,6 +14,7 @@ use yii\helpers\ArrayHelper;
  * @property string $name
  * @property string $post
  * @property string $firmUID
+ * @property string $main
  */
 class Contacts extends ActiveRecord
 {
@@ -48,6 +49,7 @@ class Contacts extends ActiveRecord
             }],
             [['postID'], 'integer'],
             [['firmUID', 'name', 'email', 'phone'], 'string', 'max' => 250],
+            ['main','in','range'=>[0,1]],
             ['email','email']
         ];
     }
@@ -66,7 +68,7 @@ class Contacts extends ActiveRecord
     }
 
     public static function viewFields(){
-        return ['id','firmUID','name','post','postID','phone','email'];
+        return ['id','firmUID','name','post','postID','phone','email','main'];
     }
 
     public static function viewRelations(){

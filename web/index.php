@@ -12,12 +12,10 @@ function dump($var, $kill = false)
     }
 }
 
-$_SERVER['DOCUMENT_ROOT'] = '/var/www/nmcore/data/www/ztsys.comnd-x.com/web';
-$_SERVER['CONTEXT_DOCUMENT_ROOT'] = '/var/www/nmcore/data/www/ztsys.comnd-x.com/web';
 // comment out the following two lines when deployed to production
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
-
+//dump($_SERVER,1);
 if (YII_DEBUG) {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -28,5 +26,7 @@ require __DIR__.'/../vendor/autoload.php';
 require __DIR__.'/../vendor/yiisoft/yii2/Yii.php';
 
 $config = require __DIR__.'/../config/web.php';
-dump($config,1);
+//dump(Yii::$app->controller->getRoute());
 (new yii\web\Application($config))->run();
+
+

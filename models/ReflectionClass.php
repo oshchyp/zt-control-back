@@ -21,17 +21,17 @@ class ReflectionClass extends \ReflectionClass
     public function relations(){
         $result = [];
         foreach ($this->getMethods(\ReflectionMethod::IS_PUBLIC) as $method) {
-//            $existActiveQueryComment = preg_match('/\*( +)?@return (\\\yii\\\db\\\)?ActiveQuery( .*)?/', $method->getDocComment(),$rt);
+            $existActiveQueryComment = preg_match('/\*( +)?@return (\\\yii\\\db\\\)?ActiveQuery( .*)?/', $method->getDocComment(),$rt);
             $isGetter = preg_match('/^get.*$/', $method->getName());
-//            if ($method->getNumberOfParameters() === 0 && $isGetter && $existActiveQueryComment) {
-//                $result[]=$method;
-//            }
-
-            $className = $this->getName();
-            $methodName = $method->getName();
-            if ($method->getNumberOfParameters() === 0 && $isGetter && $className::instance()->$methodName() instanceof ActiveQuery){
+            if ($method->getNumberOfParameters() === 0 && $isGetter && $existActiveQueryComment) {
                 $result[]=$method;
             }
+
+//            $className = $this->getName();
+//            $methodName = $method->getName();
+//            if ($method->getNumberOfParameters() === 0 && $isGetter && $className::instance()->$methodName() instanceof ActiveQuery){
+//                $result[]=$method;
+//            }
 
         }
         return $result;

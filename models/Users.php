@@ -134,6 +134,8 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
 
     public static function findIdentityByPhone($phone)
     {
+//        dump(static::replacePhone($phone));
+//        dump(static::find()->where(['phone' => static::replacePhone($phone)])->createCommand()->getRawSql(),1);
         return static::findOne(['phone' => static::replacePhone($phone)]);
     }
 
