@@ -56,7 +56,7 @@ class RailwayTransit extends Model implements ModelExcelInterface
 
 
 
-    public function loadModelInstance()
+    public function loadModelInstance($loadInfo)
     {
         static::$modelClassName = \app\models\RailwayTransit::className();
         if ($instances = static::getAllModelInstances()){

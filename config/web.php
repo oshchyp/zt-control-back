@@ -81,6 +81,8 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/regions' => 'api/regions'],
                 ],
+                'GET api/regions/yield' => 'api/regions/yield',
+                'PUT api/regions/yield' => 'api/regions/yield-update',
 
                 ///////REGIONS
                 [

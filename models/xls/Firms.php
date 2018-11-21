@@ -14,7 +14,7 @@ use app\models\Contacts;
 use app\models\Culture;
 use app\models\Elevators;
 use app\models\FirmCultures;
-use app\models\FirmDistances;
+use app\models\FirmsDistances;
 use app\models\Points;
 use app\models\Regions;
 use yii\helpers\ArrayHelper;
@@ -301,7 +301,7 @@ class Firms extends \app\models\Firms implements ModelExcelInterface
         Contacts::deleteAll();
         Elevators::deleteAll();
         FirmCultures::deleteAll();
-        FirmDistances::deleteAll();
+        FirmsDistances::deleteAll();
         \app\models\Firms::deleteAll();
     }
 

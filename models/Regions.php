@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "regions".
@@ -10,6 +11,9 @@ use Yii;
  * @property int $id
  * @property string $uid
  * @property string $name
+ * @property FirmCultures[] allCulturesRelation
+ * @property FirmCultures[] culturesByLastYearRelation
+ * @property RegionCultures[] cultures
  */
 class Regions extends ActiveRecord
 {
@@ -21,6 +25,8 @@ class Regions extends ActiveRecord
     public static $allPoints=[];
 
     public static $getAllPoints;
+
+    public static $allCultures;
 
     /**
      * {@inheritdoc}
@@ -54,7 +60,11 @@ class Regions extends ActiveRecord
     }
 
     public static function viewFields(){
-        return ['id','uid','name','points'];
+        return ['id','uid','name','points','cultures'];
+    }
+
+    public static function relations(){
+        return ['points','cultures.culture'];
     }
 
     public function afterFind()
@@ -80,4 +90,13 @@ class Regions extends ActiveRecord
     {
         return $this->hasMany(Points::className(), ['regionUID' => 'uid']);
     }
+
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCultures(){
+        return $this->hasMany(RegionCultures::className(), ['regionUID' => 'uid']);
+    }
+
 }

@@ -4,4 +4,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 DirectoryIndex index.html
+
 RewriteRule ^(.*)$ index.php [L]
+

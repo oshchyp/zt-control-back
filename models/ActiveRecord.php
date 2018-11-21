@@ -27,13 +27,6 @@ class ActiveRecord extends \yii\db\ActiveRecord implements RestModelInterface
         return static::$allInstances;
     }
 
-    public static function getLogPath(){
-        if (!static::$logPath){
-            static::$logPath = \Yii::getAlias('@app/logs/').date('Y-m-d H:i');
-            FileHelper::createDirectory(static::$logPath);
-        }
-        return static::$logPath;
-    }
 
     public static function getUidAttrName(){
         return 'uid';

@@ -11,8 +11,6 @@ namespace app\models\filter;
 
 use app\models\FirmCultures;
 use app\models\Firms;
-use yii\db\Query;
-use yii\helpers\ArrayHelper;
 
 /**
  * Class FirmsFilter
@@ -90,29 +88,4 @@ class FirmsFilter extends Firms
             ]);
     }
 
-//    public function getProcessedSquare(){
-//        return $this->processedSquare;
-//    }
-//
-//    public function filterQueryProcessedSquare($attribute,$value,$type){
-//       //  $this->filterQueryAndOrWhere(FirmCultures::find()->select('Sum(`square`)')->where(['firmUID'=>'firms.id'])->createCommand(),$value,$type);
-//     //   $this->getQuery()->select(['`firms`.*'])->addSelect(['`firms`.`processedSquare`' => FirmCultures::find()->select('Sum(`square`)')->where(['firmUID'=>'firms.id'])]);
-//         dump($this->getQuery()->createCommand()->getRawSql());
-//    }
-
-
 }
-
-
-//{
-//    "searchString": "строка для поиска по всем полям",
-//	"name": "поиск по имени агента",
-//	"rdpu": "поиск по имени рдпу",
-//	"square" : "минимальное значение площади",
-//	"regionUID": "UID выбранного региона",
-//	"pointUID":"UID выбранного Месторасположение",
-//	"sender" : "id Статуса рассылки",
-//	"square|sort": "DESC",
-//	"name|sort" : "ASC",
-//	"processedSquare" : 213
-//}

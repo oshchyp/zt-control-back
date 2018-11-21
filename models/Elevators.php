@@ -79,10 +79,10 @@ class Elevators extends ActiveRecord
     /**
      * @return array
      */
-    public function fields()
-    {
-        return array_merge(parent::fields(),['balanced','balancedSumm']);
-    }
+//    public function fields()
+//    {
+//        return array_merge(parent::fields(),['balanced','balancedSumm']);
+//    }
 
     /**
      * @param bool $insert

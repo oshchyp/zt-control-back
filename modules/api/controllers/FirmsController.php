@@ -6,18 +6,14 @@ use app\models\ActiveRecord;
 use app\models\Contacts;
 use app\models\Culture;
 use app\models\Elevators;
-use app\models\filter\FirmsFilter;
-use app\models\Firms;
-use app\models\firmsFilter\ColumnSearchStr;
-use app\models\firmsFilter\FullFilter;
-use app\models\firmsFilter\SearchStr;
+use app\models\Points;
+use app\modules\api\models\FirmsFilter;
+use app\modules\api\models\Firms;
 use app\models\helper\Main;
 use app\models\Posts;
-use app\models\Regions;
-use yii\data\Pagination;
+use app\modules\api\models\Regions;
 use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
-use yii\widgets\LinkPager;
 
 class FirmsController extends Controller
 {
@@ -55,31 +51,24 @@ class FirmsController extends Controller
         return $behaviors;
     }
 
-    public function getResponseData(){
-        return ArrayHelper::toArray($this->responseData, [Firms::className() => Firms::viewFields()]);
-    }
-
     public function actionIndex()
     {
 
-        Regions::$getAllPoints = true;
+
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
-            'regions' => ArrayHelper::toArray(Regions::find()->with('points')->all(), [Regions::className() => Regions::viewFields()]),
+            'regions' => Regions::find()->with(['points'])->all(),
             'posts' => Posts::findAll(),
             'cultures' => Culture::find()->all(),
             'elevators' => Elevators::find()->all(),
-            'points' => Regions::getAllPoints(),
+            'points' => Points::find()->all(),
             'distributionStatuses' => Firms::distributionStatuses()
         ];
 
         $this->filter(FirmsFilter::className());
-      //  $this->getQuery()->with(Firms::viewRelations());
         $this->setPagination();
-
         $this->activeIndex();
-     //   dump($this->getQuery(),1);
-     //   phpinfo();
+
     }
 
     public function actionList(){

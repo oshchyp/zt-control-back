@@ -59,15 +59,6 @@ class Culture extends ActiveRecord
     }
 
     /**
-     * @return array
-     */
-    public function fields()
-    {
-
-       return ['id','uid','name','classes'];
-    }
-
-    /**
      * @param $name
      * @return mixed
      */

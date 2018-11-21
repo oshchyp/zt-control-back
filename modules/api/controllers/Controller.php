@@ -270,6 +270,7 @@ class Controller extends MainController
 
     public function setPagination()
     {
+
         $pages = new Pagination(['totalCount' => $this->getQuery()->count()]);
         $pages->setPage($this->getPage());
         $pages->setPageSize(ArrayHelper::getValue($this->getRequestData(), 'pagination.rowsPerPage', $this->rowsPerPageDefault));
@@ -291,9 +292,7 @@ class Controller extends MainController
         if (method_exists($this->resource, 'relations')) {
             $this->query->with($this->resource->relations());
         }
-
-        // $this->query->limit(1000);
-
+       // dump($this->query,1);
         $this->responseData = $this->query->all();
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
     }

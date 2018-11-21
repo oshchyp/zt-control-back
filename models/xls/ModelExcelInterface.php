@@ -25,9 +25,10 @@ interface ModelExcelInterface
     public function setLoadInfo($loadInfo);
 
     /**
+     * @param $loadInfo
      * @return mixed
      */
-    public function loadModelInstance();
+    public function loadModelInstance($loadInfo);
 
     /**
      * @param $data

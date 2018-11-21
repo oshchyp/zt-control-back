@@ -37,7 +37,7 @@ class ParserExcel extends Model
 
     /**
      * @param array $config
-     * @return mixed
+     * @return ParserExcel
      */
     public static function getInstance(array $config = []){
         return new static($config);
