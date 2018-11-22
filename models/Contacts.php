@@ -67,6 +67,10 @@ class Contacts extends ActiveRecord
         ];
     }
 
+    public function fields(){
+        return array_merge(parent::fields(),['post']);
+    }
+
     public static function viewFields(){
         return ['id','firmUID','name','post','postID','phone','email','main'];
     }

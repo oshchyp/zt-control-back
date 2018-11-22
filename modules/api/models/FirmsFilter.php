@@ -28,8 +28,8 @@ class FirmsFilter extends Firms
     {
         return [
             [['square', 'processedSquare'], 'number'],
-            [['name', 'rdpu', 'regionUID', 'pointUID', 'region.name','point.name','stringForSearchAll'], 'string', 'max' => 250],
-            [['square|sort'],'sortValidate'],
+            [['name', 'rdpu', 'regionUID', 'pointUID', 'region.name','point.name','stringForSearchAll','mainCulture.name','mainContact.name','mainContact.phone'], 'string', 'max' => 250],
+            [['square|sort','processedSquare|sort','name|sort'],'sortValidate'],
             ['sender', 'integer'],
         ];
     }
@@ -37,48 +37,77 @@ class FirmsFilter extends Firms
     public function rulesFilter(){
         return [
             [['square','processedSquare'],'range',['>','=']],
-            // [['processedSquare'],'processedSquare'],
-            [['name','rdpu'],'andWhere',['like']],
+           //  [['processedSquare'],'processedSquare'],
+            [['name','rdpu','mainCulture.name', 'mainContact.name','mainContact.phone'],'andWhere',['like']],
             [['pointUID','regionUID','sender'],'andWhere',['=']],
-            [['square|sort'],'sort'],
-            [['stringForSearchAll'],'search',[['name', 'rdpu','region.name','point.name']]]
+            [['square|sort','processedSquare|sort','name|sort'],'sort'],
+            [['stringForSearchAll'],'search',[['name', 'rdpu','region.name','point.name','mainCulture.name', 'mainContact.name','mainContact.phone']]]
         ];
     }
 
     public function attributesAdd()
     {
-        return ['region.name','point.name','stringForSearchAll','square|sort','processedSquare'];
+        return ['mainCulture.name','region.name','point.name','stringForSearchAll','square|sort','processedSquare|sort','name|sort','processedSquare','mainContact.name','mainContact.phone'];
     }
 
     public function attributesNameInQuery($attribute)
     {
         return [
             'square|sort' => 'square',
-            'processedSquare' => '('.
-                FirmCultures::find()->select('SUM(firmCultures.square)')
-                    ->where('firmCultures.firmUID = firms.uid AND firmCultures.year = '.date('Y'))
-                    ->createCommand()->getRawSql()
-                .')',
+            'processedSquare' => $this->processedSquareField(),
+            'processedSquare|sort' => $this->processedSquareField(),
+            'name|sort' => 'name'
         ];
+    }
+
+    public function processedSquareField(){
+        return '('.
+            FirmCultures::find()->select('SUM(firmCultures.square)')
+                ->where('firmCultures.firmUID = firms.uid AND firmCultures.year = '.date('Y'))
+                ->createCommand()->getRawSql()
+            .')';
     }
 
     public function getProcessedSquare(){
         return $this->processedSquare;
     }
 
-    public function FilterQueryProcessedSquare(){
-        $field = FirmCultures::find()->select('SUM(firmCultures.square)')
-            ->where('firmCultures.firmUID = firms.uid AND firmCultures.year = '.date('Y'))
-            ->createCommand()->getRawSql();
-        $field = '('.$field.')';
-        $this->getQuery()
-            ->andWhere('@processedSquare = '.$field)
-            ->andFilterWhere([
-                'or',
-                // ['@processedSquare = '.$field],
-                ['>','@processedSquare',$this->getAttribute('processedSquare')],
-                ['=','@processedSquare',$this->getAttribute('processedSquare')]
-            ]);
-    }
+//    public function FilterQueryProcessedSquare(){
+//        $field = FirmCultures::find()->select('SUM(firmCultures.square)')
+//            ->where('firmCultures.firmUID = firms.uid AND firmCultures.year = '.date('Y'))
+//            ->createCommand()->getRawSql();
+//        $field = '('.$field.')';
+//        $this->getQuery()
+//            ->andWhere('@processedSquare = '.$field)
+//            ->andFilterWhere([
+//                'or',
+//                // ['@processedSquare = '.$field],
+//                ['>','@processedSquare',$this->getAttribute('processedSquare')],
+//                ['=','@processedSquare',$this->getAttribute('processedSquare')]
+//            ]);
+//    }
+
+
+/**
+ <VirtualHost 185.149.40.12:80>
+ServerName zlata-control.com
+DocumentRoot /var/www/www-root/data/www/zlata-control.com
+ServerAdmin webmaster@zlata-control.com
+AddDefaultCharset off
+SuexecUserGroup www-root www-root
+CustomLog /var/www/httpd-logs/zlata-control.com.access.log combined
+ErrorLog /var/www/httpd-logs/zlata-control.com.error.log
+<FilesMatch "\.ph(p[3-5]?|tml)$">
+SetHandler fcgid-script
+FCGIWrapper /var/www/php-bin-isp-php72/www-root/php
+</FilesMatch>
+ServerAlias *.zlata-control.com www.zlata-control.com
+DirectoryIndex index.php index.html
+VirtualDocumentRoot /var/www/www-root/data/www/zlata-control.com/%1
+</VirtualHost>
+<Directory /var/www/www-root/data/www/zlata-control.com>
+Options +Includes +ExecCGI
+</Directory>
+ */
 
 }

@@ -281,6 +281,7 @@ trait FilterDataTrait
        } else {
            $this->filterQueryWhere($attribute, $value,$sign1);
        }
+     //  dump($this-> getQuery()->createCommand()->getRawSql(),1);
     }
 
     /**

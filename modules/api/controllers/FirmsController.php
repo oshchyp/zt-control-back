@@ -66,6 +66,10 @@ class FirmsController extends Controller
         ];
 
         $this->filter(FirmsFilter::className());
+        if (!$this->getQuery()->orderBy){
+            $this->getQuery()->orderBy(
+                ['id' => SORT_DESC]);
+        }
         $this->setPagination();
         $this->activeIndex();
 

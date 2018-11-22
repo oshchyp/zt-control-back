@@ -43,6 +43,10 @@ class Posts extends Model
             [
                 'id' => 4,
                 'name' => 'Керівник'
+            ],
+            [
+                'id' => 5,
+                'name' => 'Бухгалтер'
             ]
 
         ];

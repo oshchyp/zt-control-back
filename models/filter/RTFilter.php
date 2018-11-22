@@ -37,6 +37,7 @@ class RTFilter extends RailwayTransit
 
     public function beforeValidate()
     {
+
         return true;
     }
 

@@ -53,7 +53,7 @@ class Firms extends \app\models\Firms
         if ($this->cultures){
             foreach ($this->cultures as $item){
                 if ($item->year==date('Y')){
-                    $result += $item->weight;
+                    $result += $item->square;
                 }
             }
         }
