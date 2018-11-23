@@ -19,22 +19,19 @@ use app\models\Regions;
 use app\models\SMSApi;
 use app\models\xls\ParserExcel;
 use app\models\xls\RegionCultures;
+use app\modules\api\models\FirmsFilter;
 use yii\helpers\ArrayHelper;
 
 class DebugController extends \yii\console\Controller
 {
 
     public function actionIndex(){
-        $inst = RegionCulturesParser::parser(['activeSheet'=>1,'readerFilterOptions' => ['rowMin'=>2]]);
-//
-//        $arr = [];
-//
-//        foreach (Regions::find()->all() as $item){
-//            $arr[$item->name] = $item->uid;
-//        }
-//
-//        var_export($arr);
 
-   }
+         $firms = FirmsFilter::search(['stringForSearchAll' => "wef"]);
+         dump($firms->createCommand()->getRawSql());
+//         [$test1,$test2] = [1];
+//         dump($test2);
+
+    }
 
 }

@@ -117,15 +117,42 @@ trait FilterDataTrait
 
     public function setJoinByAttributeName($attribute)
     {
+        $setterJoin = str_replace('.','',$attribute) . 'SetJoin';
+        if (method_exists(static::className(), $setterJoin)) {
+            $join = $this->$setterJoin();
+            if (is_array($join)){
+                $this->setJoinUniq($join);
+            }
+            return;
+        }
         $arr = explode('.', $attribute);
         if (count($arr) == 2) {
             $joinName = $arr[0];
-            $setterJoin = $joinName . 'SetJoin';
-            if (method_exists(static::className(), $setterJoin)) {
-                $this->$setterJoin();
-            } else if ($this->getRelation($joinName, false)) {
+            if ($this->getRelation($joinName, false)) {
                 $this->getQuery()->joinWith($joinName . ' AS ' . $joinName);
             }
+        }
+    }
+
+    public function existJoin($join){
+        if ($this->getQuery()->join){
+            foreach ($this->getQuery()->join as $j){
+                if (in_array($join,$j)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @param array $join
+     */
+    public function setJoinUniq(array $join){
+        [$type,$table,$on] = $join;
+        $type .= ' JOIN';
+        if (!$this->existJoin($table)){
+            $this->getQuery()->join($type,$table,$on);
         }
     }
 
