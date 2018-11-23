@@ -187,12 +187,16 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
         $min = pow(10, $char - 1);
         $max = pow(10, $char) - 1;
         $this->code = rand($min, $max);
-        $this->code = 35;
+        if (YII_DEBUG) {
+            $this->code = 35;
+        }
     }
 
     public function sendMsg()
     {
-       // SMSApi::send($this->phone,$this->code);
+        if (!YII_DEBUG) {
+            SMSApi::send($this->phone, $this->code);
+        }
     }
 
 
