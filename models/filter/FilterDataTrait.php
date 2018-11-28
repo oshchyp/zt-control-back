@@ -53,7 +53,7 @@ trait FilterDataTrait
      */
     public function sortValidate($attribute)
     {
-        $value = mb_strtolower($this->getAttribute($attribute));
+        $value = mb_strtolower($this->getAttr($attribute));
         $this->setAttribute($attribute, $value == 'desc' ? SORT_DESC : SORT_ASC);
         return true;
     }
@@ -81,7 +81,7 @@ trait FilterDataTrait
      * @param string $attribute
      * @return mixed
      */
-    public function getAttribute($attribute)
+    public function getAttr($attribute)
     {
         $getter = 'get' . str_replace('.','',$attribute);
         if (method_exists($this, $getter)) {
@@ -242,7 +242,7 @@ trait FilterDataTrait
         foreach ($this->_rulesFilter() as $rule) {
 
           $attribute = $rule[0];
-          $value = $this->getAttribute($attribute);
+          $value = $this->getAttr($attribute);
 
             if ($value !== null){
                 $method = $this->getFilterMethodName($rule[1],false);
@@ -330,6 +330,10 @@ trait FilterDataTrait
     public function filterQueryOrWhere($attribute, $value, $sign)
     {
         $this->filterQueryWhere($attribute, $value,$sign,'or');
+    }
+
+    public function filterQuerySeveralValues($attribute, $value,$sign = 'or'){
+        $this->getQuery()->andFilterWhere([]);
     }
 
     /**

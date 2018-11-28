@@ -29,18 +29,32 @@ class FirmsFilter extends Firms
     {
         return [
             [['square', 'processedSquare'], 'number'],
-            [['name', 'rdpu', 'regionUID', 'pointUID', 'region.name','point.name','stringForSearchAll','cultures.culture.name','mainContact.name','mainContact.phone'], 'string', 'max' => 250],
+            [['name', 'rdpu', 'region.name','point.name','stringForSearchAll','cultures.culture.name','mainContact.name','mainContact.phone'], 'string', 'max' => 250],
             [['square|sort','processedSquare|sort','name|sort'],'sortValidate'],
-            ['sender', 'integer'],
+            [['regionUID', 'pointUID', 'sender','cultures.cultureUID'],'arrayValidate']
         ];
+    }
+
+
+    public function arrayValidate($attribute){
+        if (!is_array($this->$attribute)) {
+            return false;
+        }
+        if (is_array($this->$attribute) && $this->$attribute){
+            foreach ($this->$attribute as $v){
+                if (!is_string($v) || is_integer($v)){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public function rulesFilter(){
         return [
             [['square','processedSquare'],'range',['>','=']],
-           //  [['processedSquare'],'processedSquare'],
             [['name','rdpu','cultures.culture.name', 'mainContact.name','mainContact.phone'],'andWhere',['like']],
-            [['pointUID','regionUID','sender'],'andWhere',['=']],
+            [['pointUID','regionUID','sender','cultures.cultureUID'],'andWhere',['in']],
             [['square|sort','processedSquare|sort','name|sort'],'sort'],
             [['stringForSearchAll'],'search',[['name', 'rdpu','region.name','point.name','cultures.culture.name', 'mainContact.name','mainContact.phone']]]
         ];
@@ -48,7 +62,7 @@ class FirmsFilter extends Firms
 
     public function attributesAdd()
     {
-        return ['cultures.culture.name','region.name','point.name','stringForSearchAll','square|sort','processedSquare|sort','name|sort','processedSquare','mainContact.name','mainContact.phone'];
+        return ['cultures.cultureUID','cultures.culture.name','region.name','point.name','stringForSearchAll','square|sort','processedSquare|sort','name|sort','processedSquare','mainContact.name','mainContact.phone'];
     }
 
     public function attributesNameInQuery($attribute)
@@ -58,28 +72,41 @@ class FirmsFilter extends Firms
             'processedSquare' => $this->processedSquareField(),
             'processedSquare|sort' => $this->processedSquareField(),
             'cultures.culture.name' => 'culture.name',
-            'name|sort' => 'name'
+            'name|sort' => 'name',
+            'mainContact.phone' => 'REPLACE(REPLACE(REPLACE(REPLACE(mainContact.phone, " ", ""),"(",""),")",""),"+","")'
         ];
     }
 
 
+    public function culturesCultureJoin(){
+        $this->setJoinUniq(['LEFT','firmCultures AS cultures','cultures.firmUID = firms.uid']);
+        $this->setJoinUniq(['LEFT','culture AS culture','culture.uid = cultures.cultureUID']);
+    }
+
+    public function contactJoin(){
+        return ['LEFT','contacts AS mainContact','mainContact.firmUID = firms.uid AND mainContact.main = 1'];
+    }
+
     public function culturesCultureNameSetJoin(){
-       $this->setJoinUniq(['LEFT','firmCultures AS cultures','cultures.firmUID = firms.uid']);
-       $this->setJoinUniq(['LEFT','culture AS culture','culture.uid = cultures.cultureUID']);
+       return $this->culturesCultureJoin();
+    }
+
+    public function culturesCultureUIDSetJoin(){
+        return $this->culturesCultureJoin();
     }
 
     public function mainContactNameSetJoin(){
-        return ['LEFT','contacts AS mainContact','mainContact.firmUID = firms.uid AND mainContact.main = 1'];
+        return $this->contactJoin();
     }
 
     public function mainContactPhoneSetJoin(){
-        return ['LEFT','contacts AS mainContact','mainContact.firmUID = firms.uid AND mainContact.main = 1'];
+        return $this->contactJoin();
     }
 
     public function processedSquareField(){
         return '('.
             FirmCultures::find()->select('SUM(firmCultures.square)')
-                ->where('firmCultures.firmUID = firms.uid AND firmCultures.year = '.date('Y'))
+                ->where('firmUID = firms.uid AND firmCultures.year = '.date('Y'))
                 ->createCommand()->getRawSql()
             .')';
     }
@@ -88,32 +115,15 @@ class FirmsFilter extends Firms
         return $this->processedSquare;
     }
 
-    public function afterSearch()
-    {
-      // dump($this->getQuery()->createCommand()->getRawSql(),1);
+    public function getMainContactPhone(){
+
+        return $this->getAttribute('mainContact.phone') ? str_replace(['+','(',')',' '],'',$this->getAttribute('mainContact.phone')) : null;
     }
 
+    public function afterSearch()
+    {
+     //  dump($this->getQuery()->createCommand()->getRawSql(),1);
+    }
 
-    /**
- <VirtualHost 185.149.40.12:80>
-ServerName zlata-control.com
-DocumentRoot /var/www/www-root/data/www/zlata-control.com
-ServerAdmin webmaster@zlata-control.com
-AddDefaultCharset off
-SuexecUserGroup www-root www-root
-CustomLog /var/www/httpd-logs/zlata-control.com.access.log combined
-ErrorLog /var/www/httpd-logs/zlata-control.com.error.log
-<FilesMatch "\.ph(p[3-5]?|tml)$">
-SetHandler fcgid-script
-FCGIWrapper /var/www/php-bin-isp-php72/www-root/php
-</FilesMatch>
-ServerAlias *.zlata-control.com www.zlata-control.com
-DirectoryIndex index.php index.html
-VirtualDocumentRoot /var/www/www-root/data/www/zlata-control.com/%1
-</VirtualHost>
-<Directory /var/www/www-root/data/www/zlata-control.com>
-Options +Includes +ExecCGI
-</Directory>
- */
 
 }

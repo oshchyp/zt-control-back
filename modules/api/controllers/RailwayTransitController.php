@@ -12,7 +12,9 @@ use app\models\filter\RailwayTransitFilter;
 use app\models\filter\RTFilter;
 use app\models\RailwayTransit;
 use app\models\RailwayTransitMultiSave;
+use app\modules\api\models\RTParserFromDownloadXLS;
 use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 
 class RailwayTransitController extends Controller
 {
@@ -33,7 +35,7 @@ class RailwayTransitController extends Controller
                     'roles' => ['railroad-roads/view'],
                 ],
                 [
-                    'actions' => ['update','complete'],
+                    'actions' => ['update','complete', 'parser-xls'],
                     'allow' => true,
                     'roles' => ['railroad-roads/update'],
                 ],
@@ -122,6 +124,14 @@ class RailwayTransitController extends Controller
         $this->responseData = RailwayTransit::extraDataToSave();
         $this->validationInfo = null;
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
+    }
+
+    public function actionParserXls(){
+        $model = new RTParserFromDownloadXLS();
+        $this->responseData = $model;
+        $model->attributes = array_merge($this->getRequestData(),['xlsFile'=>UploadedFile::getInstanceByName('xlsFile')]);
+        $model->runParser();
+        $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 
 }

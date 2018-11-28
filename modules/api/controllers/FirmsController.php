@@ -7,6 +7,7 @@ use app\models\Contacts;
 use app\models\Culture;
 use app\models\Elevators;
 use app\models\Points;
+use app\modules\api\models\FirmCulturesTotal;
 use app\modules\api\models\FirmsFilter;
 use app\modules\api\models\Firms;
 use app\models\helper\Main;
@@ -55,6 +56,18 @@ class FirmsController extends Controller
     {
 
 
+
+        $this->filter(FirmsFilter::className());
+
+        if (!$this->getQuery()->orderBy){
+            $this->getQuery()->orderBy(
+                ['id' => SORT_DESC]);
+        }
+
+        $totalInstance = new FirmCulturesTotal($this->getQuery());
+        if ($this->getRequestData('selectedIds')){
+            $totalInstance->getQuery()->filterWhere(['firms.id'=>$this->getRequestData('selectedIds')]);
+        }
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
             'regions' => Regions::find()->with(['points'])->all(),
@@ -62,14 +75,11 @@ class FirmsController extends Controller
             'cultures' => Culture::find()->all(),
             'elevators' => Elevators::find()->all(),
             'points' => Points::find()->all(),
-            'distributionStatuses' => Firms::distributionStatuses()
+            'distributionStatuses' => Firms::distributionStatuses(),
+            'weightTotal' => $totalInstance->weight(),
+            'squareTotal' => $totalInstance->square()
         ];
 
-        $this->filter(FirmsFilter::className());
-        if (!$this->getQuery()->orderBy){
-            $this->getQuery()->orderBy(
-                ['id' => SORT_DESC]);
-        }
         $this->setPagination();
         $this->activeIndex();
 

@@ -26,11 +26,9 @@ class DebugController extends \yii\console\Controller
 {
 
     public function actionIndex(){
-
-         $firms = FirmsFilter::search(['stringForSearchAll' => "wef"]);
-         dump($firms->createCommand()->getRawSql());
-//         [$test1,$test2] = [1];
-//         dump($test2);
+///////////// 099 23 45 593
+         $str = preg_replace('/$(\d\d\d)(\d\d)(\d\d)(\d\d\d)^/','+38$1 $2 $3 $4','0992345593');
+         echo $str;
 
     }
 

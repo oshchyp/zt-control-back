@@ -174,6 +174,7 @@ class RTModel extends RailwayTransit implements ModelInterface
         self::$counter++;
         $this->setRelationsUid($object);
         $this->setClassID($object);
+        $this->statusID = 1;
         if (!$this->save()){
             dump($this->price);
             dump($this->getErrors(),1);
@@ -189,7 +190,9 @@ class RTModel extends RailwayTransit implements ModelInterface
      */
     public static function instanceExcel(RowData $dataObject, Row $row, ExcelParser $excelParser)
     {
-        if (self::getModels() && key_exists(self::modelIdentityKey($dataObject),self::getModels())){
+        $RTModel = new RailwayTransit();
+        $RTModel->attributes = $dataObject->attributes();
+        if (self::getModels() && key_exists(self::modelIdentityKey($RTModel),self::getModels())){
           return null;
         }
         return new static();
