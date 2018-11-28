@@ -18197,3 +18197,2554 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1543417375.462
     'REQUEST_TIME' => 1543417375
 ]
+2018-11-28 16:04:24 [10.0.1.9][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:24 [10.0.1.9][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:04:24 [10.0.1.9][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '58283'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417464.865
+    'REQUEST_TIME' => 1543417464
+]
+2018-11-28 16:04:25 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:25 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:25 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417465.106
+    'REQUEST_TIME' => 1543417465
+]
+2018-11-28 16:04:25 [10.0.1.9][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:25 [10.0.1.9][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:04:25 [10.0.1.9][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '58283'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417465.229
+    'REQUEST_TIME' => 1543417465
+]
+2018-11-28 16:04:25 [10.0.1.9][33][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:04:25 [10.0.1.9][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://10.0.1.13:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '58284'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417465.233
+    'REQUEST_TIME' => 1543417465
+]
+2018-11-28 16:04:25 [10.0.1.9][33][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:04:25 [10.0.1.9][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://10.0.1.13:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '58283'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417465.43
+    'REQUEST_TIME' => 1543417465
+]
+2018-11-28 16:04:26 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:25 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417465.712
+    'REQUEST_TIME' => 1543417465
+]
+2018-11-28 16:04:26 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:26 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417466.188
+    'REQUEST_TIME' => 1543417466
+]
+2018-11-28 16:04:30 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:30 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:30 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417470.786
+    'REQUEST_TIME' => 1543417470
+]
+2018-11-28 16:04:30 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:30 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:30 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417470.787
+    'REQUEST_TIME' => 1543417470
+]
+2018-11-28 16:04:31 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:30 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417470.882
+    'REQUEST_TIME' => 1543417470
+]
+2018-11-28 16:04:31 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:30 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '71'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417470.887
+    'REQUEST_TIME' => 1543417470
+]
+2018-11-28 16:04:34 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:34 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '71'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417474.006
+    'REQUEST_TIME' => 1543417474
+]
+2018-11-28 16:04:34 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:34 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417474.006
+    'REQUEST_TIME' => 1543417474
+]
+2018-11-28 16:04:36 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:36 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417476.156
+    'REQUEST_TIME' => 1543417476
+]
+2018-11-28 16:04:36 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:36 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '71'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417476.156
+    'REQUEST_TIME' => 1543417476
+]
+2018-11-28 16:04:37 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:37 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:37 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417477.078
+    'REQUEST_TIME' => 1543417477
+]
+2018-11-28 16:04:37 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:37 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:37 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417477.078
+    'REQUEST_TIME' => 1543417477
+]
+2018-11-28 16:04:37 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:37 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '76'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417477.139
+    'REQUEST_TIME' => 1543417477
+]
+2018-11-28 16:04:37 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:37 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417477.134
+    'REQUEST_TIME' => 1543417477
+]
+2018-11-28 16:04:39 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:39 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '82'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52512'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417479.537
+    'REQUEST_TIME' => 1543417479
+]
+2018-11-28 16:04:39 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:39 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '2'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52517'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417479.536
+    'REQUEST_TIME' => 1543417479
+]
+2018-11-28 16:04:52 [10.0.1.9][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:52 [10.0.1.9][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:04:52 [10.0.1.9][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '58624'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417492.604
+    'REQUEST_TIME' => 1543417492
+]
+2018-11-28 16:04:52 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:04:52 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:52 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52624'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417492.747
+    'REQUEST_TIME' => 1543417492
+]
+2018-11-28 16:04:53 [10.0.1.9][33][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:04:52 [10.0.1.9][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://10.0.1.13:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '58624'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417492.666
+    'REQUEST_TIME' => 1543417492
+]
+2018-11-28 16:04:53 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:04:53 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52624'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417493.36
+    'REQUEST_TIME' => 1543417493
+]
+2018-11-28 16:06:22 [10.0.1.9][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:06:22 [10.0.1.9][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:06:22 [10.0.1.9][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '59673'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417582.204
+    'REQUEST_TIME' => 1543417582
+]
+2018-11-28 16:06:22 [10.0.1.9][33][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:06:22 [10.0.1.9][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://10.0.1.13:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '59673'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417582.294
+    'REQUEST_TIME' => 1543417582
+]
+2018-11-28 16:06:22 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:06:22 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:22 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52994'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417582.763
+    'REQUEST_TIME' => 1543417582
+]
+2018-11-28 16:06:23 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:22 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52994'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417582.97
+    'REQUEST_TIME' => 1543417582
+]
+2018-11-28 16:06:26 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:26 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '82'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52994'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417586.442
+    'REQUEST_TIME' => 1543417586
+]
+2018-11-28 16:06:28 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:06:28 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:28 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52994'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417588.899
+    'REQUEST_TIME' => 1543417588
+]
+2018-11-28 16:06:29 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:28 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '76'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52994'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417588.961
+    'REQUEST_TIME' => 1543417588
+]
+2018-11-28 16:06:31 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:31 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '71'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52994'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417591.357
+    'REQUEST_TIME' => 1543417591
+]
+2018-11-28 16:06:33 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:33 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '71'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '52994'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417593.507
+    'REQUEST_TIME' => 1543417593
+]
+2018-11-28 16:06:43 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:06:43 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:43 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '53076'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417603.034
+    'REQUEST_TIME' => 1543417603
+]
+2018-11-28 16:06:43 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:06:43 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '76'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '53076'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417603.088
+    'REQUEST_TIME' => 1543417603
+]
+2018-11-28 16:10:49 [10.0.1.9][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:10:49 [10.0.1.9][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:10:49 [10.0.1.9][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '62795'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417849.784
+    'REQUEST_TIME' => 1543417849
+]
+2018-11-28 16:10:50 [10.0.1.9][33][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:10:49 [10.0.1.9][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://10.0.1.13:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '62795'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417849.905
+    'REQUEST_TIME' => 1543417849
+]
+2018-11-28 16:10:50 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:10:50 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:10:50 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '54160'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417850.961
+    'REQUEST_TIME' => 1543417850
+]
+2018-11-28 16:10:51 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:10:51 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '54160'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417851.562
+    'REQUEST_TIME' => 1543417851
+]
+2018-11-28 16:11:15 [10.0.1.9][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:11:15 [10.0.1.9][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:11:15 [10.0.1.9][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '63099'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417875.318
+    'REQUEST_TIME' => 1543417875
+]
+2018-11-28 16:11:15 [10.0.1.9][33][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:11:15 [10.0.1.9][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://10.0.1.13:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '63099'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417875.374
+    'REQUEST_TIME' => 1543417875
+]
+2018-11-28 16:11:15 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:11:15 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:11:15 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '54265'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417875.848
+    'REQUEST_TIME' => 1543417875
+]
+2018-11-28 16:11:16 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:11:15 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '54265'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417875.926
+    'REQUEST_TIME' => 1543417875
+]
+2018-11-28 16:11:24 [10.0.1.9][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:11:24 [10.0.1.9][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:11:24 [10.0.1.9][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '63211'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417884.458
+    'REQUEST_TIME' => 1543417884
+]
+2018-11-28 16:11:24 [10.0.1.9][33][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.9
+2018-11-28 16:11:24 [10.0.1.9][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://10.0.1.13:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.9'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '63211'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417884.533
+    'REQUEST_TIME' => 1543417884
+]
+2018-11-28 16:11:25 [10.0.1.13][-][-][error][yii\web\HttpException:401] yii\web\UnauthorizedHttpException: Your request was made with invalid credentials. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php:93
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/auth/AuthMethod.php(76): yii\filters\auth\AuthMethod->handleFailure(Object(yii\web\Response))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\auth\AuthMethod->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(29): yii\base\Application->run()
+#11 {main}
+2018-11-28 16:11:25 [10.0.1.13][-][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:11:25 [10.0.1.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => ''
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'authorization,content-type'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '54266'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417885.048
+    'REQUEST_TIME' => 1543417885
+]
+2018-11-28 16:11:25 [10.0.1.13][3][-][warning][yii\debug\Module::checkAccess] Access to debugger is denied due to IP address restriction. The requesting IP address is 10.0.1.13
+2018-11-28 16:11:25 [10.0.1.13][3][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer ewrfergergergergergerg'
+    'HTTP_HOST' => '10.0.1.9'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '13'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://evil.com/'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost:3000/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '10.0.1.9'
+    'SERVER_ADDR' => '10.0.1.9'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '10.0.1.13'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '54266'
+    'REDIRECT_URL' => '/api/firms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1543417885.163
+    'REQUEST_TIME' => 1543417885
+]
