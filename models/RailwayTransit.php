@@ -392,6 +392,14 @@ class RailwayTransit extends ActiveRecord implements Linkable
     }
 
     /**
+     * @param $id
+     * @return RailwayTransit|array|null|\yii\db\ActiveRecord
+     */
+    public static function findByID($id){
+        return RailwayTransit::find()->where(['id' => $id])->one();
+    }
+
+    /**
      * Returns a list of links.
      *
      * Each link is either a URI or a [[Link]] object. The return value of this method should

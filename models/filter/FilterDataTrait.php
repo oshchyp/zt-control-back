@@ -274,6 +274,7 @@ trait FilterDataTrait
                 '('.$attribute.' LIKE "'.$value.'%")' => SORT_DESC,
                 $attribute => SORT_ASC
             ]);
+          //  $this->getQuery()->addGroupBy($attribute);
         }
     }
 
@@ -349,6 +350,7 @@ trait FilterDataTrait
     public function filterQuerySort($attribute, $value)
     {
         $this->getQuery()->addOrderBy([$attribute => $value]);
+     //   $this->getQuery()->addGroupBy($attribute);
     }
 
 

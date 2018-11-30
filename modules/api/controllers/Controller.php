@@ -271,7 +271,10 @@ class Controller extends MainController
     public function setPagination()
     {
 
-        $pages = new Pagination(['totalCount' => $this->getQuery()->count()]);
+        $query = clone($this->getQuery());
+//        $q = $query->select('COUNT(*)')->createCommand()->queryScalar();
+//        dump($query->select('COUNT(*)')->createCommand()->queryScalar(),1);
+        $pages = new Pagination(['totalCount' => count($query->asArray()->all())]);
         $pages->setPage($this->getPage());
         $pages->setPageSize(ArrayHelper::getValue($this->getRequestData(), 'pagination.rowsPerPage', $this->rowsPerPageDefault));
 

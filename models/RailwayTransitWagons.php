@@ -14,7 +14,7 @@ use yii\base\Model;
 class RailwayTransitWagons extends Model
 {
 
-    public $uid;
+    public $id;
 
     public $wagonNumber;
 
@@ -40,7 +40,7 @@ class RailwayTransitWagons extends Model
 
     public function rules (){
         return [
-            [['uid','wagonNumber', 'weight' , 'loadingWeight', 'unloadingWeight','ownershipWagonID','tariff','price','additionalPrice','addInfo'], 'safe'],
+            [['id','wagonNumber', 'weight' , 'loadingWeight', 'unloadingWeight','ownershipWagonID','tariff','price','additionalPrice','addInfo'], 'safe'],
         ];
     }
 
@@ -48,7 +48,7 @@ class RailwayTransitWagons extends Model
     public function getInstanceRT(){
        //xs dump($this->uid,1);
         if (!$this->_instanceRailwayTransit) {
-            $instance = $this->uid && !$this->_newRecord ? RailwayTransit::findByUID($this->uid) : null;
+            $instance = $this->id && !$this->_newRecord ? RailwayTransit::findByID($this->id) : null;
             $this->_instanceRailwayTransit = $instance ? $instance : new RailwayTransit();
         }
         return $this->_instanceRailwayTransit;

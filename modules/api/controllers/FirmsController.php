@@ -59,15 +59,17 @@ class FirmsController extends Controller
 
         $this->filter(FirmsFilter::className());
 
-        if (!$this->getQuery()->orderBy){
-            $this->getQuery()->orderBy(
-                ['id' => SORT_DESC]);
-        }
 
         $totalInstance = new FirmCulturesTotal($this->getQuery());
         if ($this->getRequestData('selectedIds')){
-            $totalInstance->getQuery()->filterWhere(['firms.id'=>$this->getRequestData('selectedIds')]);
+            //dump($totalInstance->getQuery()->createCommand()->getRawSql());
+            $totalInstance->getQuery()->andFilterWhere(['firms.id'=>$this->getRequestData('selectedIds')]);
+           // dump($totalInstance->getQuery()->createCommand()->getRawSql(),1);
         }
+        $this->getQuery()
+           //  ->addGroupBy('firms.id')
+              // ->union()
+            ->addOrderBy(['firms.id' => SORT_DESC]);
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
             'regions' => Regions::find()->with(['points'])->all(),
@@ -78,9 +80,13 @@ class FirmsController extends Controller
             'distributionStatuses' => Firms::distributionStatuses(),
             'weightTotal' => $totalInstance->weight(),
             'squareTotal' => $totalInstance->square()
+//            'weightTotal' => 0,
+//            'squareTotal' => 0
+
         ];
 
         $this->setPagination();
+      //  dump($this->getQuery()->createCommand()->getRawSql(),1);
         $this->activeIndex();
 
     }
