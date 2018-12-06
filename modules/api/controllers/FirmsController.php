@@ -8,6 +8,8 @@ use app\models\Culture;
 use app\models\Elevators;
 use app\models\Points;
 use app\modules\api\models\FirmCulturesTotal;
+use app\modules\api\models\FirmOwnerAsExtraData;
+use app\modules\api\models\FirmOwners;
 use app\modules\api\models\FirmsFilter;
 use app\modules\api\models\Firms;
 use app\models\helper\Main;
@@ -55,21 +57,12 @@ class FirmsController extends Controller
     public function actionIndex()
     {
 
-
-
-        $this->filter(FirmsFilter::className());
-
-
+        $this->filter(new FirmsFilter());
         $totalInstance = new FirmCulturesTotal($this->getQuery());
         if ($this->getRequestData('selectedIds')){
-            //dump($totalInstance->getQuery()->createCommand()->getRawSql());
-            $totalInstance->getQuery()->andFilterWhere(['firms.id'=>$this->getRequestData('selectedIds')]);
-           // dump($totalInstance->getQuery()->createCommand()->getRawSql(),1);
+             $totalInstance->getQuery()->andFilterWhere(['firms.id'=>$this->getRequestData('selectedIds')]);
         }
-        $this->getQuery()
-           //  ->addGroupBy('firms.id')
-              // ->union()
-            ->addOrderBy(['firms.id' => SORT_DESC]);
+        $this->getQuery()->addOrderBy(['firms.id' => SORT_DESC]);
         $this->responseExtraData = [
             'contacts' => Contacts::find()->all(),
             'regions' => Regions::find()->with(['points'])->all(),
@@ -78,15 +71,14 @@ class FirmsController extends Controller
             'elevators' => Elevators::find()->all(),
             'points' => Points::find()->all(),
             'distributionStatuses' => Firms::distributionStatuses(),
+            'owners' => FirmOwners::find()->all(),
             'weightTotal' => $totalInstance->weight(),
             'squareTotal' => $totalInstance->square()
-//            'weightTotal' => 0,
-//            'squareTotal' => 0
 
         ];
+        $this->addResponseExtraData(FirmOwnerAsExtraData::instance(),'firmOwners');
 
         $this->setPagination();
-      //  dump($this->getQuery()->createCommand()->getRawSql(),1);
         $this->activeIndex();
 
     }

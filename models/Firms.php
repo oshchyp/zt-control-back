@@ -21,21 +21,10 @@ use yii\helpers\ArrayHelper;
  * @property bool $sender [tinyint(1)]
  * @property int $test [int(11)]
  * @property string $mainCultureUID [varchar(255)]
+ * @property string $ownerUID
  */
 class Firms extends ActiveRecord
 {
-
-    public $saveContacts = null;
-
-    /**
-     * @var null
-     */
-    public $saveCultures = null;
-
-    /**
-     * @var null
-     */
-    public $saveDistances = null;
 
     /**
      * {@inheritdoc}
@@ -54,7 +43,7 @@ class Firms extends ActiveRecord
             [['uid'], 'unique'],
             [['uid', 'name'], 'required'],
             [['square'], 'number'],
-            [['uid', 'name', 'rdpu', 'regionUID', 'pointUID', 'nearElevatorUID', 'mainCultureUID'], 'string', 'max' => 250],
+            [['uid', 'name', 'rdpu', 'regionUID', 'pointUID', 'nearElevatorUID', 'mainCultureUID','ownerUID'], 'string', 'max' => 250],
             ['sender', 'in', 'range' => ArrayHelper::getColumn(static::distributionStatuses(), 'id')],
             [['contacts', 'cultures', 'distances'], 'safe'],
         ];
@@ -71,37 +60,6 @@ class Firms extends ActiveRecord
             'director' => 'Director',
             'rdpu' => 'Rdpu',
             'contactUID' => 'Contact Uid',
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public function fields()
-    {
-        $fields = ['nearElevator', 'contacts', 'cultures', 'mainCulture', 'distances', 'region', 'point', 'processedSquare', 'mainContact',
-            'sender' => function ($model) {
-                foreach (static::distributionStatuses() as $item) {
-                    if ($item['id'] == (int)$model->sender) {
-                        return $item;
-                    }
-                }
-                return [
-                    'name' => 'Не известно',
-                    'id' => 0
-                ];
-            }
-        ];
-        return array_merge(parent::fields(), $fields);
-    }
-
-    /**
-     * @return array
-     */
-    public static function relations()
-    {
-        return ['contacts', 'region', 'point', 'nearElevator',
-            'cultures.culture', 'cultures.regionCulture', 'distances.point', 'mainCulture',
         ];
     }
 
@@ -129,109 +87,6 @@ class Firms extends ActiveRecord
             ]
         ];
     }
-
-    /**
-     * @param $contacts
-     */
-    public function setContacts($contacts)
-    {
-        $this->saveContacts = $contacts;
-    }
-
-    /**
-     * @param $value
-     */
-    public function setCultures($value)
-    {
-        $this->saveCultures = $value;
-    }
-
-    /**
-     * @param $value
-     */
-    public function setDistances($value)
-    {
-        $this->saveDistances = $value;
-    }
-
-    /**
-     *
-     */
-    public function saveContacts()
-    {
-        if ($this->saveContacts === null)
-            return;
-        $transaction = Contacts::getDb()->beginTransaction();
-        try {
-            Contacts::deleteAll(['firmUID' => $this->uid]);
-            if ($this->saveContacts && is_array($this->saveContacts)) {
-                foreach ($this->saveContacts as $contactInfo) {
-                    $object = new Contacts();
-                    $object->attributes = $contactInfo;
-                    $object->firmUID = $this->uid;
-                    $object->save();
-                    if ($object->hasErrors()) {
-                        $this->addErrors(['contacts' => $object->getErrors()]);
-                    }
-                }
-            }
-            $transaction->commit();
-        } catch (\Exception $exception) {
-            $transaction->rollBack();
-            throw $exception;
-        } catch (\Throwable $throwable) {
-            $transaction->rollBack();
-            throw $throwable;
-        }
-
-    }
-
-    /**
-     * @param bool $delete
-     */
-    public function saveCultures($delete = true)
-    {
-        if ($this->saveCultures === null)
-            return;
-        if ($delete) {
-            FirmCultures::deleteAll(['firmUID' => $this->uid]);
-        }
-        if ($this->saveCultures && is_array($this->saveCultures)) {
-            foreach ($this->saveCultures as $info) {
-                $object = new FirmCultures();
-                $object->attributes = $info;
-                $object->firmUID = $this->uid;
-                $object->save();
-                if ($object->hasErrors()) {
-                    $this->addErrors(['сultures' => $object->getErrors()]);
-                }
-            }
-        }
-    }
-
-    /**
-     *
-     */
-    public function saveDistances()
-    {
-
-        if ($this->saveDistances === null)
-            return;
-
-        FirmsDistances::deleteAll(['firmUID' => $this->uid]);
-        if ($this->saveDistances && is_array($this->saveDistances)) {
-            foreach ($this->saveDistances as $item) {
-                $instance = new FirmsDistances();
-                $instance->attributes = $item;
-                $instance->firmUID = $this->uid;
-                $instance->save();
-                if ($instance->hasErrors()) {
-                    $this->addErrors(['distances' => $instance->getErrors()]);
-                }
-            }
-        }
-    }
-
 
     /**
      * @return \yii\db\ActiveQuery

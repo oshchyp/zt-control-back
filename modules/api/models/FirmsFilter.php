@@ -8,10 +8,11 @@
 
 namespace app\modules\api\models;
 
+use app\models\filter\FilterDataInterface;
 use app\models\filter\FilterDataTrait;
 use app\models\FirmCultures;
 
-class FirmsFilter extends Firms
+class FirmsFilter extends Firms implements FilterDataInterface
 {
 
     use FilterDataTrait;
@@ -29,8 +30,8 @@ class FirmsFilter extends Firms
     {
         return [
             [['square', 'processedSquare'], 'number'],
-            [['name', 'rdpu', 'region.name','point.name','stringForSearchAll','cultures.culture.name','mainContact.name','mainContact.phone'], 'string', 'max' => 250],
-            [['square|sort','processedSquare|sort','name|sort'],'sortValidate'],
+            [['name', 'rdpu', 'owner.name', 'region.name','point.name','stringForSearchAll','cultures.culture.name','mainContact.name','mainContact.phone'], 'string', 'max' => 250],
+            [['square|sort','processedSquare|sort','name|sort','owner.name|sort'],'sortValidate'],
             [['regionUID', 'pointUID', 'sender','cultures.cultureUID'],'arrayValidate']
         ];
     }
@@ -53,26 +54,27 @@ class FirmsFilter extends Firms
     public function rulesFilter(){
         return [
             [['square','processedSquare'],'range',['>','=']],
-            [['name','rdpu','cultures.culture.name', 'mainContact.name','mainContact.phone'],'andWhere',['like']],
+            [['name','rdpu', 'owner.name', 'cultures.culture.name', 'mainContact.name','mainContact.phone'],'andWhere',['like']],
             [['pointUID','regionUID','sender','cultures.cultureUID'],'andWhere',['in']],
-            [['square|sort','processedSquare|sort','name|sort'],'sort'],
-            [['stringForSearchAll'],'search',[['name', 'rdpu','region.name','point.name','cultures.culture.name', 'mainContact.name','mainContact.phone']]]
+            [['owner.name|sort','square|sort','processedSquare|sort','name|sort'],'sort'],
+            [['stringForSearchAll'],'search',[['name', 'rdpu','region.name','point.name','cultures.culture.name', 'mainContact.name','mainContact.phone','owner.name']]]
         ];
     }
 
     public function attributesAdd()
     {
-        return ['cultures.cultureUID','cultures.culture.name','region.name','point.name','stringForSearchAll','square|sort','processedSquare|sort','name|sort','processedSquare','mainContact.name','mainContact.phone'];
+        return ['owner.name','owner.name|sort','cultures.cultureUID','cultures.culture.name','region.name','point.name','stringForSearchAll','square|sort','processedSquare|sort','name|sort','processedSquare','mainContact.name','mainContact.phone'];
     }
 
     public function attributesNameInQuery($attribute)
     {
         return [
-            'square|sort' => 'square',
+            'square|sort' => 'firms.square',
             'processedSquare' => $this->processedSquareField(),
             'processedSquare|sort' => $this->processedSquareField(),
             'cultures.culture.name' => 'culture.name',
-            'name|sort' => 'name',
+            'name|sort' => 'firms.name',
+            'owner.name|sort' => 'owner.name',
             'mainContact.phone' => 'REPLACE(REPLACE(REPLACE(REPLACE(mainContact.phone, " ", ""),"(",""),")",""),"+","")'
         ];
     }
@@ -122,7 +124,8 @@ class FirmsFilter extends Firms
 
     public function afterSearch()
     {
-//       dump($this->getQuery()->createCommand()->getRawSql(),1);
+      //  dump($this->getAttribute('owner.name|sort'),1);
+     //  dump($this->getQuery()->createCommand()->getRawSql(),1);
     }
 
 

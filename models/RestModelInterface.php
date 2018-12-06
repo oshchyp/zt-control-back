@@ -12,8 +12,6 @@ namespace app\models;
 interface RestModelInterface
 {
 
-    public static function getAllInstances();
-
     public static function getUidAttrName();
 
     public function setUid();

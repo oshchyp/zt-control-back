@@ -90,6 +90,12 @@ $config = [
                     'controller' => ['api/elevators-crm' => 'api/elevators-crm'],
                 ],
 
+                ///////firm-owners
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/firm-owners' => 'api/firm-owners'],
+                ],
+
 
 
 

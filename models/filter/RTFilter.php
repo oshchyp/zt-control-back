@@ -12,7 +12,7 @@ namespace app\models\filter;
 use app\models\RailwayTransit;
 use yii\helpers\ArrayHelper;
 
-class RTFilter extends RailwayTransit
+class RTFilter extends RailwayTransit implements FilterDataInterface
 {
 
     use FilterDataTrait;

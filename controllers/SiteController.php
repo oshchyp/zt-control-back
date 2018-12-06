@@ -34,6 +34,7 @@ class SiteController extends Controller
 
     public function actionError()
     {
+        phpinfo(); die();
        return 404;
     }
 

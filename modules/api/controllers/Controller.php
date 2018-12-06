@@ -3,7 +3,10 @@
 namespace app\modules\api\controllers;
 
 use app\models\filter\Filter;
+use app\models\filter\FilterDataInterface;
 use app\models\filter\FilterDataTrait;
+use app\modules\api\models\interfaces\ModelAsExtraData;
+use app\modules\api\models\interfaces\ModelAsResource;
 use Yii;
 use yii\data\Pagination;
 use yii\db\ActiveQuery;
@@ -39,6 +42,9 @@ class Controller extends MainController
 
     const RESPONSE_PARAMS_API = 'response_params_api';
 
+    /**
+     * @var ModelAsResource
+     */
     public $resource;
 
     /**
@@ -48,6 +54,9 @@ class Controller extends MainController
 
     public $params = [];
 
+    /**
+     * @var ModelAsResource|ModelAsResource[]
+     */
     public $responseData = [];
 
     public $responseExtraData = [];
@@ -57,6 +66,7 @@ class Controller extends MainController
     public $responseErrors = [];
 
     public $responseCode;
+
     public $rowsPerPageDefault = 10;
 
     public function init()
@@ -92,10 +102,6 @@ class Controller extends MainController
                 'class' => HttpBearerAuth::className(),
                 'only' => isset($this->params['HttpBearerAuth']['only']) ? $this->params['HttpBearerAuth']['only'] : [],
             ],
-//            [
-//                'class' => \yii\filters\Cors::className(),
-//               // 'cors' => ['Origin' => ['*'], 'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'], 'Access-Control-Request-Headers' => ['*'], 'Access-Control-Allow-Credentials' => null, 'Access-Control-Max-Age' => 86400, 'Access-Control-Expose-Headers' => []]
-//            ],
         ];
 
         return $behaviors;
@@ -175,19 +181,25 @@ class Controller extends MainController
     }
 
     /**
-     * @param ActiveRecord $activeRecord
+     * @param ModelAsResource $activeRecord
      */
-    public function setResource(ActiveRecord $activeRecord)
+    public function setResource(ModelAsResource $activeRecord)
     {
         $this->resource = $activeRecord;
-        $this->query = $this->resource->find();
-        if (method_exists($this->resource, 'getRestValidators')) {
-            $this->validationInfo = $this->resource->getRestValidators();
-        }
+        $this->query = $this->resource::find();
+        $this->validationInfo = $this->resource->getRestValidators();
     }
 
     /**
-     * @return ActiveRecord
+     * @param ModelAsExtraData $modelAsExtraData
+     * @param string $key
+     */
+    public function addResponseExtraData(ModelAsExtraData $modelAsExtraData,$key='extraData'){
+       $this->responseExtraData[$key] = $modelAsExtraData::find()->with($modelAsExtraData::relations())->asArray()->all();
+    }
+
+    /**
+     * @return ModelAsResource
      */
     public function getResource()
     {
@@ -255,9 +267,9 @@ class Controller extends MainController
     }
 
     /**
-     * @param $className FilterDataTrait
+     * @param FilterDataInterface $className
      */
-    public function filter($className)
+    public function filter(FilterDataInterface $className)
     {
         $className::search($this->getRequestData('filter'), $this->getQuery());
     }
@@ -292,10 +304,7 @@ class Controller extends MainController
 
     public function activeIndex()
     {
-        if (method_exists($this->resource, 'relations')) {
-            $this->query->with($this->resource->relations());
-        }
-       // dump($this->query,1);
+        $this->query->with($this->resource::relations());
         $this->responseData = $this->query->all();
         $this->setResponseParams(static::RESPONSE_PARAMS_VIEW_DATA_ALL);
     }
@@ -343,6 +352,7 @@ class Controller extends MainController
 
     public function activeDelete($id=null)
     {
+      //  dump($id,1);
         if ($this->getRequestData()) {
             $id = $this->getRequestData();
         }
@@ -355,8 +365,6 @@ class Controller extends MainController
         } else {
             $this->responseData = $this->query->one();
         }
-        $this->responseExtraData = $this->getRequestData();
-
         if ($this->responseData) {
             if (is_array($this->responseData) && count($this->responseData) < 11) {
                 foreach ($this->responseData as $model) {

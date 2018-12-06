@@ -93,6 +93,22 @@ class Permissions extends \yii\db\ActiveRecord
                 'description' => 'Обновление',
                 'convertName' => 'update'
             ],
+            'firm-owners/view' => [
+                'description' => 'Просмотр',
+                'convertName' => 'view'
+            ],
+            'firm-owners/create' => [
+                'description' => 'Создание',
+                'convertName' => 'create'
+            ],
+            'firm-owners/update' => [
+                'description' => 'Обновление',
+                'convertName' => 'update'
+            ],
+            'firm-owners/delete' => [
+                'description' => 'Удаление',
+                'convertName' => 'delete'
+            ],
             'contracts/view' => [
                 'description' => 'Просмотр',
                 'convertName' => 'view'
@@ -131,8 +147,14 @@ class Permissions extends \yii\db\ActiveRecord
     public static function getRoles()
     {
         return [
-            'firms' => [
+            'firms-all' => [
                 'description' => 'Контрагенты',
+            ],
+            'firms' => [
+                'description' => 'Фирмы',
+            ],
+            'firm-owners' => [
+                'description' => 'Владельцы контрагентов',
             ],
             'logistics' => [
                 'description' => 'Логистика',
@@ -177,7 +199,9 @@ class Permissions extends \yii\db\ActiveRecord
     public static function roleStructure()
     {
         return [
-            'firms' => [
+            'firms-all' => [
+                'firms' => [],
+                'firm-owners' => []
             ],
             'logistics' => [
                 'elevators' => [],
@@ -227,6 +251,9 @@ class Permissions extends \yii\db\ActiveRecord
             ],
             'firms' => [
                 'firms/view','firms/update','firms/create',
+            ],
+            'firm-owners' => [
+                'firm-owners/view','firm-owners/update','firm-owners/create','firm-owners/delete'
             ],
             'contracts' => [
                 'contracts/view',

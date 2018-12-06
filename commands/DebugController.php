@@ -19,6 +19,7 @@ use app\models\Regions;
 use app\models\SMSApi;
 use app\models\xls\ParserExcel;
 use app\models\xls\RegionCultures;
+use app\modules\api\models\FirmOwners;
 use app\modules\api\models\FirmsFilter;
 use yii\helpers\ArrayHelper;
 
@@ -26,10 +27,7 @@ class DebugController extends \yii\console\Controller
 {
 
     public function actionIndex(){
-///////////// test git alias
-         $str = preg_replace('/$(\d\d\d)(\d\d)(\d\d)(\d\d\d)^/','+38$1 $2 $3 $4','0992345593');
-         echo $str;
-
+        (new FirmOwners(['phone'=>'+38 (048) 453 53 52']))->save();
     }
 
 }

@@ -10,24 +10,13 @@ namespace app\models;
 
 
 use app\models\helper\Main;
-use yii\helpers\ArrayHelper;
-use yii\helpers\FileHelper;
 
 class ActiveRecord extends \yii\db\ActiveRecord implements RestModelInterface
 {
 
-    public static $allInstances = null;
-
-    public static $logPath;
-
-    public static function getAllInstances(){
-        if (static::$allInstances === null){
-            static::$allInstances = static::find()->all();
-        }
-        return static::$allInstances;
-    }
-
-
+    /**
+     * @return string
+     */
     public static function getUidAttrName(){
         return 'uid';
     }
@@ -35,12 +24,14 @@ class ActiveRecord extends \yii\db\ActiveRecord implements RestModelInterface
     public function setUid(){
         $uidAttrName = static::getUidAttrName();
         if (!$this->$uidAttrName){
-            $array = ArrayHelper::toArray(static::getAllInstances());
-            $this->$uidAttrName = Main::generateUidUniq($array ? ArrayHelper::getColumn($array,$uidAttrName) : []);
+            $this->$uidAttrName = Main::generateUid();
         }
     }
 
 
+    /**
+     * @return array
+     */
     public function getRestValidators()
     {
         $result=[];
@@ -58,6 +49,10 @@ class ActiveRecord extends \yii\db\ActiveRecord implements RestModelInterface
         return $result;
     }
 
+    /**
+     * @param $object
+     * @return mixed
+     */
     public static function validatorName($object){
         $names = [
             'yii\validators\RequiredValidator' => 'required',

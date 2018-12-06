@@ -371,6 +371,8 @@ trait FilterDataTrait
     {
 
         $this->load($params,'');
+//        dump($params);
+//        dump($this->getAttribute('owner.name|sort'));
         if ($this->validate()) {
             $this->beforeSearch();
             $this->runFilterMethods();
