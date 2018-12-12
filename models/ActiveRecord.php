@@ -9,7 +9,7 @@
 namespace app\models;
 
 
-use app\models\helper\Main;
+use app\components\helper\Main;
 
 class ActiveRecord extends \yii\db\ActiveRecord implements RestModelInterface
 {

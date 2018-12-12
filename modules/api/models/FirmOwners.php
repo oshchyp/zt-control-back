@@ -8,7 +8,8 @@
 
 namespace app\modules\api\models;
 
-use app\modules\api\components\EstablishRelation;
+use app\components\models\EstablishRelation;
+use app\models\asrelation\FirmsAsRelation;
 
 class FirmOwners extends FirmPeoples
 {

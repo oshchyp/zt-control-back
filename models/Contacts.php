@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\models\helper\Main;
+use app\components\helper\Main;
 use Yii;
 use yii\helpers\ArrayHelper;
 

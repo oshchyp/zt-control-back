@@ -9,14 +9,14 @@
 namespace app\modules\api\controllers;
 
 
-use app\modules\api\models\CultureAsExtraData;
-use app\modules\api\models\Farms;
-use app\modules\api\models\FarmsFilter;
-use app\modules\api\models\FarmsToDelete;
-use app\modules\api\models\FarmsToSave;
-use app\modules\api\models\FirmsAsExtraData;
-use app\modules\api\models\PointsAsExtraData;
-use app\modules\api\models\RegionsAsExtraData;
+use app\models\asextradata\CultureAsExtraData;
+use app\models\farms\Farms;
+use app\models\farms\FarmsFilter;
+use app\models\farms\FarmsToDelete;
+use app\models\farms\FarmsToSave;
+use app\models\asextradata\FirmsAsExtraData;
+use app\models\asextradata\PointsAsExtraData;
+use app\models\asextradata\RegionsAsExtraData;
 use yii\filters\AccessControl;
 
 class FarmsController extends Controller

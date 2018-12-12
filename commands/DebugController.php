@@ -10,7 +10,7 @@ namespace app\commands;
 
 
 use app\models\DateSet;
-use app\models\excelparser\RegionCulturesParser;
+use app\components\excelparser\RegionCulturesParser;
 use app\models\FirmCultures;
 use app\models\Firms;
 use app\models\RailwayTransit;
@@ -19,10 +19,10 @@ use app\models\Regions;
 use app\models\SMSApi;
 use app\models\xls\ParserExcel;
 use app\models\xls\RegionCultures;
-use app\modules\api\models\Farms;
-use app\modules\api\models\FarmsToSave;
+use app\models\farms\Farms;
+use app\models\farms\FarmsToSave;
 use app\modules\api\models\FirmOwners;
-use app\modules\api\models\FirmsFilter;
+use app\models\firms\FirmsFilter;
 use yii\helpers\ArrayHelper;
 
 class DebugController extends \yii\console\Controller
@@ -54,9 +54,9 @@ class DebugController extends \yii\console\Controller
 //        dump(ArrayHelper::toArray(Farms::find()->all()));
 
 
-        $firms = \app\modules\api\models\Firms::find()->with(\app\modules\api\models\Firms::relations())->addOrderBy(['firms.id' => SORT_DESC])->limit(10)->all();
+        $firms = firms\Firms::find()->with(firms\Firms::relations())->addOrderBy(['firms.id' => SORT_DESC])->limit(10)->all();
 
-        dump(ArrayHelper::toArray($firms,[\app\modules\api\models\Firms::className()=>['cultures']])[0]);
+        dump(ArrayHelper::toArray($firms,[firms\Firms::className()=>['cultures']])[0]);
     }
 
 }

@@ -9,9 +9,9 @@
 namespace app\modules\api\models;
 
 
-use app\models\behaviors\PhoneHandling;
-use app\models\filter\FilterDataInterface;
-use app\models\filter\FilterDataTrait;
+use app\components\behaviors\PhoneHandling;
+use app\components\filter\FilterDataInterface;
+use app\components\filter\FilterDataTrait;
 
 abstract class FirmPeoplesFilter extends FirmPeoples implements FilterDataInterface
 {

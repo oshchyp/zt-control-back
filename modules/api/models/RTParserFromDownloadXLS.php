@@ -9,7 +9,7 @@
 namespace app\modules\api\models;
 
 
-use app\models\excelparser\RTParser;
+use app\components\excelparser\RTParser;
 use yii\base\Model;
 use yii\web\UploadedFile;
 
