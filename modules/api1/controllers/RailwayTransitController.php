@@ -9,7 +9,7 @@
 namespace app\modules\api1\controllers;
 
 
-use app\models\filter\RTFilter;
+use app\components\filter\RTFilter;
 use app\models\RailwayTransit;
 
 class RailwayTransitController extends Controller

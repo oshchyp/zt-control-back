@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use app\models\helper\Main;
-use app\modules\api\models\interfaces\ModelAsResource;
+use app\components\helper\Main;
+use app\components\models\ModelAsResourceInterface;
 use yii\web\Linkable;
 use yii\web\Link;
 use yii\helpers\Url;
@@ -38,7 +38,7 @@ use yii\helpers\Url;
  * @property int $typeID
  * @property int $updated_at
  */
-class RailwayTransit extends ActiveRecord implements Linkable, ModelAsResource
+class RailwayTransit extends ActiveRecord implements Linkable, ModelAsResourceInterface
 {
 
     public static $allInstances = null;

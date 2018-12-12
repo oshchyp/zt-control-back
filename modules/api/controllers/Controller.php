@@ -2,11 +2,11 @@
 
 namespace app\modules\api\controllers;
 
-use app\models\filter\Filter;
-use app\models\filter\FilterDataInterface;
-use app\models\filter\FilterDataTrait;
-use app\modules\api\models\interfaces\ModelAsExtraData;
-use app\modules\api\models\interfaces\ModelAsResource;
+use app\components\filter\Filter;
+use app\components\filter\FilterDataInterface;
+use app\components\filter\FilterDataTrait;
+use app\components\models\ModelAsExtraDataInterface;
+use app\components\models\ModelAsResourceInterface;
 use Yii;
 use yii\data\Pagination;
 use yii\db\ActiveQuery;
@@ -43,7 +43,7 @@ class Controller extends MainController
     const RESPONSE_PARAMS_API = 'response_params_api';
 
     /**
-     * @var ModelAsResource
+     * @var ModelAsResourceInterface
      */
     public $resource;
 
@@ -55,7 +55,7 @@ class Controller extends MainController
     public $params = [];
 
     /**
-     * @var ModelAsResource|ModelAsResource[]
+     * @var ModelAsResourceInterface|ModelAsResourceInterface[]
      */
     public $responseData = [];
 
@@ -179,9 +179,9 @@ class Controller extends MainController
     }
 
     /**
-     * @param ModelAsResource $activeRecord
+     * @param ModelAsResourceInterface $activeRecord
      */
-    public function setResource(ModelAsResource $activeRecord)
+    public function setResource(ModelAsResourceInterface $activeRecord)
     {
         $this->resource = $activeRecord;
         $this->query = $this->resource::find();
@@ -189,15 +189,15 @@ class Controller extends MainController
     }
 
     /**
-     * @param ModelAsExtraData $modelAsExtraData
+     * @param \app\components\models\ModelAsExtraDataInterface $modelAsExtraData
      * @param string $key
      */
-    public function addResponseExtraData(ModelAsExtraData $modelAsExtraData,$key='extraData'){
+    public function addResponseExtraData(ModelAsExtraDataInterface $modelAsExtraData, $key='extraData'){
        $this->responseExtraData[$key] = $modelAsExtraData::find()->with($modelAsExtraData::relations())->asArray()->all();
     }
 
     /**
-     * @return ModelAsResource
+     * @return ModelAsResourceInterface
      */
     public function getResource()
     {

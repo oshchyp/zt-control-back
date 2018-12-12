@@ -9,11 +9,11 @@
 namespace app\modules\api\models;
 
 
-use app\models\behaviors\EstablishUID;
-use app\models\behaviors\PhoneHandling;
-use app\modules\api\models\interfaces\ModelAsResource;
+use app\components\behaviors\EstablishUID;
+use app\components\behaviors\PhoneHandling;
+use app\components\models\ModelAsResourceInterface;
 
-abstract class FirmPeoples extends \app\models\FirmPeoples implements ModelAsResource
+abstract class FirmPeoples extends \app\models\FirmPeoples implements ModelAsResourceInterface
 {
 
     public function fields()

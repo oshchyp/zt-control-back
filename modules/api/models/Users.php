@@ -2,9 +2,9 @@
 
 namespace app\modules\api\models;
 
-use app\modules\api\models\interfaces\ModelAsResource;
+use app\components\models\ModelAsResourceInterface;
 
-class Users extends \app\models\Users implements ModelAsResource
+class Users extends \app\models\Users implements ModelAsResourceInterface
 {
 
 

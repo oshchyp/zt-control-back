@@ -1,10 +1,12 @@
 <?php
 
+use app\components\migrations\RBACGenerator;
+
 
 /**
  * Class m181206_102149_rbac_generate
  */
-class m181206_102149_rbac_generate extends \app\models\migrations\RBACGenerator
+class m181206_102149_rbac_generate extends RBACGenerator
 {
 
 }

@@ -8,7 +8,7 @@
 
 namespace app\modules\api\controllers;
 
-use app\models\filter\FilterDataInterface;
+use app\components\filter\FilterDataInterface;
 use app\modules\api\models\FirmManagers;
 use app\modules\api\models\FirmManagersFilter;
 use yii\filters\AccessControl;

@@ -8,7 +8,7 @@
 
 namespace app\modules\api\controllers;
 
-use app\models\filter\RailwayTransitFilter;
+use app\components\filter\RailwayTransitFilter;
 use app\modules\api\models\RTFilter;
 use app\models\RailwayTransit;
 use app\models\RailwayTransitMultiSave;
