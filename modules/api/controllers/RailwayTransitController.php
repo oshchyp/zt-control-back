@@ -9,7 +9,7 @@
 namespace app\modules\api\controllers;
 
 use app\models\filter\RailwayTransitFilter;
-use app\models\filter\RTFilter;
+use app\modules\api\models\RTFilter;
 use app\models\RailwayTransit;
 use app\models\RailwayTransitMultiSave;
 use app\modules\api\models\RTParserFromDownloadXLS;
@@ -68,13 +68,16 @@ class RailwayTransitController extends Controller
      */
     public function actionIndex($completed_status = null)
     {
+
         $status = $completed_status ? RailwayTransit::STATUS_ID_COMPLETED : RailwayTransit::STATUS_ID_NEW;
-        $this->filter(RTFilter::className());
+
+        $this->filter(RTFilter::instance());
+
         $this->getQuery()->andWhere(['statusID'=>$status]);
+
         if (!$this->getQuery()->orderBy){
             $sortField = $status == RailwayTransit::STATUS_ID_COMPLETED ? 'railwayTransit.updated_at' : 'railwayTransit.id';
-            $this->getQuery()->orderBy(
-                [$sortField => SORT_DESC]);
+            $this->getQuery()->orderBy([$sortField => SORT_DESC]);
         }
         $this->setPagination();
         $this->activeIndex();

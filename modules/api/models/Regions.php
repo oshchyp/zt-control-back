@@ -8,12 +8,14 @@
 
 namespace app\modules\api\models;
 
+use app\modules\api\models\interfaces\ModelAsResource;
+
 /**
  * Class Regions
  * @package app\modules\api\models
  * @property \app\models\RegionCultures[] $cultures
  */
-class Regions extends \app\models\Regions
+class Regions extends \app\models\Regions implements ModelAsResource
 {
 
     public static $allCultures;

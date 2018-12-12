@@ -93,6 +93,25 @@ class Permissions extends \yii\db\ActiveRecord
                 'description' => 'Обновление',
                 'convertName' => 'update'
             ],
+
+            'farms/view' => [
+                'description' => 'Просмотр',
+                'convertName' => 'view'
+            ],
+            'farms/create' => [
+                'description' => 'Создание',
+                'convertName' => 'create'
+            ],
+            'farms/update' => [
+                'description' => 'Обновление',
+                'convertName' => 'update'
+            ],
+
+            'farms/delete' => [
+                'description' => 'Удаление',
+                'convertName' => 'delete'
+            ],
+
             'firm-owners/view' => [
                 'description' => 'Просмотр',
                 'convertName' => 'view'
@@ -109,6 +128,24 @@ class Permissions extends \yii\db\ActiveRecord
                 'description' => 'Удаление',
                 'convertName' => 'delete'
             ],
+
+            'firm-managers/view' => [
+                'description' => 'Просмотр',
+                'convertName' => 'view'
+            ],
+            'firm-managers/create' => [
+                'description' => 'Создание',
+                'convertName' => 'create'
+            ],
+            'firm-managers/update' => [
+                'description' => 'Обновление',
+                'convertName' => 'update'
+            ],
+            'firm-managers/delete' => [
+                'description' => 'Удаление',
+                'convertName' => 'delete'
+            ],
+
             'contracts/view' => [
                 'description' => 'Просмотр',
                 'convertName' => 'view'
@@ -156,6 +193,15 @@ class Permissions extends \yii\db\ActiveRecord
             'firm-owners' => [
                 'description' => 'Владельцы контрагентов',
             ],
+
+            'farms' => [
+                'description' => 'Хозяйства',
+            ],
+
+            'firm-managers' => [
+                'description' => 'Менеджеры контрагентов',
+            ],
+
             'logistics' => [
                 'description' => 'Логистика',
             ],
@@ -201,7 +247,9 @@ class Permissions extends \yii\db\ActiveRecord
         return [
             'firms-all' => [
                 'firms' => [],
-                'firm-owners' => []
+                'firm-owners' => [],
+                'firm-managers' => [],
+                'farms' => []
             ],
             'logistics' => [
                 'elevators' => [],
@@ -252,8 +300,14 @@ class Permissions extends \yii\db\ActiveRecord
             'firms' => [
                 'firms/view','firms/update','firms/create',
             ],
+            'farms' => [
+                'farms/view','farms/update','farms/create','farms/delete'
+            ],
             'firm-owners' => [
                 'firm-owners/view','firm-owners/update','firm-owners/create','firm-owners/delete'
+            ],
+            'firm-managers' => [
+                'firm-managers/view','firm-managers/update','firm-managers/create','firm-managers/delete'
             ],
             'contracts' => [
                 'contracts/view',

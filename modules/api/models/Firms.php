@@ -9,6 +9,8 @@
 namespace app\modules\api\models;
 
 
+use app\models\Contacts;
+use app\models\FirmCultures;
 use app\modules\api\components\EstablishRelation;
 use app\modules\api\models\interfaces\ModelAsResource;
 
@@ -32,44 +34,50 @@ class Firms extends \app\models\Firms implements ModelAsResource
     /**
      * @return array
      */
-    public function fields(){
-        $fields = ['nearElevator','contacts','cultures','mainCulture','distances','region', 'point','processedSquare','mainContact','owner',
-            'sender' => function ($model){
-                foreach (static::distributionStatuses() as $item){
-                    if ($item['id'] == $model->sender){
-                        return $item;
-                    }
-                }
-                return [
-                    'name' => 'Не известно',
-                    'id' => 0
-                ];
+    public function fields()
+    {
+        $fields = ['nearElevator', 'contacts', 'cultures', 'mainCulture', 'distances', 'region', 'point', 'processedSquare', 'mainContact', 'owner', 'manager', 'status',
+            'sender' => 'senderConvert'];
+        return array_merge(parent::fields(), $fields);
+    }
+
+    function getSenderConvert()
+    {
+        foreach (static::distributionStatuses() as $item) {
+            if ($item['id'] == $this->sender) {
+                return $item;
             }
+        }
+        return [
+            'name' => 'Не известно',
+            'id' => 0
         ];
-        return array_merge(parent::fields(),$fields);
     }
 
     /**
      * @return array
      */
-    public static function relations(){
-        return ['contacts', 'region', 'point','nearElevator',
-            'cultures.culture', 'cultures.regionCulture', 'distances.point', 'mainCulture', 'owner'
+    public static function relations()
+    {
+        return ['contacts', 'region', 'point', 'nearElevator',
+            'cultures.culture', 'cultures.regionCultureRelation', 'distances.point', 'mainCulture', 'owner', 'manager'
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getDistances(){
-        return $this->hasMany(FirmsDistances::className(),['firmUID'=>'uid']);
+    public function getDistances()
+    {
+        return $this->hasMany(FirmsDistances::className(), ['firmUID' => 'uid']);
     }
 
-    public function getProcessedSquare(){
+    public function getProcessedSquare()
+    {
         $result = 0;
-        if ($this->cultures){
-            foreach ($this->cultures as $item){
-                if ($item->year==date('Y')){
+        if ($this->cultures) {
+            foreach ($this->cultures as $item) {
+                if ($item->year == date('Y')) {
                     $result += $item->square;
                 }
             }
@@ -179,8 +187,27 @@ class Firms extends \app\models\Firms implements ModelAsResource
         }
     }
 
-    public function getOwner(){
-        return EstablishRelation::hasOne($this,FirmOwnersAsRelation::instance(),['uid'=>'ownerUID']);
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOwner()
+    {
+        return EstablishRelation::hasOne($this, FirmOwnersAsRelation::instance(), ['uid' => 'ownerUID']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getManager()
+    {
+        return EstablishRelation::hasOne($this, FirmManagersAsRelation::instance(), ['uid' => 'managerUID']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getStatus(){
+        return EstablishRelation::hasOne($this,FirmStatusesAsRelation::instance(),['id'=>'statusID']);
     }
 
 }

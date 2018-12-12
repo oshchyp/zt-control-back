@@ -8,15 +8,15 @@ use app\models\Culture;
 use app\models\Elevators;
 use app\models\Points;
 use app\modules\api\models\FirmCulturesTotal;
-use app\modules\api\models\FirmOwnerAsExtraData;
-use app\modules\api\models\FirmOwners;
+use app\modules\api\models\FirmManagersAsExtraData;
+use app\modules\api\models\FirmOwnersAsExtraData;
 use app\modules\api\models\FirmsFilter;
 use app\modules\api\models\Firms;
 use app\models\helper\Main;
 use app\models\Posts;
+use app\modules\api\models\FirmStatusesAsExtraData;
 use app\modules\api\models\Regions;
 use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
 
 class FirmsController extends Controller
 {
@@ -71,12 +71,13 @@ class FirmsController extends Controller
             'elevators' => Elevators::find()->all(),
             'points' => Points::find()->all(),
             'distributionStatuses' => Firms::distributionStatuses(),
-            'owners' => FirmOwners::find()->all(),
             'weightTotal' => $totalInstance->weight(),
             'squareTotal' => $totalInstance->square()
 
         ];
-        $this->addResponseExtraData(FirmOwnerAsExtraData::instance(),'firmOwners');
+        $this->addResponseExtraData(FirmOwnersAsExtraData::instance(),'firmOwners');
+        $this->addResponseExtraData(FirmManagersAsExtraData::instance(),'firmManagers');
+        $this->addResponseExtraData(FirmStatusesAsExtraData::instance(),'firmStatuses');
 
         $this->setPagination();
         $this->activeIndex();
@@ -101,7 +102,6 @@ class FirmsController extends Controller
     public function actionUpdate($id)
     {
         $this->activeUpdate($id,$this->saveEvents(ActiveRecord::EVENT_AFTER_UPDATE));
-
     }
 
     public function saveEvents($saveEvent){

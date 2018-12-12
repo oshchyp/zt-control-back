@@ -14,6 +14,7 @@ namespace app\models;
  * @property Culture $culture
  * @property RegionCultures regionCulture
  * @property float weightForecast
+ * @property RegionCultures[] regionCultureRelation
  */
 class FirmCultures extends \yii\db\ActiveRecord
 {
@@ -95,7 +96,18 @@ class FirmCultures extends \yii\db\ActiveRecord
         return $this->hasOne(Culture::className(),['uid'=>'cultureUID']);
     }
 
+    public function getRegionCultureRelation(){
+        return $this->hasMany(RegionCultures::className(),['regionUID' => 'regionUID']) -> viaTable('firms',['uid'=>'firmUID']);
+    }
+
     public function getRegionCulture(){
-        return $this->hasOne(RegionCultures::className(),['regionUID' => 'regionUID']) -> viaTable('firms',['uid'=>'firmUID'])->where(['cultureUID'=>$this->cultureUID]);
+        if ($this->regionCultureRelation){
+            foreach ($this->regionCultureRelation as $item){
+                if ($item->cultureUID == $this->cultureUID){
+                    return $item;
+                }
+            }
+        }
+        return null;
     }
 }

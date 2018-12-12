@@ -9,6 +9,8 @@
 namespace app\modules\api\models;
 
 
+use app\models\filter\FilterDataInterface;
+use app\models\filter\FilterDataTrait;
 use app\models\RailwayTransit;
 
 class RTFilter extends RailwayTransit implements FilterDataInterface

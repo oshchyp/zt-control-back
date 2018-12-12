@@ -18,38 +18,22 @@ class EstablishRelation extends Component
 
     /**
      * @param ActiveRecord $activeRecordModel
-     * @param ModelAsRelation $relationClassName
+     * @param ModelAsRelation $ModelAsRelation
      * @param array $condition
      * @return \yii\db\ActiveQuery
-     * @throws \Exception
      */
-    public static function hasOne(ActiveRecord $activeRecordModel,ModelAsRelation $relationClassName,$condition=[]){
-        self::isModelAsRelation($relationClassName);
-        return $activeRecordModel->hasOne($relationClassName,$condition)->with($relationClassName::relations());
+    public static function hasOne(ActiveRecord $activeRecordModel,ModelAsRelation $ModelAsRelation,$condition=[]){
+        return $activeRecordModel->hasOne($ModelAsRelation,$condition)->with($ModelAsRelation::relations());
     }
 
     /**
      * @param ActiveRecord $activeRecordModel
-     * @param ModelAsRelation $relationClassName
+     * @param ModelAsRelation $ModelAsRelation
      * @param array $condition
      * @return \yii\db\ActiveQuery
-     * @throws \Exception
      */
-    public static function hasMany(ActiveRecord $activeRecordModel, ModelAsRelation $relationClassName,$condition=[]){
-        self::isModelAsRelation($relationClassName);
-        return $activeRecordModel->hasMany($relationClassName,$condition)->with($relationClassName::relations());
-    }
-
-    /**
-     * @param $relationClassName
-     * @throws \Exception
-     */
-    public static function isModelAsRelation($relationClassName){
-    //    $ar = $relationClassName instanceof 'app\modules\api\models\interfaces\ModelAsRelation';
-      //  dump($relationClassName instanceof 'app\\modules\\api\\models\\interfaces\\ModelAsRelation');
-        if (!is_a($relationClassName,'app\\modules\\api\\models\\interfaces\\ModelAsRelation')){
-            throw new \Exception('relation class is not valid');
-        }
+    public static function hasMany(ActiveRecord $activeRecordModel, ModelAsRelation $ModelAsRelation,$condition=[]){
+        return $activeRecordModel->hasMany($ModelAsRelation::className(),$condition)->with($ModelAsRelation::relations());
     }
 
 }

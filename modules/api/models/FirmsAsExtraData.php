@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: programmer_5
- * Date: 06.12.2018
- * Time: 16:26
+ * Date: 10.12.2018
+ * Time: 13:35
  */
 
 namespace app\modules\api\models;
@@ -11,17 +11,8 @@ namespace app\modules\api\models;
 
 use app\modules\api\models\interfaces\ModelAsExtraData;
 
-class FirmOwnerAsExtraData extends \app\models\FirmOwners implements ModelAsExtraData
+class FirmsAsExtraData extends \app\models\Firms implements ModelAsExtraData
 {
-
-
-    /**
-     * @return array
-     */
-    public function fields()
-    {
-        return [ 'uid', 'name', 'phone', 'email'];
-    }
 
     /**
      * @return array
@@ -30,5 +21,4 @@ class FirmOwnerAsExtraData extends \app\models\FirmOwners implements ModelAsExtr
     {
         return [];
     }
-
 }

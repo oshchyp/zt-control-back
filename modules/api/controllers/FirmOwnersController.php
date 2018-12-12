@@ -9,10 +9,12 @@
 namespace app\modules\api\controllers;
 
 
+use app\models\filter\FilterDataInterface;
 use app\modules\api\models\FirmOwners;
+use app\modules\api\models\FirmOwnersFilter;
 use yii\filters\AccessControl;
 
-class FirmOwnersController extends Controller
+class FirmOwnersController extends FirmPeoplesController
 {
 
     public function init()
@@ -53,26 +55,12 @@ class FirmOwnersController extends Controller
         return $behaviors;
     }
 
-    public function actionIndex(){
-        $this->activeIndex();
-    }
-
-    public function actionList()
+    /**
+     * @return FilterDataInterface
+     */
+    public function getFilterInstance(): FilterDataInterface
     {
-        $this->activeIndex();
-        $this->setPagination();
-    }
-
-    public function actionUpdate($id){
-        $this->activeUpdate($id);
-    }
-
-    public function actionCreate(){
-        $this->activeCreate();
-    }
-
-    public function actionDelete($id=null){
-        $this->activeDelete($id);
+        return FirmOwnersFilter::instance();
     }
 
 }

@@ -22,6 +22,8 @@ use yii\helpers\ArrayHelper;
  * @property int $test [int(11)]
  * @property string $mainCultureUID [varchar(255)]
  * @property string $ownerUID
+ * @property string $managerUID [varchar(250)]
+ * @property int $statusID [int(11)]
  */
 class Firms extends ActiveRecord
 {
@@ -40,10 +42,11 @@ class Firms extends ActiveRecord
     public function rules()
     {
         return [
+            [['statusID'],'integer'],
             [['uid'], 'unique'],
             [['uid', 'name'], 'required'],
             [['square'], 'number'],
-            [['uid', 'name', 'rdpu', 'regionUID', 'pointUID', 'nearElevatorUID', 'mainCultureUID','ownerUID'], 'string', 'max' => 250],
+            [['uid', 'name', 'rdpu', 'regionUID', 'pointUID', 'nearElevatorUID', 'mainCultureUID','ownerUID','managerUID'], 'string', 'max' => 250],
             ['sender', 'in', 'range' => ArrayHelper::getColumn(static::distributionStatuses(), 'id')],
             [['contacts', 'cultures', 'distances'], 'safe'],
         ];

@@ -32,7 +32,7 @@ class FirmsFilter extends Firms implements FilterDataInterface
             [['square', 'processedSquare'], 'number'],
             [['name', 'rdpu', 'owner.name', 'region.name','point.name','stringForSearchAll','cultures.culture.name','mainContact.name','mainContact.phone'], 'string', 'max' => 250],
             [['square|sort','processedSquare|sort','name|sort','owner.name|sort'],'sortValidate'],
-            [['regionUID', 'pointUID', 'sender','cultures.cultureUID'],'arrayValidate']
+            [['regionUID', 'pointUID', 'sender','cultures.cultureUID','status.id'],'arrayValidate']
         ];
     }
 
@@ -55,7 +55,7 @@ class FirmsFilter extends Firms implements FilterDataInterface
         return [
             [['square','processedSquare'],'range',['>','=']],
             [['name','rdpu', 'owner.name', 'cultures.culture.name', 'mainContact.name','mainContact.phone'],'andWhere',['like']],
-            [['pointUID','regionUID','sender','cultures.cultureUID'],'andWhere',['in']],
+            [['pointUID','regionUID','sender','cultures.cultureUID','status.id'],'andWhere',['in']],
             [['owner.name|sort','square|sort','processedSquare|sort','name|sort'],'sort'],
             [['stringForSearchAll'],'search',[['name', 'rdpu','region.name','point.name','cultures.culture.name', 'mainContact.name','mainContact.phone','owner.name']]]
         ];
@@ -63,7 +63,7 @@ class FirmsFilter extends Firms implements FilterDataInterface
 
     public function attributesAdd()
     {
-        return ['owner.name','owner.name|sort','cultures.cultureUID','cultures.culture.name','region.name','point.name','stringForSearchAll','square|sort','processedSquare|sort','name|sort','processedSquare','mainContact.name','mainContact.phone'];
+        return ['status.id','owner.name','owner.name|sort','cultures.cultureUID','cultures.culture.name','region.name','point.name','stringForSearchAll','square|sort','processedSquare|sort','name|sort','processedSquare','mainContact.name','mainContact.phone'];
     }
 
     public function attributesNameInQuery($attribute)

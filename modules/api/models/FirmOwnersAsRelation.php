@@ -8,17 +8,7 @@
 
 namespace app\modules\api\models;
 
-
-use app\modules\api\models\interfaces\ModelAsRelation;
-
-class FirmOwnersAsRelation extends \app\models\FirmOwners implements ModelAsRelation
+class FirmOwnersAsRelation extends  FirmPeoplesAsRelation
 {
-
-    /**
-     * @return array
-     */
-    public static function relations()
-    {
-        return [];
-    }
+    public static $typeInFinder = 1;
 }

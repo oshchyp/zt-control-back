@@ -96,6 +96,18 @@ $config = [
                     'controller' => ['api/firm-owners' => 'api/firm-owners'],
                 ],
 
+                ///////firm-managers
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/firm-managers' => 'api/firm-managers'],
+                ],
+
+                ///////farms
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/farms' => 'api/farms'],
+                ],
+
 
 
 

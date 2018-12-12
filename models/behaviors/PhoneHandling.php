@@ -21,13 +21,12 @@ class PhoneHandling extends Behavior
     public function events()
     {
         return [
-            ActiveRecord::EVENT_BEFORE_INSERT => 'beforeSave',
-            ActiveRecord::EVENT_BEFORE_UPDATE => 'beforeSave',
+            ActiveRecord::EVENT_BEFORE_VALIDATE => 'beforeValidate',
         ];
     }
 
 
-    public function beforeSave($event)
+    public function beforeValidate($event)
     {
         if ($this->owner->phone) {
             $this->owner->phone = str_replace(['+', '(', ')', ' '], '', $this->owner->phone);

@@ -8,41 +8,12 @@
 
 namespace app\modules\api\models;
 
-
-use app\models\behaviors\EstablishUID;
-use app\models\behaviors\PhoneHandling;
 use app\modules\api\components\EstablishRelation;
-use app\modules\api\models\interfaces\ModelAsResource;
 
-class FirmOwners extends \app\models\FirmOwners implements ModelAsResource
+class FirmOwners extends FirmPeoples
 {
 
-
-    public function fields()
-    {
-        return array_merge(parent::fields(),['firms']);
-    }
-
-    public function behaviors()
-    {
-        return [
-            'establishUID' => [
-                'class' => EstablishUID::className()
-            ],
-            'phoneHandling' => [
-                'class' => PhoneHandling::className()
-            ]
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function relations()
-    {
-      return ['firms'];
-    }
-
+    public static $typeInFinder = 1;
     /**
      * @return \yii\db\ActiveQuery
      * @throws \Exception

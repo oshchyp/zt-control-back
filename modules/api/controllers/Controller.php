@@ -73,9 +73,7 @@ class Controller extends MainController
     {
 
 
-        //Yii::$app->response->getHeaders()->add('Access-Control-Allow-Origin', '*');
-
-        Yii::$app->response->on(Response::EVENT_BEFORE_SEND, function ($event) {
+       Yii::$app->response->on(Response::EVENT_BEFORE_SEND, function ($event) {
             $response = $event->sender;
             if ($response->statusCode == 500 && YII_DEBUG) {
                 $this->responseData = $response->data;
@@ -221,7 +219,7 @@ class Controller extends MainController
 
         if (!$this->responseData) {
             $condition = 'ifDataEmpty';
-        } elseif (is_object($this->responseData) && $this->responseData->getErrors()) {
+        } elseif (is_object($this->responseData) && method_exists($this->responseData,'getErrors') && $this->responseData->getErrors()) {
             $condition = 'ifErrors';
         } else {
             $condition = 'ifSuccess';
@@ -237,7 +235,7 @@ class Controller extends MainController
 
         if (isset($rules['setErrors'])) {
             $this->responseErrors = $rules['setErrors'];
-        } elseif (is_object($this->responseData) && $this->responseData->getErrors()) {
+        } elseif (is_object($this->responseData) && method_exists($this->responseData,'getErrors') && $this->responseData->getErrors()) {
             $this->responseErrors = $this->responseData->getErrors();
         }
 
@@ -284,8 +282,6 @@ class Controller extends MainController
     {
 
         $query = clone($this->getQuery());
-//        $q = $query->select('COUNT(*)')->createCommand()->queryScalar();
-//        dump($query->select('COUNT(*)')->createCommand()->queryScalar(),1);
         $pages = new Pagination(['totalCount' => count($query->asArray()->all())]);
         $pages->setPage($this->getPage());
         $pages->setPageSize(ArrayHelper::getValue($this->getRequestData(), 'pagination.rowsPerPage', $this->rowsPerPageDefault));
@@ -336,7 +332,6 @@ class Controller extends MainController
         }
 
         $this->responseData = $this->query->one();
-      //  dump($this->responseData,1);
         if ($this->responseData) {
             if ($events) {
                 foreach ($events as $item) {
@@ -346,13 +341,11 @@ class Controller extends MainController
             $this->responseData->attributes = $this->getRequestData();
             $this->responseData->save();
         }
-      //  dump($this->responseData->getErrors(),1);
         $this->setResponseParams(static::RESPONSE_PARAMS_SAVE);
     }
 
     public function activeDelete($id=null)
     {
-      //  dump($id,1);
         if ($this->getRequestData()) {
             $id = $this->getRequestData();
         }
