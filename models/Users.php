@@ -16,6 +16,10 @@ use yii\web\IdentityInterface;
  * @property string $phone
  * @property string $token
  * @property int    $code
+ * @property string $mail [varchar(250)]
+ * @property bool $admin [tinyint(3)]
+ * @property int $type [int(11)]
+ * @property int $elevatorBit [int(11)]
  */
 class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -38,7 +42,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
             [['phone'], 'required'],
             [['phone'], 'unique'],
             [['code'], 'integer'],
-            [['firstName', 'lastName', 'token'], 'string', 'max' => 255],
+            [['firstName', 'lastName'], 'string', 'max' => 255],
             [['phone'], 'string', 'length' => 12],
             [['perm'],'safe']
         ];

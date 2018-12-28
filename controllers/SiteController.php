@@ -6,6 +6,7 @@ use app\models\json_parser\Contracts;
 use app\models\json_parser\Parser;
 use app\models\xls\FirmsParser;
 use app\models\xls\ParserActiveRecord;
+use http\Exception;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 
@@ -34,12 +35,12 @@ class SiteController extends Controller
 
     public function actionError()
     {
-        phpinfo(); die();
-       return 404;
+        die('404');
     }
 
-    public function actionTest(){
-        die('wef');
+    public function actionIndex($url='',$url1='',$url2='')
+    {
+        return require \Yii::getAlias('@app') . '/web/index.html';
     }
 
 }

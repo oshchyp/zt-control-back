@@ -85,6 +85,7 @@ class FirmsController extends Controller
     }
 
     public function actionList(){
+      //  die('3edr');
          $this->actionIndex();
     }
 

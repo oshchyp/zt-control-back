@@ -9,6 +9,7 @@
 namespace app\models\firms;
 
 
+use app\components\behaviors\SetUserBits;
 use app\models\asrelation\FirmManagersAsRelation;
 use app\models\asrelation\FirmOwnersAsRelation;
 use app\models\asrelation\FirmStatusesAsRelation;
@@ -72,6 +73,15 @@ class Firms extends \app\models\Firms implements ModelAsResourceInterface
             'cultures.culture', 'cultures.regionCultureRelation', 'distances.point', 'mainCulture', 'owner', 'manager'
         ];
     }
+
+//    public function behaviors()
+//    {
+//        return [
+//            'setUserBits' => [
+//                'class' => SetUserBits::className()
+//            ],
+//        ];
+//    }
 
     /**
      * @return \yii\db\ActiveQuery

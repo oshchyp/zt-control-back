@@ -135,6 +135,11 @@ $config = [
                     'controller' => ['api_v1/railway-transit' => 'api_v1/railway-transit'],
                 ],
 
+                'GET <url:\w+>/<url1:\w+>/<url2:\w+>' => 'site/index',
+                'GET <url:\w+>/<url1:\w+>' => 'site/index',
+                'GET <url:\w+>' => 'site/index',
+                'GET /' => 'site/index'
+
 
             ],
         ],
