@@ -73,7 +73,9 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/firms' => 'api/firms'],
                 ],
+                'POST api/firms/list/<elevatorBit:\d+>' => 'api/firms/list',
                 'POST api/firms/list' => 'api/firms/list',
+
 
 
                 ///////REGIONS

@@ -40,10 +40,4 @@ abstract class FirmPeoples extends \app\models\FirmPeoples implements ModelAsRes
     {
         return ['firms'];
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     * @throws \Exception
-     */
-    abstract public function getFirms();
 }

@@ -16,4 +16,8 @@ namespace app\models;
 class FirmOwners extends FirmPeoples
 {
     public static $typeInFinder = 1;
+
+    public static function find(){
+        return parent::find()->where(['type'=>1]);
+    }
 }

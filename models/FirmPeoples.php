@@ -60,10 +60,4 @@ class FirmPeoples extends ActiveRecord
         return parent::beforeSave($insert);
     }
 
-    public static function find()
-    {
-        $query = parent::find();
-        $query->where(['type'=>static::$typeInFinder]);
-        return $query;
-    }
 }

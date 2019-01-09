@@ -23,4 +23,11 @@ class FirmOwners extends FirmPeoples
         return EstablishRelation::hasMany($this,FirmsAsRelation::instance(),['ownerUID'=>'uid']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public static function find(){
+        return parent::find()->where(['type'=>1]);
+    }
+
 }

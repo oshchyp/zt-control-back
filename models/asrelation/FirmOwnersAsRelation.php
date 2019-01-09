@@ -10,8 +10,9 @@ namespace app\models\asrelation;
 
 use app\components\models\ModelAsRelationInterface;
 use app\models\FirmOwners;
+use app\models\FirmPeoples;
 
-class FirmOwnersAsRelation extends  FirmOwners implements ModelAsRelationInterface
+class FirmOwnersAsRelation extends  FirmPeoples implements ModelAsRelationInterface
 {
     /**
      * @return array
@@ -20,4 +21,6 @@ class FirmOwnersAsRelation extends  FirmOwners implements ModelAsRelationInterfa
     {
         return [];
     }
+
+  //  public static fin
 }

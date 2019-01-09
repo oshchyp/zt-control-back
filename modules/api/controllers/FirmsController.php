@@ -6,6 +6,8 @@ use app\models\ActiveRecord;
 use app\models\Contacts;
 use app\models\Culture;
 use app\models\Elevators;
+use app\models\firms\FirmsByElevators;
+use app\models\firms\FirmsByElevatorsAsSave;
 use app\models\Points;
 use app\models\firmCultures\FirmCulturesTotal;
 use app\models\asextradata\FirmManagersAsExtraData;
@@ -21,11 +23,18 @@ use yii\filters\AccessControl;
 class FirmsController extends Controller
 {
 
-    public function init()
-    {
-        $this->setResource(new Firms());
-        parent::init();
+public function beforeAction($action)
+{
+    $res = parent::beforeAction($action);
+
+    if (in_array($action->id,['create','update'])){
+        $this->setResource(new FirmsByElevatorsAsSave());
+    } else {
+        $this->setResource(new FirmsByElevators());
     }
+
+    return $res;
+}
 
     public function behaviors()
     {
@@ -54,13 +63,16 @@ class FirmsController extends Controller
         return $behaviors;
     }
 
-    public function actionIndex()
+    public function actionIndex($elevatorBit=null)
     {
 
         $this->filter(new FirmsFilter());
         $totalInstance = new FirmCulturesTotal($this->getQuery());
         if ($this->getRequestData('selectedIds')){
              $totalInstance->getQuery()->andFilterWhere(['firms.id'=>$this->getRequestData('selectedIds')]);
+        }
+        if ($elevatorBit){
+            $this->getQuery()->andWhere($elevatorBit.' & firms.elevatorBit');
         }
         $this->getQuery()->addOrderBy(['firms.id' => SORT_DESC]);
         $this->responseExtraData = [
@@ -84,9 +96,9 @@ class FirmsController extends Controller
 
     }
 
-    public function actionList(){
+    public function actionList($elevatorBit=null){
       //  die('3edr');
-         $this->actionIndex();
+         $this->actionIndex($elevatorBit);
     }
 
     public function actionView($id)

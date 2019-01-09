@@ -3,6 +3,7 @@
 namespace app\models;
 
 use app\components\MyBehavior;
+use app\models\asextradata\ZlataElevatorsAsExtraData;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
@@ -20,8 +21,9 @@ use yii\web\IdentityInterface;
  * @property bool $admin [tinyint(3)]
  * @property int $type [int(11)]
  * @property int $elevatorBit [int(11)]
+ * @property string $uid [varchar(255)]
  */
-class Users extends \yii\db\ActiveRecord implements IdentityInterface
+class Users extends ActiveRecord implements IdentityInterface
 {
     private $_perm;
    // public $perm;
@@ -229,6 +231,10 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
             }
         }
         return $result;
+    }
+
+    public function getElevators(){
+        return ZlataElevatorsAsExtraData::find()->where($this->elevatorBit.' & bit')->all();
     }
 
 

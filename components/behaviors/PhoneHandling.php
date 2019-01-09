@@ -29,7 +29,7 @@ class PhoneHandling extends Behavior
     public function beforeValidate($event)
     {
         if ($this->owner->phone) {
-            $this->owner->phone = str_replace(['+', '(', ')', ' '], '', $this->owner->phone);
+            $this->owner->phone = str_replace(['+', '(', ')', ' ','_'], '', $this->owner->phone);
         }
     }
 

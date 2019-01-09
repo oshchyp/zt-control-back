@@ -24,6 +24,7 @@ use yii\helpers\ArrayHelper;
  * @property string $ownerUID
  * @property string $managerUID [varchar(250)]
  * @property int $statusID [int(11)]
+ * @property int $elevatorBit [int(11)]
  */
 class Firms extends ActiveRecord
 {

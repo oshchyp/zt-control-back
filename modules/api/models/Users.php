@@ -11,7 +11,7 @@ class Users extends \app\models\Users implements ModelAsResourceInterface
     public function fields()
     {
         return [
-            'id', 'firstName', 'lastName', 'phone', 'permissions', 'actions',
+            'id', 'firstName', 'lastName', 'phone', 'permissions', 'actions', 'elevators'
          ];
     }
 
