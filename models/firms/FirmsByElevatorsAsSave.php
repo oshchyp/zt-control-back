@@ -43,11 +43,13 @@ class FirmsByElevatorsAsSave extends FirmsAsSave implements ModelAsResourceInter
      */
     public function elevatorBitValidate(){
         $elevatorBitUser = \Yii::$app->user->identity ? \Yii::$app->user->identity->elevatorBit : 1;
+
         if ($elevatorBitUser & $this->elevatorBit){
             return true;
+        } else {
+            $this->addError('elevatorBit', 'it is forbidden to install this elevator to the firm');
+            return false;
         }
-        $this->addError('elevatorBit', 'it is forbidden to install this elevator to the firm');
-        return false;
     }
     /**
      * @return array
