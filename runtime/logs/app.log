@@ -61333,3 +61333,751 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1547035935.646
     'REQUEST_TIME' => 1547035935
 ]
+2019-01-10 11:22:01 [127.0.0.1][-][-][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so' - dlopen(/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so, 9): Symbol not found: _zend_objects_free_object_storage
+  Referenced from: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so
+  Expected in: flat namespace
+ in /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-01-10 11:22:00 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+]
+
+$_SERVER = [
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '56181'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547115719.498
+    'REQUEST_TIME' => 1547115719
+]
+2019-01-10 11:22:03 [127.0.0.1][-][-][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so' - dlopen(/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so, 9): Symbol not found: _zend_objects_free_object_storage
+  Referenced from: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so
+  Expected in: flat namespace
+ in /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-01-10 11:22:03 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+]
+
+$_SERVER = [
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '56182'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547115723.851
+    'REQUEST_TIME' => 1547115723
+]
+2019-01-10 11:22:47 [127.0.0.1][-][-][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so' - dlopen(/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so, 9): Symbol not found: _zend_objects_free_object_storage
+  Referenced from: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so
+  Expected in: flat namespace
+ in /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-01-10 11:22:47 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+]
+
+$_SERVER = [
+    'HTTP_AUTHORIZATION' => ''
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '56931'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547115767.005
+    'REQUEST_TIME' => 1547115767
+]
+2019-01-10 11:23:12 [127.0.0.1][33][-][error][yii\base\ErrorException:32] yii\base\ErrorException: PHP Startup: Unable to load dynamic library '/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so' - dlopen(/usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so, 9): Symbol not found: _zend_objects_free_object_storage
+  Referenced from: /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so
+  Expected in: flat namespace
+ in /usr/local/php5/lib/php/extensions/no-debug-non-zts-20131226/http.so in Unknown:0
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2019-01-10 11:23:12 [127.0.0.1][33][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => '201905bda3cde972bf43c2cc9e80be47de0ff4eb498a7f9dcb81da7bb85b77aba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"FyC1nRBsM8kgpD1afjsV2TfB84bMG97P\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer VdrJLgda4gV5K424ORpxK4oQwlCa1h7d_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '68'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=201905bda3cde972bf43c2cc9e80be47de0ff4eb498a7f9dcb81da7bb85b77aba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22FyC1nRBsM8kgpD1afjsV2TfB84bMG97P%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '57330'
+    'REDIRECT_URL' => '/api/firm-managers'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firm-managers'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547115792.022
+    'REQUEST_TIME' => 1547115792
+]
+2019-01-10 11:55:51 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/farms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-01-10 11:55:51 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => '814178c6b566c652cb53ddf6af5e397e49f84f65c7caf7ba7c17b904652c62f4a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"1m3EdkQB53KaBF4pC9yeg93IHflA82jw\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=814178c6b566c652cb53ddf6af5e397e49f84f65c7caf7ba7c17b904652c62f4a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%221m3EdkQB53KaBF4pC9yeg93IHflA82jw%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '55206'
+    'REDIRECT_URL' => '/api/farms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/farms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547117751.588
+    'REQUEST_TIME' => 1547117751
+]
+2019-01-10 11:55:53 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firm-owners...', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-01-10 11:55:53 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => 'e56afb3689c4039a8943d9c73bc31ac80bdfa8f44c1c3a5d1958fa4da6dbd1c7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"ix3oRXFyqIFVrsREzpn_LSbwWUhox4Dn\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=e56afb3689c4039a8943d9c73bc31ac80bdfa8f44c1c3a5d1958fa4da6dbd1c7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22ix3oRXFyqIFVrsREzpn_LSbwWUhox4Dn%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '55206'
+    'REDIRECT_URL' => '/api/firm-owners/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firm-owners/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547117753.718
+    'REQUEST_TIME' => 1547117753
+]
+2019-01-10 11:55:54 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/modules/api/controllers/FirmManagersController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): app\modules\api\controllers\FirmManagersController->beforeAction(Object(yii\base\InlineAction))
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firm-manage...', Array)
+#10 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#12 {main}
+2019-01-10 11:55:54 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => '74c3ae090b6a53e92c081ebc11abc59bf4ed302131ef0927083ac816f45dfa11a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"c6P8LGpRXH2-AzF_QcDDxVQ7fjBsyhLT\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=74c3ae090b6a53e92c081ebc11abc59bf4ed302131ef0927083ac816f45dfa11a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22c6P8LGpRXH2-AzF_QcDDxVQ7fjBsyhLT%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '55206'
+    'REDIRECT_URL' => '/api/firm-managers/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firm-managers/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547117754.709
+    'REQUEST_TIME' => 1547117754
+]
+2019-01-10 12:01:53 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/farms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-01-10 12:01:53 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => 'e09c75042b2158808b8ef1f149bb38e2a44049ba4fe78fc960ed1d6999b3635ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"rIyomLSeVRk8UR1tWR9SzFVVynkjWgtt\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=e09c75042b2158808b8ef1f149bb38e2a44049ba4fe78fc960ed1d6999b3635ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rIyomLSeVRk8UR1tWR9SzFVVynkjWgtt%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '61008'
+    'REDIRECT_URL' => '/api/farms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/farms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547118113.363
+    'REQUEST_TIME' => 1547118113
+]
+2019-01-10 12:01:54 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firm-owners...', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-01-10 12:01:54 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => '35e70ed63845dcc9ab1691c9ba39ae6ca76a007007f0f6ddd4b378eb87620021a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"AKQy1qoHpB3GhWh5s2rUvIr-t9nQvIXi\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=35e70ed63845dcc9ab1691c9ba39ae6ca76a007007f0f6ddd4b378eb87620021a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22AKQy1qoHpB3GhWh5s2rUvIr-t9nQvIXi%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '61008'
+    'REDIRECT_URL' => '/api/firm-owners/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firm-owners/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547118114.254
+    'REQUEST_TIME' => 1547118114
+]
+2019-01-10 12:01:55 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/modules/api/controllers/FirmManagersController.php(63): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): app\modules\api\controllers\FirmManagersController->beforeAction(Object(yii\base\InlineAction))
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firm-manage...', Array)
+#10 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#12 {main}
+2019-01-10 12:01:55 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => '84b26129ee547f483fa7b5de4816f05f850c46b0afe28d2942523350a7715f8da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"sg9f1OTZSv02ItRa4Z-QwiLETTS2zvU0\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=84b26129ee547f483fa7b5de4816f05f850c46b0afe28d2942523350a7715f8da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22sg9f1OTZSv02ItRa4Z-QwiLETTS2zvU0%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '61008'
+    'REDIRECT_URL' => '/api/firm-managers/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firm-managers/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547118115.098
+    'REQUEST_TIME' => 1547118115
+]
+2019-01-10 12:01:57 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/farms/list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#11 {main}
+2019-01-10 12:01:57 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => '8d49abe2aade3c8e834453e29b4bb13ed9e19018582fc17ca1f97b204d998f76a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"jCdD4CFzI_ZivZly0JPP_K9isMgra4_S\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=8d49abe2aade3c8e834453e29b4bb13ed9e19018582fc17ca1f97b204d998f76a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22jCdD4CFzI_ZivZly0JPP_K9isMgra4_S%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '61008'
+    'REDIRECT_URL' => '/api/farms/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/farms/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547118117.773
+    'REQUEST_TIME' => 1547118117
+]
+2019-01-10 12:31:06 [127.0.0.1][40][-][error][yii\web\HttpException:403] yii\web\ForbiddenHttpException: You are not allowed to perform this action. in /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php:158
+Stack trace:
+#0 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/filters/AccessControl.php(140): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/ActionFilter.php(77): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Component.php(627): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(274): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/programmer_5/Sites/zt-control/modules/api/controllers/FirmManagersController.php(65): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Controller.php(155): app\modules\api\controllers\FirmManagersController->beforeAction(Object(yii\base\InlineAction))
+#8 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('list', Array)
+#9 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('api/firm-manage...', Array)
+#10 /Users/programmer_5/Sites/zt-control/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 /Users/programmer_5/Sites/zt-control/web/index.php(19): yii\base\Application->run()
+#12 {main}
+2019-01-10 12:31:06 [127.0.0.1][40][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '__utmz' => '96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)'
+    '__utma' => '96992031.1409328067.1533543846.1533543846.1533550546.2'
+    '_csrf' => '782cf725b0f5ae98460d34a8c7d65081fe5d4284bfe38a2eba614877b705f233a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"_2Yq78z849Mpl72kDCdMb05o_5P4dtZZ\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_AUTHORIZATION' => 'Bearer lRSVj-rPB5Lk5oaJa2vQuJ43WTLUaLe5_token'
+    'HTTP_HOST' => '127.0.0.1'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '54'
+    'HTTP_ACCEPT' => 'application/json, text/plain, */*'
+    'HTTP_ORIGIN' => 'http://127.0.0.1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+    'CONTENT_TYPE' => 'application/json;charset=UTF-8'
+    'HTTP_REFERER' => 'http://127.0.0.1/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '__utmz=96992031.1533543846.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utma=96992031.1409328067.1533543846.1533543846.1533550546.2; _csrf=782cf725b0f5ae98460d34a8c7d65081fe5d4284bfe38a2eba614877b705f233a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_2Yq78z849Mpl72kDCdMb05o_5P4dtZZ%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.33 (Unix) PHP/7.1.13'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/programmer_5/Sites/zt-control/web'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/programmer_5/Sites/zt-control/web/index.php'
+    'REMOTE_PORT' => '55662'
+    'REDIRECT_URL' => '/api/firm-managers/list'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/api/firm-managers/list'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1547119865.94
+    'REQUEST_TIME' => 1547119865
+]

@@ -93,7 +93,6 @@ class Users extends ActiveRecord implements IdentityInterface
     }
 
     public function afterSave($insert, $changedAttributes){
-      //  dump($this->_perm,1);
         if ($this->_perm && is_array($this->_perm)){
             Yii::$app->authManager->db->createCommand()
                 ->delete(Yii::$app->authManager->assignmentTable, ['user_id' => $this->id])

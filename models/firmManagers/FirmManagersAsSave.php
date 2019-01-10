@@ -22,9 +22,6 @@ class FirmManagersAsSave extends \app\models\FirmManagers implements ModelAsReso
     use ZlataElevatorRelationsForModels;
     use ZlataElevatorSaveToModel;
 
-
-    private $_perm = ['firms-all'];
-
     /**
      * @return array
      */
@@ -36,6 +33,9 @@ class FirmManagersAsSave extends \app\models\FirmManagers implements ModelAsReso
             ],
             'phoneHandling' => [
                 'class' => PhoneHandling::className()
+            ],
+            'managerRole' => [
+                'class' => EstablishManagerRoleBehavior::className()
             ]
         ];
     }

@@ -9,6 +9,7 @@
 namespace app\modules\api\controllers;
 
 use app\components\filter\FilterDataInterface;
+use app\models\asextradata\ZlataElevatorsAsExtraData;
 use app\models\firmManagers\FirmManagers;
 use app\models\firmManagers\FirmManagersAsSave;
 use app\models\firmManagers\FirmManagersFilter;
@@ -55,6 +56,7 @@ class FirmManagersController extends FirmPeoplesController
         return $behaviors;
     }
 
+
     public function beforeAction($action)
     {
         if (in_array($action->id,['create','update'])){
@@ -69,5 +71,17 @@ class FirmManagersController extends FirmPeoplesController
     public function getFilterInstance(): FilterDataInterface
     {
         return FirmManagersFilter::instance();
+    }
+
+    public function actionIndex(){
+        $this->activeIndex();
+    }
+
+    public function actionList()
+    {
+        $this->addResponseExtraData(ZlataElevatorsAsExtraData::instance(),'elevators');
+        $this->filter(FirmManagersFilter::instance());
+        $this->setPagination();
+        $this->activeIndex();
     }
 }
