@@ -32,6 +32,9 @@ class EstablishManagerRoleBehavior extends Behavior
     public function afterInsert($event)
     {
         if ($this->roles) {
+            Yii::$app->authManager->db->createCommand()
+                ->delete(Yii::$app->authManager->assignmentTable, ['user_id' => $this->owner->id])
+                ->execute();
             foreach ($this->roles as $item) {
                 $roleObj = Yii::$app->authManager->createRole($item);
                 Yii::$app->authManager->assign($roleObj, $this->owner->id);
