@@ -56,10 +56,21 @@ class FirmManagers extends Users
     {
         return [
             [['phone'], 'required'],
-            [['phone'], 'unique'],
+            [['phone'], 'uniqueValidation'],
             [['phone'],'string','length' => 12],
             [['name', 'email'], 'string', 'max' => 255]
         ];
+    }
+
+    /**
+     * @return bool
+     */
+    public function uniqueValidation(){
+       if (parent::find()->where(['phone'=>$this->phone])->andWhere(['!=','id',$this->id])->one()){
+           $this->addError('phone','Phone "380992345593" has already been taken.');
+           return false;
+       }
+       return true;
     }
 
 

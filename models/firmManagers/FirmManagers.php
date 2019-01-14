@@ -16,11 +16,16 @@ class FirmManagers extends \app\models\FirmManagers implements ModelAsResourceIn
 {
 
     use FirmManagersRelations;
-    use ZlataElevatorRelationsForModels;
+
     /**
      * @return array
      */
     public function fields(){
-        return ['uid', 'name', 'phone', 'email','id','firms','elevators'];
+        return ['uid', 'name', 'phone', 'email','id','firms','elevators','elevatorsView'];
+    }
+
+    public static function relations()
+    {
+        return ['firms'];
     }
 }

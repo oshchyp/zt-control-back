@@ -9,6 +9,7 @@
 namespace app\models\farms;
 
 
+use app\components\bitAccess\BitAccessFilter;
 use app\components\models\EstablishRelation;
 use app\components\models\ModelAsResourceInterface;
 use app\models\asrelation\FarmCulturesAsRelation;
@@ -74,6 +75,16 @@ class Farms extends \app\models\Farms implements ModelAsResourceInterface, FarmI
      */
     public function getCultures(){
         return EstablishRelation::hasMany($this,FarmCulturesAsRelation::instance(),['farmUID'=>'uid']);
+    }
+
+    /**
+     * @return mixed
+     */
+    public static function find()
+    {
+        $query = parent::find()->leftJoin('firms AS firmsBitAccess','farms.firmUID = firmsBitAccess.uid');
+        BitAccessFilter::getInstance($query,'firmsBitAccess.elevatorBit',\Yii::$app->user->identity ? \Yii::$app->user->identity->elevatorViewBit : null)->filter();
+        return $query;
     }
 
 }

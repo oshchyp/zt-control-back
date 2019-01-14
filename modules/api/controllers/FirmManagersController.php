@@ -26,7 +26,9 @@ class FirmManagersController extends FirmPeoplesController
 
     public function behaviors()
     {
+
         $behaviors = parent::behaviors();
+
         $behaviors[] = [
             'class' => AccessControl::className(),
             'rules' => [

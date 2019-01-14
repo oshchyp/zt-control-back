@@ -9,48 +9,55 @@
 namespace app\models\firms;
 
 
+use app\components\bitAccess\BitAccessBehavior;
 use app\components\models\ModelAsResourceInterface;
 use app\models\ZlataElevators;
 
 class FirmsByElevatorsAsSave extends FirmsAsSave implements ModelAsResourceInterface
 {
 
-    use FirmsByElevatorsTrait;
-
-    public $elevatorID;
-
     public function rules()
     {
         return array_merge(parent::rules(),[
-            ['elevatorID', 'elevatorIDValidate'],
-            ['elevatorBit','elevatorBitValidate'],
-
-            ]);
+            ['elevatorBit', 'required'],
+            ['elevatorID','safe'],
+             ]);
     }
 
 
-    public function elevatorIDValidate(){
-        $elevatorObject = ZlataElevators::find()->where(['id'=>$this->elevatorID])->one();
-        if ($elevatorObject){
-            $this->setAttribute('elevatorBit',$elevatorObject->bit);
-        } else {
-            $this->addError('elevatorBit', 'elevator dose not exist!');
-        }
+    public function behaviors()
+    {
+        return [
+            [
+                'class'=> BitAccessBehavior::className(),
+                'userBit' => \Yii::$app->user->identity ? \Yii::$app->user->identity->elevatorBit : null,
+                'errorForbidden' => 'You are not allowed to edit this firm.',
+                'errorAllowed' => 'You are not allowed to choose this elevator for firms.'
+            ]
+        ];
     }
 
     /**
-     * @return bool
+     * @return mixed
      */
-    public function elevatorBitValidate(){
-        $elevatorBitUser = \Yii::$app->user->identity ? \Yii::$app->user->identity->elevatorBit : 1;
+    public function getResourceBitOld(){
+        return $this->getOldAttribute('elevatorBit');
+    }
 
-        if ($elevatorBitUser & $this->elevatorBit){
-            return true;
-        } else {
-            $this->addError('elevatorBit', 'it is forbidden to install this elevator to the firm');
-            return false;
+    /**
+     * @return mixed
+     */
+    public function getResourceBitNew(){
+        return $this->getAttribute('elevatorBit');
+    }
+
+    public function setElevatorID($elevatorID){
+        $elevatorObject = ZlataElevators::find()->where(['id'=>$elevatorID])->one();
+        if ($elevatorObject){
+            $this->setAttribute('elevatorBit',$elevatorObject->bit);
         }
     }
+
     /**
      * @return array
      */

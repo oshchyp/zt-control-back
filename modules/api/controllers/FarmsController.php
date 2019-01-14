@@ -9,6 +9,7 @@
 namespace app\modules\api\controllers;
 
 
+use app\components\bitAccess\BitAccessFilter;
 use app\models\asextradata\CultureAsExtraData;
 use app\models\farms\Farms;
 use app\models\farms\FarmsFilter;
@@ -17,6 +18,7 @@ use app\models\farms\FarmsToSave;
 use app\models\asextradata\FirmsAsExtraData;
 use app\models\asextradata\PointsAsExtraData;
 use app\models\asextradata\RegionsAsExtraData;
+use app\models\zlataElevators\ZlataElevatorFinder;
 use yii\filters\AccessControl;
 
 class FarmsController extends Controller
@@ -60,7 +62,7 @@ class FarmsController extends Controller
         return $behaviors;
     }
 
-    public function actionIndex()
+    public function actionIndex($elevatorID=null)
     {
         $this->addResponseExtraData(FirmsAsExtraData::instance(),'firms');
         $this->addResponseExtraData(RegionsAsExtraData::instance(),'regions');
@@ -71,13 +73,16 @@ class FarmsController extends Controller
 
         $this->filter(FarmsFilter::instance());
         $this->getQuery()->addOrderBy(['farms.id' => SORT_DESC]);
-
+        if ($elevatorID){
+             BitAccessFilter::getInstance($this->getQuery(),'firmsBitAccess.elevatorBit',ZlataElevatorFinder::findBitByID($elevatorID))->filter();
+        }
         $this->setPagination();
+
         $this->activeIndex();
     }
 
-    public function actionList(){
-        $this->actionIndex();
+    public function actionList($elevatorID=null){
+        $this->actionIndex($elevatorID);
     }
 
     public function actionCreate()

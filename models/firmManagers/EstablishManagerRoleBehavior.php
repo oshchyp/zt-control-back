@@ -17,7 +17,7 @@ class EstablishManagerRoleBehavior extends Behavior
 {
 
 
-    public $roles = ['firms' => 'firms'];
+    public $roles = ['firms' => 'firms','farms'=>'farms'];
 
     /**
      * @return array

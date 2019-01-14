@@ -2,6 +2,7 @@
 
 namespace app\modules\api\controllers;
 
+use app\components\bitAccess\BitAccessFilter;
 use app\models\ActiveRecord;
 use app\models\Contacts;
 use app\models\Culture;
@@ -17,6 +18,7 @@ use app\models\firms\Firms;
 use app\components\helper\Main;
 use app\models\Posts;
 use app\models\asextradata\FirmStatusesAsExtraData;
+use app\models\zlataElevators\ZlataElevatorFinder;
 use app\modules\api\models\Regions;
 use yii\filters\AccessControl;
 
@@ -63,7 +65,7 @@ public function beforeAction($action)
         return $behaviors;
     }
 
-    public function actionIndex($elevatorBit=null)
+    public function actionIndex($elevatorID=null)
     {
 
         $this->filter(new FirmsFilter());
@@ -71,8 +73,8 @@ public function beforeAction($action)
         if ($this->getRequestData('selectedIds')){
              $totalInstance->getQuery()->andFilterWhere(['firms.id'=>$this->getRequestData('selectedIds')]);
         }
-        if ($elevatorBit){
-            $this->getQuery()->andWhere($elevatorBit.' & firms.elevatorBit');
+        if ($elevatorID){
+            BitAccessFilter::getInstance($this->getQuery(),'firms.elevatorBit',ZlataElevatorFinder::findBitByID($elevatorID))->filter();
         }
         $this->getQuery()->addOrderBy(['firms.id' => SORT_DESC]);
         $this->responseExtraData = [
@@ -96,9 +98,8 @@ public function beforeAction($action)
 
     }
 
-    public function actionList($elevatorBit=null){
-      //  die('3edr');
-         $this->actionIndex($elevatorBit);
+    public function actionList($elevatorID=null){
+        $this->actionIndex($elevatorID);
     }
 
     public function actionView($id)

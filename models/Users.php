@@ -22,6 +22,7 @@ use yii\web\IdentityInterface;
  * @property int $type [int(11)]
  * @property int $elevatorBit [int(11)]
  * @property string $uid [varchar(255)]
+ * @property int $elevatorViewBit [int(11)]
  */
 class Users extends ActiveRecord implements IdentityInterface
 {
@@ -232,8 +233,18 @@ class Users extends ActiveRecord implements IdentityInterface
         return $result;
     }
 
+    /**
+     * @return ZlataElevatorsAsExtraData[]|Contacts[]|Culture[]|Elevators[]|Points[]|\app\modules\api\models\Regions[]|array|\yii\db\ActiveRecord[]
+     */
     public function getElevators(){
         return ZlataElevatorsAsExtraData::find()->where($this->elevatorBit.' & bit')->all();
+    }
+
+    /**
+     * @return ZlataElevatorsAsExtraData[]|Contacts[]|Culture[]|Elevators[]|Points[]|\app\modules\api\models\Regions[]|array|\yii\db\ActiveRecord[]
+     */
+    public function getElevatorsView(){
+        return ZlataElevatorsAsExtraData::find()->where($this->elevatorViewBit.' & bit')->andWhere(['!=','bit','1'])->all();
     }
 
 

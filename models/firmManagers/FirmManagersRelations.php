@@ -11,6 +11,7 @@ namespace app\models\firmManagers;
 
 use app\components\models\EstablishRelation;
 use app\models\asrelation\FirmsAsRelation;
+use app\models\zlataElevators\ZlataElevatorFinder;
 
 trait FirmManagersRelations
 {
@@ -24,10 +25,17 @@ trait FirmManagersRelations
     }
 
     /**
-     * @return array
+     * @return \app\models\ZlataElevators[]|array
      */
-    public static function relations()
-    {
-        return ['firms'];
+    public function getElevators(){
+        return ZlataElevatorFinder::findElevatorsByBit($this->elevatorBit);
     }
+
+    /**
+     * @return \app\models\ZlataElevators[]|array
+     */
+    public function getElevatorsView(){
+        return ZlataElevatorFinder::findElevatorsByBit($this->elevatorViewBit);
+    }
+
 }

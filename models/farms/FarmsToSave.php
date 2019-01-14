@@ -10,7 +10,9 @@ namespace app\models\farms;
 
 
 use app\components\behaviors\EstablishUID;
+use app\components\bitAccess\BitAccessBehavior;
 use app\components\models\ModelAsResourceInterface;
+use app\models\Firms;
 
 /**
  * Class FarmsToSave
@@ -25,10 +27,13 @@ class FarmsToSave extends \app\models\Farms implements FarmInterface, ModelAsRes
 
     public function rules()
     {
+        return [
+            [['square'], 'number'],
+            [['uid', 'name', 'regionUID', 'pointUID'], 'string', 'max' => 250],
+            [['uid'], 'unique'],
+            [['cultures'],'safe']
+        ];
 
-        $rules = parent::rules();
-        $rules[] = [['cultures'],'safe'];
-        return $rules;
     }
 
     public function behaviors()
@@ -37,9 +42,37 @@ class FarmsToSave extends \app\models\Farms implements FarmInterface, ModelAsRes
             'establishUID' => [
                 'class' => EstablishUID::className()
             ],
+            'BitAccess' => [
+                'class' => BitAccessBehavior::className(),
+                'errorForbidden' => 'Farms of this firm is forbidden to edit'
+            ]
         ];
     }
 
+    /**
+     * @return int
+     */
+    public function getResourceBitOld()
+    {
+        return $this->getFirmBit();
+    }
+
+    /**
+     * @return int
+     */
+    public function getResourceBitNew(){
+        return $this->getFirmBit();
+    }
+
+    /**
+     * @return int
+     */
+    public function getFirmBit(){
+        if ($firm = Firms::find()->where(['uid'=>$this->firmUID])->one()){
+            return $firm->elevatorBit;
+        }
+        return 0;
+    }
     /**
      * @return mixed
      */

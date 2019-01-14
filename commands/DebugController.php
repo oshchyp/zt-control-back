@@ -10,6 +10,8 @@ namespace app\commands;
 
 
 
+use app\models\firms\FirmsByElevatorsAsSave;
+
 class DebugController extends \yii\console\Controller
 {
 
@@ -17,8 +19,13 @@ class DebugController extends \yii\console\Controller
      *
      */
     public function actionIndex(){
-        $models = \app\models\Firms::find()->where('elevatorBit & 6')->all();
-        dump($models);
+//         $model = new FirmsByElevatorsAsSave();
+//         $model -> uid = 'erfergerg_'.time();
+//         $model->name = '45t';
+//         dump($model->save());
+      dump(4 & 1);
+
+
     }
 
 }

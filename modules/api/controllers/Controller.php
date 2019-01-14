@@ -90,13 +90,13 @@ class Controller extends MainController
     public function behaviors()
     {
         $behaviors = [
-            [
+            'ContentNegotiator'=>[
                 'class' => \yii\filters\ContentNegotiator::className(),
                 'formats' => [
                     'application/json' => Response::FORMAT_JSON,
                 ],
             ],
-            [
+            'HttpBearerAuth'=>[
                 'class' => HttpBearerAuth::className(),
                 'only' => isset($this->params['HttpBearerAuth']['only']) ? $this->params['HttpBearerAuth']['only'] : [],
             ],
@@ -164,6 +164,7 @@ class Controller extends MainController
             ],
             static::RESPONSE_PARAMS_DELETE => [
                 'ifDataEmpty' => ['code' => 404],
+                'ifErrors' => ['code' => 400, 'setData' => []],
             ],
             static::RESPONSE_PARAMS_VIEW_DATA_ONE => [
                 'ifDataEmpty' => ['code' => 404],

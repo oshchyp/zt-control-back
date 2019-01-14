@@ -73,9 +73,17 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/firms' => 'api/firms'],
                 ],
-                'POST api/firms/list/<elevatorBit:\d+>' => 'api/firms/list',
+                'POST api/firms/list/<elevatorID:\d+>' => 'api/firms/list',
                 'POST api/firms/list' => 'api/firms/list',
 
+                ///////farms
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['api/farms' => 'api/farms'],
+                ],
+
+                'POST api/farms/list/<elevatorID:\d+>' => 'api/farms/list',
+                'POST api/farms/list' => 'api/farms/list',
 
 
                 ///////REGIONS
@@ -86,7 +94,7 @@ $config = [
                 'GET api/regions/yield' => 'api/regions/yield',
                 'PUT api/regions/yield' => 'api/regions/yield-update',
 
-                ///////REGIONS
+                ///////ELEVATORS CRM
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/elevators-crm' => 'api/elevators-crm'],
@@ -103,14 +111,6 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['api/firm-managers' => 'api/firm-managers'],
                 ],
-
-                ///////farms
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => ['api/farms' => 'api/farms'],
-                ],
-
-
 
 
                 //////////railway transit

@@ -8,15 +8,20 @@
 
 namespace app\models\farms;
 
-
 use app\components\models\ModelAsResourceInterface;
 
-class FarmsToDelete extends \app\models\Farms implements ModelAsResourceInterface
+class FarmsToDelete extends FarmsToSave implements ModelAsResourceInterface
 {
 
-    /**
-     *
-     */
+
+
+    public function behaviors()
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['BitAccess']['errorForbidden'] = 'Farms of this firm is forbidden to delete';
+        return $behaviors;
+    }
+
     public function afterDelete()
     {
         parent::afterDelete();
@@ -30,4 +35,5 @@ class FarmsToDelete extends \app\models\Farms implements ModelAsResourceInterfac
     {
         return [];
     }
+
 }
