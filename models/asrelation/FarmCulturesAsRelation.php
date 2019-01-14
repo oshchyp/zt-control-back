@@ -18,6 +18,8 @@ use app\components\models\ModelAsRelationInterface;
  * @property mixed weightForecast
  * @property mixed yieldForecast
  * @property float yield
+ * @property float $yieldLastYear [float]
+ * @property float $yieldForecastInside [float]
  */
 class FarmCulturesAsRelation extends FarmCultures implements ModelAsRelationInterface
 {
@@ -69,8 +71,16 @@ class FarmCulturesAsRelation extends FarmCultures implements ModelAsRelationInte
      * @return float|int
      */
     public function getYieldForecast(){
-        $regionCulture = $this -> regionCulture;
-        return $regionCulture  ? $regionCulture->weight : 0;
+        if ($this->yieldForecastInside){
+            return $this->yieldForecastInside;
+        } elseif ($this -> regionCulture && $this -> regionCulture->weight){
+            return $this -> regionCulture->weight;
+        } elseif ($this->yieldLastYear){
+            return $this->yieldLastYear;
+        } else {
+            return 0;
+        }
+        return  0;
     }
 
     /**
