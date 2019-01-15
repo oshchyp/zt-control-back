@@ -31,7 +31,7 @@ class FarmCultures extends \yii\db\ActiveRecord
     {
         return [
             [['year'],'integer'],
-            [['square', 'weight'], 'number'],
+            [['square', 'weight', 'yieldLastYear', 'yieldForecastInside'], 'number'],
             [['farmUID', 'cultureUID'], 'string', 'max' => 250],
         ];
     }
