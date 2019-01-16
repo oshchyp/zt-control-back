@@ -10,6 +10,9 @@ namespace app\commands;
 
 
 
+use app\models\excelReader\excelDataConverter\ArrayConverter;
+use app\models\excelReader\excelDataSave\SaveToJsonFile;
+use app\models\excelReader\ExcelParser;
 use app\models\firms\FirmsByElevatorsAsSave;
 
 class DebugController extends \yii\console\Controller
@@ -19,13 +22,10 @@ class DebugController extends \yii\console\Controller
      *
      */
     public function actionIndex(){
-//         $model = new FirmsByElevatorsAsSave();
-//         $model -> uid = 'erfergerg_'.time();
-//         $model->name = '45t';
-//         dump($model->save());
-      dump(4 & 1);
-
-
-    }
+       $parser = new ExcelParser();
+       $parser->setFilePath('files/xls/hmelnik_firms.xlsx');
+       $parser -> read();
+       $parser->saveData(new SaveToJsonFile('files/json/hmelnik_firms.json'));
+     }
 
 }
