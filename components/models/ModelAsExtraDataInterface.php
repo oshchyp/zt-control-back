@@ -9,10 +9,16 @@
 namespace app\components\models;
 
 
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecordInterface;
+use yii\db\Query;
 
 interface ModelAsExtraDataInterface extends ActiveRecordInterface
 {
+
+
+
+
 
     /**
      * @return array

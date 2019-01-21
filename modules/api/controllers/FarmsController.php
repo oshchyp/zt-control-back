@@ -11,6 +11,7 @@ namespace app\modules\api\controllers;
 
 use app\components\bitAccess\BitAccessFilter;
 use app\models\asextradata\CultureAsExtraData;
+use app\models\farmCultures\FarmCulturesTotal;
 use app\models\farms\Farms;
 use app\models\farms\FarmsFilter;
 use app\models\farms\FarmsToDelete;
@@ -64,18 +65,29 @@ class FarmsController extends Controller
 
     public function actionIndex($elevatorID=null)
     {
+        $this->setResource(Farms::instance());
+
+        $this->filter(FarmsFilter::instance());
+
         $this->addResponseExtraData(FirmsAsExtraData::instance(),'firms');
         $this->addResponseExtraData(RegionsAsExtraData::instance(),'regions');
         $this->addResponseExtraData(PointsAsExtraData::instance(),'points');
         $this->addResponseExtraData(CultureAsExtraData::instance(),'cultures');
 
-        $this->setResource(Farms::instance());
-
-        $this->filter(FarmsFilter::instance());
-        $this->getQuery()->addOrderBy(['farms.id' => SORT_DESC]);
         if ($elevatorID){
              BitAccessFilter::getInstance($this->getQuery(),'firmsBitAccess.elevatorBit',ZlataElevatorFinder::findBitByID($elevatorID))->filter();
         }
+
+        $totalInstance = new FarmCulturesTotal($this->getQuery());
+        if ($this->getRequestData('selectedIds')){
+            $totalInstance->getQuery()->andFilterWhere(['farms.id'=>$this->getRequestData('selectedIds')]);
+        }
+        $this->responseExtraData = [
+            'weightTotal' => $totalInstance->weight(),
+            'squareTotal' => $totalInstance->square()
+
+        ];
+        $this->getQuery()->addOrderBy(['farms.id' => SORT_DESC]);
         $this->setPagination();
 
         $this->activeIndex();

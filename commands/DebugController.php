@@ -22,10 +22,19 @@ class DebugController extends \yii\console\Controller
      *
      */
     public function actionIndex(){
-       $parser = new ExcelParser();
-       $parser->setFilePath('files/xls/hmelnik_firms.xlsx');
-       $parser -> read();
-       $parser->saveData(new SaveToJsonFile('files/json/hmelnik_firms.json'));
+//       $parser = new ExcelParser();
+//       $parser->setFilePath('files/xls/hmelnik_firms.xlsx');
+//       $parser -> read();
+//       $parser->saveData(new SaveToJsonFile('files/json/hmelnik_firms.json'));
+
+
+        $data = file_get_contents('http://moyisp.ru/sitemap.xml');
+//die();
+        file_put_contents(\Yii::getAlias('/Users/programmer_5/Desktop/sitemap.xml'),$data);
+
      }
+
+
+
 
 }

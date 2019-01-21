@@ -66,8 +66,8 @@ class BitAccessBehavior extends Behavior
 
         $oldValueIsValid = $this->getResourceBitOld() & $this -> getUserBit();
         $newValueIsValid = $this->getResourceBitNew() & $this -> getUserBit();
-
-        if (!$oldValueIsValid){
+//dump($this->getResourceBitNew()); die();
+        if (!$oldValueIsValid && $this->getResourceBitOld()!==null){
             $event->isValid = $oldValueIsValid;
             $this->owner->addError('permission', $this->errorForbidden);
         } else if (!$newValueIsValid){
